@@ -1,0 +1,90 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DataListItem > renders interactive list item properly 1`] = `
+<div>
+  <button
+    class="mantine-UnstyledButton-root mantine-iqqhhk"
+    type="button"
+  >
+    <div
+      class="mantine-eosl2n"
+    >
+      <div
+        style="flex: 1;"
+      >
+        <div
+          class="mantine-Group-root mantine-k3ov3c"
+        >
+          <span
+            class="mantine-Text-root mantine-1d564l0"
+          >
+            John Doe (this element is interactive)
+          </span>
+          <div
+            class="mantine-Badge-root mantine-4y3x5h"
+          >
+            <span
+              class="mantine-1t45alw mantine-Badge-inner"
+            >
+              developer
+            </span>
+          </div>
+        </div>
+        <div
+          class="mantine-Group-root mantine-k3ov3c"
+        >
+          <svg
+            class="tabler-icon tabler-icon-mail"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+            />
+            <path
+              d="M3 7l9 6l9 -6"
+            />
+          </svg>
+          <div
+            class="mantine-Text-root mantine-1d564l0"
+          >
+            john.doe@rebar.candidate.io
+          </div>
+        </div>
+        <div
+          class="mantine-Group-root mantine-k3ov3c"
+        >
+          <svg
+            class="tabler-icon tabler-icon-phone"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+          </svg>
+          <div
+            class="mantine-Text-root mantine-1d564l0"
+          >
+            (555) 555 - 1234
+          </div>
+        </div>
+      </div>
+    </div>
+  </button>
+</div>
+`;
