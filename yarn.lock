@@ -1555,6 +1555,7 @@ __metadata:
     "@types/testing-library__jest-dom": ^6.0.0
     "@typescript-eslint/eslint-plugin": ^6.0.0
     "@typescript-eslint/parser": ^6.0.0
+    "@uswds/uswds": ^3.7.1
     "@vitejs/plugin-react": ^4.0.3
     "@vitest/coverage-c8": ^0.33.0
     "@vitest/ui": ^0.34.4
@@ -4858,6 +4859,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@uswds/uswds@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "@uswds/uswds@npm:3.7.1"
+  dependencies:
+    classlist-polyfill: 1.2.0
+    object-assign: 4.1.1
+    receptor: 1.0.0
+    resolve-id-refs: 0.1.0
+  checksum: 32fd6b507f87cfa5d652a9a9647077ed6b30e07d66100d6b7b94ebb737ffa4df549527ae3c96f83e34a6e03ae0f06649deae957592776c758dbe6ba6bb72d9a3
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react@npm:^3.0.1":
   version: 3.1.0
   resolution: "@vitejs/plugin-react@npm:3.1.0"
@@ -5841,6 +5854,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classlist-polyfill@npm:1.2.0":
+  version: 1.2.0
+  resolution: "classlist-polyfill@npm:1.2.0"
+  checksum: 43ff10af5e75d0347f820d77536a12f981adbf5be9c0ff5c3c4823693c8daacf8aa487eac1a9704b73f4dd74d811e5145b4465fe606926351cdfca5bb9b0914e
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -6461,6 +6481,13 @@ __metadata:
   version: 1.4.513
   resolution: "electron-to-chromium@npm:1.4.513"
   checksum: 613b66da177dcf5abca2441c502cde4b4fb247665dc049c54d1fe3b79fc3a5a3ecae92faf97d3147af0fec9c50bf90db09e8ca3f0953a5ec2fdb472d6d6253c2
+  languageName: node
+  linkType: hard
+
+"element-closest@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "element-closest@npm:2.0.2"
+  checksum: c32d3efd196e024f155055f009d97d83ad90ab7a31e637aa25ef26b1a8d678e0a6d13199ef05b829a1ec873d140539efc6fd87217c26b6a894c8666d401136a1
   languageName: node
   linkType: hard
 
@@ -8605,6 +8632,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"keyboardevent-key-polyfill@npm:^1.0.2":
+  version: 1.1.0
+  resolution: "keyboardevent-key-polyfill@npm:1.1.0"
+  checksum: 43e1226b9765ff6ec24227f2bd6b7123dc5adb20e00bf486966b89a58a374e100c457f1822eeb7714513795fdba1ae10b79004fcfc47aaebfb7e865b437e35f6
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.3":
   version: 4.5.3
   resolution: "keyv@npm:4.5.3"
@@ -8909,6 +8943,13 @@ __metadata:
   peerDependencies:
     react: ">= 0.14.0"
   checksum: 8885c6343b71570b0a7ec16cd85a49b853a830234790ee7430e2517ea5d8d361ff138bd52147f650790f3e7b3a28a15c755fc16f8856dd01ddf09a6161782e06
+  languageName: node
+  linkType: hard
+
+"matches-selector@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "matches-selector@npm:1.2.0"
+  checksum: 572b5fd3be057e0b026cf0909ff5e88fa7507bca86af04c71782ae63ac372960371a6ca628177f11a21057702b2f54e6fd6d5707b57842d7efe5b11c281e5f58
   languageName: node
   linkType: hard
 
@@ -9382,7 +9423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4.1.1":
+"object-assign@npm:4.1.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -10307,6 +10348,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"receptor@npm:1.0.0":
+  version: 1.0.0
+  resolution: "receptor@npm:1.0.0"
+  dependencies:
+    element-closest: ^2.0.1
+    keyboardevent-key-polyfill: ^1.0.2
+    matches-selector: ^1.0.0
+    object-assign: ^4.1.0
+  checksum: 1ceb3c28cabddbbadc2d02c97b1997f3f7023d5a5a43ae378a9fb9ab1698cd749cf01adb808fb2a92b18168a8d52bb54453d7815819955c5512f19718d1dddef
+  languageName: node
+  linkType: hard
+
 "redent@npm:^3.0.0":
   version: 3.0.0
   resolution: "redent@npm:3.0.0"
@@ -10434,6 +10487,13 @@ __metadata:
   version: 5.0.0
   resolution: "resolve-from@npm:5.0.0"
   checksum: 4ceeb9113e1b1372d0cd969f3468fa042daa1dd9527b1b6bb88acb6ab55d8b9cd65dbf18819f9f9ddf0db804990901dcdaade80a215e7b2c23daae38e64f5bdf
+  languageName: node
+  linkType: hard
+
+"resolve-id-refs@npm:0.1.0":
+  version: 0.1.0
+  resolution: "resolve-id-refs@npm:0.1.0"
+  checksum: 0cbfbddda06ea69c6c1da542bddd4fa23a795bbd3b601b0dc53da33c4d2a8283f2b2a4459d6a01b6af159f1cc8d50efe37494bb8087fac0e5b1b40811bbafb7f
   languageName: node
   linkType: hard
 
