@@ -45,7 +45,7 @@ export const LoginWidget: React.FC<LoginWidgetProps> = ({
   return (
     <>
       <Center
-        sx={(theme) => ({
+        style={(theme) => ({
           marginBottom: theme.spacing.md,
         })}
       >
@@ -120,7 +120,7 @@ export const LoginWidget: React.FC<LoginWidgetProps> = ({
               <>
                 <Loader
                   size="sm"
-                  sx={(theme) => ({
+                  style={(theme) => ({
                     marginRight: theme.spacing.sm,
                   })}
                 />{" "}

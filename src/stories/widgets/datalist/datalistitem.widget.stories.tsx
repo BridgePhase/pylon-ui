@@ -62,7 +62,7 @@ export const ListItemWithAvatarAndSideContext: Story = () => {
     <DataListItem
       image={<Avatar size={"xl"} />}
       side={
-        <Group spacing={"xs"}>
+        <Group gap={"xs"}>
           <IconStar />
           <IconStar />
           <IconStar />

@@ -1,0 +1,38 @@
+.pylonSideNavItem {
+    border-bottom: 1px solid var(--mantine-color-gray-2);
+    background: transparent;
+
+    &[data-active] {
+        position: relative;
+        color: #005ea2 !important;
+        font-weight: 700;
+        &::after {
+            background-color: #005ea2;
+            border-radius: 99rem;
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0.25rem;
+            top: 0.25rem;
+            width: 0.25rem;
+            left: 0rem;
+        }
+    }
+
+    .pylonSideNavItemSection {
+        display: none;
+    }
+    
+    .pylonSideNavItemSubList {
+        background: #00aa0022;
+
+        > .pylonSideNavItem {
+            padding-left: 28px;
+        }
+        .pylonSideNavItemSubList .pylonSideNavItemSubList > .pylonSideNavItem {
+            padding-left: 56px;
+        }
+
+    }
+
+}
