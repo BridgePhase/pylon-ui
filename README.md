@@ -15,8 +15,8 @@ Components used in Waves application:
 | ----------------- | ------------------ | ------------------------------------------------------------------- |
 | Accordion         | Accordion          | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Address           | –                  | ![](https://img.shields.io/badge/need%20alternative-8A2BE2)         |
-| Alert             | Alert              | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
-| Breadcrumb        | Breadcrumbs\*      | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Alert             | Alert              | ![](https://img.shields.io/badge/done-83e22b)                       |
+| Breadcrumb        | Breadcrumbs\*      | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
 | BreadcrumbItem    | Breadcrumbs\*      | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Button            | Button             | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
 | ButtonGroup       | –                  | ![](https://img.shields.io/badge/unnecessary%3f-2b83e2)             |

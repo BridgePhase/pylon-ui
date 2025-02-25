@@ -1,8 +1,11 @@
-import { MantineThemeOverride } from "@mantine/core";
-import "@uswds/uswds/css/uswds.css";
+import { Alert, MantineThemeOverride, Text } from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
 import { UswdsColorTokens } from "./uswds-colors-tokens";
-import classes from "./components/NavLink.module.css";
+import navLinkClasses from "./components/NavLink.module.css";
+import textClasses from "./components/Text.module.css";
+import { UswdsAlertVariants } from "./uswds-constants";
+
+import "./uswds-theme.scss";
 
 export const UswdsTheme: MantineThemeOverride = {
   autoContrast: true,
@@ -26,41 +29,67 @@ export const UswdsTheme: MantineThemeOverride = {
         chevron: null,
       },
       classNames: {
+        root: "usa-accordion",
         item: "usa-accordion__heading",
         control: "usa-accordion__button",
+        content: "usa-accordion__content",
+        label: "usa-accordion__label",
       },
       styles: () => ({
+        root: {},
         label: {
           fontSize: "1.06rem",
           fontWeight: "unset",
         },
       }),
     },
-    Alert: {
-      classNames: {
-        root: "usa-alert",
+    Alert: Alert.extend({
+      classNames: (_theme, props) => ({
+        root: `usa-alert usa-alert--${[props.color?.toLowerCase()]}  usa-alert--${props.variant}`,
         body: "usa-alert__body",
         title: "usa-alert__heading",
-        message: "usa-alert__text",
+        label: "usa-alert__text",
+      }),
+      defaultProps: {
+        radius: "0",
+        variant: UswdsAlertVariants.Default,
       },
-    },
+      styles: () => ({
+        root: {
+          padding: 0,
+          borderTop: 0,
+          borderRight: 0,
+          borderBottom: 0,
+        },
+        title: {
+          marginBottom: "-2px",
+          overflow: "visible",
+        },
+        label: {
+          overflow: "visible",
+          display: "inline",
+        },
+        message: {
+          fontSize: "1.06rem",
+          fontWeight: "unset",
+        },
+      }),
+    }),
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",
       },
     },
     Button: {},
-    Text: {
-      defaultProps: {
-        lh: 1.5,
-      },
-    },
+    Text: Text.extend({
+      classNames: textClasses,
+    }),
     NavLink: {
       classNames: {
-        root: `${classes.pylonSideNavItem} usa-sidenav__item`,
+        root: `${navLinkClasses.pylonSideNavItem} usa-sidenav__item`,
         // root: `usa-sidenav__item ${}`,
-        children: `${classes.pylonSideNavItemSubList} usa-sidenav__sublist`,
-        section: classes.pylonSideNavItemSection,
+        children: `${navLinkClasses.pylonSideNavItemSubList} usa-sidenav__sublist`,
+        section: navLinkClasses.pylonSideNavItemSection,
       },
       defaultProps: {
         childrenOffset: 0,

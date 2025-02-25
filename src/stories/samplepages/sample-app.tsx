@@ -10,18 +10,47 @@ import {
   Title,
   Table,
   ColorSwatch,
-  Alert,
   Stack,
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
+  Tabs,
 } from "@mantine/core";
+import {
+  SampleAccordionMantine,
+  SampleAccordionUswds,
+} from "./components/sample-accordion";
+import { ReactNode } from "react";
+import { IconAperture, IconPokeball } from "@tabler/icons-react";
+import {
+  SampleAlertMantine,
+  SampleAlertUswds,
+} from "./components/sample-alert";
+
+interface SampleComponent {
+  name: string;
+  uswdsComponent: ReactNode;
+  mantineComponent: ReactNode;
+}
 
 type SampleAppProps = {
   theme: MantineThemeOverride;
   buttonColors?: MantineThemeColorsOverride;
   alertColors?: MantineThemeColorsOverride;
 };
+
+const SAMPLE_COMPONENTS: SampleComponent[] = [
+  {
+    name: "Accordion",
+    uswdsComponent: <SampleAccordionUswds />,
+    mantineComponent: <SampleAccordionMantine />,
+  },
+  {
+    name: "Alert",
+    uswdsComponent: <SampleAlertUswds />,
+    mantineComponent: <SampleAlertMantine />,
+  },
+];
 
 export const SampleApp: React.FC<SampleAppProps> = ({
   theme,
@@ -36,14 +65,6 @@ export const SampleApp: React.FC<SampleAppProps> = ({
           breakpoint: 300,
         }}
         padding="md"
-        // style={{
-        //   .main {
-        //     background-color: light-dark(
-        //       var(--mantine-color-gray-0),
-        //       var(--mantine-color-dark-8)
-        //     );
-        //   },
-        // }}
       >
         <AppShell.Header h={60} p="xs" className="usa-header usa-header--basic">
           <Flex>
@@ -74,7 +95,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
         </AppShell.Navbar>
 
         <AppShell.Main>
-          <Stack>
+          <Stack pt={72}>
             <Title order={1}>Sample Application</Title>
             <Title order={2}>Typography</Title>
             <Text>
@@ -87,14 +108,6 @@ export const SampleApp: React.FC<SampleAppProps> = ({
               leo nulla. Donec ut mattis justo. Vestibulum ante ipsum primis in
               faucibus orci luctus et ultrices posuere cubilia curae; Duis orci
               dui, vulputate eget libero ut, pulvinar tristique libero.
-              Pellentesque semper pharetra urna, id iaculis nunc finibus a.
-              Pellentesque sed leo ac nisi cursus condimentum non eget urna.
-              Orci varius natoque penatibus et magnis dis parturient montes,
-              nascetur ridiculus mus. Vivamus sed leo nisi. Maecenas accumsan
-              leo lectus, in dictum enim accumsan vitae. Suspendisse dignissim
-              lorem sit amet nunc ullamcorper, nec ultricies sapien fringilla.
-              Duis in nulla nibh. Curabitur eget tortor tincidunt, rhoncus
-              mauris vel, tempus tortor.
             </Text>
             <Accordion>
               <Accordion.Item value="colors">
@@ -148,18 +161,53 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                   </Table>
                 </Accordion.Panel>
               </Accordion.Item>
-              <Accordion.Item value="alerts">
-                <Accordion.Control>Alerts</Accordion.Control>
-                <Accordion.Panel>
-                  <Title order={2}>Alerts</Title>
-                  {alertColors &&
-                    Object.keys(alertColors).map((color) => (
-                      <Alert title={color} color={color}>
-                        Here's a {color} alert
-                      </Alert>
-                    ))}
-                </Accordion.Panel>
-              </Accordion.Item>
+
+              {SAMPLE_COMPONENTS.map((component) => (
+                <Accordion.Item value={component.name}>
+                  <Accordion.Control>{component.name}</Accordion.Control>
+                  <Accordion.Panel>
+                    <Tabs defaultValue="mantine" variant="outline">
+                      <Tabs.List>
+                        <Tabs.Tab
+                          value="uswds"
+                          leftSection={<IconAperture color="#C08081" />}
+                        >
+                          USWDS
+                        </Tabs.Tab>
+                        <Tabs.Tab
+                          value="mantine"
+                          leftSection={<IconPokeball color="#80BFBE" />}
+                        >
+                          Mantine
+                        </Tabs.Tab>
+                      </Tabs.List>
+                      <Tabs.Panel
+                        value="uswds"
+                        p="md"
+                        style={{
+                          border:
+                            "1px solid var(--mantine-color-default-border)",
+                          borderTop: "0",
+                        }}
+                      >
+                        {component.uswdsComponent}
+                      </Tabs.Panel>
+                      <Tabs.Panel
+                        value="mantine"
+                        p="md"
+                        style={{
+                          border:
+                            "1px solid var(--mantine-color-default-border)",
+                          borderTop: "0",
+                        }}
+                      >
+                        {component.mantineComponent}
+                      </Tabs.Panel>
+                    </Tabs>
+                  </Accordion.Panel>
+                </Accordion.Item>
+              ))}
+
               <Accordion.Item value="buttons">
                 <Accordion.Control>Buttons</Accordion.Control>
                 <Accordion.Panel>
