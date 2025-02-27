@@ -1,9 +1,9 @@
-import { Alert, MantineThemeOverride, Text } from "@mantine/core";
+import { Alert, Breadcrumbs, MantineThemeOverride, Text } from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
 import { UswdsColorTokens } from "./uswds-colors-tokens";
+import breadrumbsClasses from "./components/Breadcrumbs.module.css";
 import navLinkClasses from "./components/NavLink.module.css";
 import textClasses from "./components/Text.module.css";
-import { UswdsAlertVariants } from "./uswds-constants";
 
 import "./uswds-theme.scss";
 
@@ -36,7 +36,9 @@ export const UswdsTheme: MantineThemeOverride = {
         label: "usa-accordion__label",
       },
       styles: () => ({
-        root: {},
+        item: {
+          border: 0,
+        },
         label: {
           fontSize: "1.06rem",
           fontWeight: "unset",
@@ -50,10 +52,6 @@ export const UswdsTheme: MantineThemeOverride = {
         title: "usa-alert__heading",
         label: "usa-alert__text",
       }),
-      defaultProps: {
-        radius: "0",
-        variant: UswdsAlertVariants.Default,
-      },
       styles: () => ({
         root: {
           padding: 0,
@@ -75,6 +73,12 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     }),
+    Anchor: {
+      defaultProps: {
+        variant: "default",
+        underline: "hover",
+      },
+    },
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",
@@ -83,6 +87,21 @@ export const UswdsTheme: MantineThemeOverride = {
     Button: {},
     Text: Text.extend({
       classNames: textClasses,
+    }),
+    Breadcrumbs: Breadcrumbs.extend({
+      classNames: (_theme, props) => ({
+        root: `${breadrumbsClasses.pylonBreadcrumbs} usa-breadcrumb usa-breadcrumb--${props.variant ?? "default"}`,
+        breadcrumb: `usa-breadcrumb__list-item ${breadrumbsClasses.pylonBreadcrumbItem} breadcrumb-${props.variant}`,
+      }),
+      defaultProps: {
+        separator: "",
+        variant: "default",
+      },
+      styles: () => ({
+        separator: {
+          display: "none",
+        },
+      }),
     }),
     NavLink: {
       classNames: {

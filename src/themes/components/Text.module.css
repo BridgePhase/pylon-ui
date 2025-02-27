@@ -4,5 +4,7 @@
 
     &[data-variant='prose'] {
         font-size: 1.06rem;
+        max-width: 68ex;
+        line-height: 1.5;
     }
 }

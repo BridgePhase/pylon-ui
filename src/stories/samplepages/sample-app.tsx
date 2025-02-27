@@ -14,20 +14,23 @@ import {
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
-  Tabs,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
   SampleAccordionUswds,
 } from "./components/sample-accordion";
 import { ReactNode } from "react";
-import { IconAperture, IconPokeball } from "@tabler/icons-react";
 import {
   SampleAlertMantine,
   SampleAlertUswds,
 } from "./components/sample-alert";
+import {
+  SampleBreadcrumbsMantine,
+  SampleBreadcrumbsUswds,
+} from "./components/sample-breadcrumbs";
+import { ComponentComparison } from "./component-comparison";
 
-interface SampleComponent {
+export interface SampleComponent {
   name: string;
   uswdsComponent: ReactNode;
   mantineComponent: ReactNode;
@@ -50,12 +53,16 @@ const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleAlertUswds />,
     mantineComponent: <SampleAlertMantine />,
   },
+  {
+    name: "Breadcrumbs",
+    uswdsComponent: <SampleBreadcrumbsUswds />,
+    mantineComponent: <SampleBreadcrumbsMantine />,
+  },
 ];
 
 export const SampleApp: React.FC<SampleAppProps> = ({
   theme,
   buttonColors = theme.colors,
-  alertColors = theme.colors,
 }) => {
   return (
     <MantineProvider theme={theme}>
@@ -122,7 +129,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                       </tr>
                       <tr>
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((shade) => (
-                          <th>
+                          <th key={shade}>
                             <Text ta="center">{shade}</Text>
                           </th>
                         ))}
@@ -132,7 +139,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                       {theme &&
                         theme.colors &&
                         Object.keys(theme.colors).map((color) => (
-                          <tr>
+                          <tr key={color}>
                             <th>{color}</th>
                             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((shade) => {
                               if (!theme || !theme.colors) {
@@ -147,7 +154,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
 
                               const colorHex = themeColor[shade];
                               return (
-                                <td>
+                                <td key={shade}>
                                   <ColorSwatch
                                     mx="auto"
                                     color={colorHex ?? "transparent"}
@@ -163,47 +170,10 @@ export const SampleApp: React.FC<SampleAppProps> = ({
               </Accordion.Item>
 
               {SAMPLE_COMPONENTS.map((component) => (
-                <Accordion.Item value={component.name}>
+                <Accordion.Item value={component.name} key={component.name}>
                   <Accordion.Control>{component.name}</Accordion.Control>
                   <Accordion.Panel>
-                    <Tabs defaultValue="mantine" variant="outline">
-                      <Tabs.List>
-                        <Tabs.Tab
-                          value="uswds"
-                          leftSection={<IconAperture color="#C08081" />}
-                        >
-                          USWDS
-                        </Tabs.Tab>
-                        <Tabs.Tab
-                          value="mantine"
-                          leftSection={<IconPokeball color="#80BFBE" />}
-                        >
-                          Mantine
-                        </Tabs.Tab>
-                      </Tabs.List>
-                      <Tabs.Panel
-                        value="uswds"
-                        p="md"
-                        style={{
-                          border:
-                            "1px solid var(--mantine-color-default-border)",
-                          borderTop: "0",
-                        }}
-                      >
-                        {component.uswdsComponent}
-                      </Tabs.Panel>
-                      <Tabs.Panel
-                        value="mantine"
-                        p="md"
-                        style={{
-                          border:
-                            "1px solid var(--mantine-color-default-border)",
-                          borderTop: "0",
-                        }}
-                      >
-                        {component.mantineComponent}
-                      </Tabs.Panel>
-                    </Tabs>
+                    <ComponentComparison component={component} />
                   </Accordion.Panel>
                 </Accordion.Item>
               ))}
@@ -214,7 +184,9 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                   <Title order={2}>Alerts</Title>
                   {buttonColors &&
                     Object.keys(buttonColors).map((color) => (
-                      <Button color={color}>Here's a {color} button</Button>
+                      <Button key={color} color={color}>
+                        Here's a {color} button
+                      </Button>
                     ))}
                 </Accordion.Panel>
               </Accordion.Item>

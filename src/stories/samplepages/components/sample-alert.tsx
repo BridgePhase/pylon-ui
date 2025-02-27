@@ -43,7 +43,10 @@ export const SampleAlertUswds: React.FC = () => {
       <h3>Standard alerts</h3>
 
       {Object.keys(UswdsContexts).map((color) => (
-        <div className={`usa-alert usa-alert--${color.toLowerCase()}`}>
+        <div
+          key={color}
+          className={`usa-alert usa-alert--${color.toLowerCase()}`}
+        >
           <div className="usa-alert__body">
             <h4 className="usa-alert__heading">{color} status</h4>
             <p className="usa-alert__text">{ALERT_TEXT}</p>
