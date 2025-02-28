@@ -1,4 +1,11 @@
-import { Alert, Breadcrumbs, MantineThemeOverride, Text } from "@mantine/core";
+import cx from "clsx";
+import {
+  Alert,
+  Breadcrumbs,
+  Button,
+  MantineThemeOverride,
+  Text,
+} from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
 import { UswdsColorTokens } from "./uswds-colors-tokens";
 import breadrumbsClasses from "./components/Breadcrumbs.module.css";
@@ -84,7 +91,27 @@ export const UswdsTheme: MantineThemeOverride = {
         navbar: "usa-sidenav",
       },
     },
-    Button: {},
+    Button: Button.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-button"]: true,
+          ["usa-button--unstyled"]: props.unstyled,
+          ["usa-button--big"]: props.size === "xl",
+          [`usa-button--${props.variant}`]: props.variant !== "outline-inverse",
+          [`usa-button--outline usa-button--inverse`]:
+            props.variant === "outline-inverse",
+        }),
+      }),
+      styles: {
+        root: {
+          height: "105%",
+        },
+        inner: {},
+        label: {
+          overflow: "visible",
+        },
+      },
+    }),
     Text: Text.extend({
       classNames: textClasses,
     }),

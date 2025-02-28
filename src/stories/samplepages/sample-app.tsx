@@ -29,6 +29,10 @@ import {
   SampleBreadcrumbsUswds,
 } from "./components/sample-breadcrumbs";
 import { ComponentComparison } from "./component-comparison";
+import {
+  SampleButtonMantine,
+  SampleButtonUswds,
+} from "./components/sample-button";
 
 export interface SampleComponent {
   name: string;
@@ -58,11 +62,16 @@ const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleBreadcrumbsUswds />,
     mantineComponent: <SampleBreadcrumbsMantine />,
   },
+  {
+    name: "Button",
+    uswdsComponent: <SampleButtonUswds />,
+    mantineComponent: <SampleButtonMantine />,
+  },
 ];
 
 export const SampleApp: React.FC<SampleAppProps> = ({
   theme,
-  buttonColors = theme.colors,
+  // buttonColors = theme.colors,
 }) => {
   return (
     <MantineProvider theme={theme}>
@@ -177,19 +186,6 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                   </Accordion.Panel>
                 </Accordion.Item>
               ))}
-
-              <Accordion.Item value="buttons">
-                <Accordion.Control>Buttons</Accordion.Control>
-                <Accordion.Panel>
-                  <Title order={2}>Alerts</Title>
-                  {buttonColors &&
-                    Object.keys(buttonColors).map((color) => (
-                      <Button key={color} color={color}>
-                        Here's a {color} button
-                      </Button>
-                    ))}
-                </Accordion.Panel>
-              </Accordion.Item>
             </Accordion>
           </Stack>
         </AppShell.Main>
