@@ -33,6 +33,7 @@ import {
   SampleButtonMantine,
   SampleButtonUswds,
 } from "./components/sample-button";
+import { SampleCardMantine, SampleCardUswds } from "./components/sample-card";
 
 export interface SampleComponent {
   name: string;
@@ -66,6 +67,11 @@ const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Button",
     uswdsComponent: <SampleButtonUswds />,
     mantineComponent: <SampleButtonMantine />,
+  },
+  {
+    name: "Card",
+    uswdsComponent: <SampleCardUswds />,
+    mantineComponent: <SampleCardMantine />,
   },
 ];
 

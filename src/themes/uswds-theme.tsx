@@ -3,6 +3,7 @@ import {
   Alert,
   Breadcrumbs,
   Button,
+  Card,
   MantineThemeOverride,
   Text,
 } from "@mantine/core";
@@ -11,6 +12,7 @@ import { UswdsColorTokens } from "./uswds-colors-tokens";
 import breadrumbsClasses from "./components/Breadcrumbs.module.css";
 import navLinkClasses from "./components/NavLink.module.css";
 import textClasses from "./components/Text.module.css";
+import cardClasses from "./components/Card.module.css";
 
 import "./uswds-theme.scss";
 
@@ -54,7 +56,9 @@ export const UswdsTheme: MantineThemeOverride = {
     },
     Alert: Alert.extend({
       classNames: (_theme, props) => ({
-        root: `usa-alert usa-alert--${[props.color?.toLowerCase()]}  usa-alert--${props.variant}`,
+        root: `usa-alert usa-alert--${[
+          props.color?.toLowerCase(),
+        ]}  usa-alert--${props.variant}`,
         body: "usa-alert__body",
         title: "usa-alert__heading",
         label: "usa-alert__text",
@@ -104,7 +108,7 @@ export const UswdsTheme: MantineThemeOverride = {
       }),
       styles: {
         root: {
-          height: "105%",
+          height: "39.2px",
         },
         inner: {},
         label: {
@@ -112,12 +116,23 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
     }),
+    Card: Card.extend({
+      classNames: () => ({
+        root: "usa-card__container",
+        section: `usa-card__body ${cardClasses.pylonCardBody}`,
+      }),
+      defaultProps: {
+        w: "100%",
+      },
+    }),
     Text: Text.extend({
       classNames: textClasses,
     }),
     Breadcrumbs: Breadcrumbs.extend({
       classNames: (_theme, props) => ({
-        root: `${breadrumbsClasses.pylonBreadcrumbs} usa-breadcrumb usa-breadcrumb--${props.variant ?? "default"}`,
+        root: `${
+          breadrumbsClasses.pylonBreadcrumbs
+        } usa-breadcrumb usa-breadcrumb--${props.variant ?? "default"}`,
         breadcrumb: `usa-breadcrumb__list-item ${breadrumbsClasses.pylonBreadcrumbItem} breadcrumb-${props.variant}`,
       }),
       defaultProps: {
@@ -133,7 +148,6 @@ export const UswdsTheme: MantineThemeOverride = {
     NavLink: {
       classNames: {
         root: `${navLinkClasses.pylonSideNavItem} usa-sidenav__item`,
-        // root: `usa-sidenav__item ${}`,
         children: `${navLinkClasses.pylonSideNavItemSubList} usa-sidenav__sublist`,
         section: navLinkClasses.pylonSideNavItemSection,
       },
@@ -141,18 +155,6 @@ export const UswdsTheme: MantineThemeOverride = {
         childrenOffset: 0,
         defaultOpened: true,
       },
-      // styles: (theme: MantineThemeOverride) => ({
-      // children: {
-      //   background: "#00aa0022",
-      //   "> .mantine-NavLink-root": {
-      //     paddingLeft: "28px",
-      //   },
-      //   ".mantine-NavLink-children .mantine-NavLink-children > .mantine-NavLink-root":
-      //     {
-      //       paddingLeft: "56px",
-      //     },
-      // },
-      // }),
     },
   },
 };
