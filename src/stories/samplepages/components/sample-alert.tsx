@@ -1,4 +1,4 @@
-import { Alert } from "@mantine/core";
+import { Alert, Box } from "@mantine/core";
 import {
   UswdsAlertVariants,
   UswdsContexts,
@@ -14,7 +14,7 @@ const ALERT_TEXT = (
 
 export const SampleAlertMantine: React.FC = () => {
   return (
-    <>
+    <Box>
       <h3>Standard alerts</h3>
       {Object.keys(UswdsContexts).map((context) => {
         return (
@@ -33,7 +33,7 @@ export const SampleAlertMantine: React.FC = () => {
       <Alert color={UswdsContexts.Info} variant={UswdsAlertVariants.NoIcon}>
         {ALERT_TEXT}
       </Alert>
-    </>
+    </Box>
   );
 };
 
@@ -41,7 +41,6 @@ export const SampleAlertUswds: React.FC = () => {
   return (
     <div>
       <h3>Standard alerts</h3>
-
       {Object.keys(UswdsContexts).map((color) => (
         <div
           key={color}

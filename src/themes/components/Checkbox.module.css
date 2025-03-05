@@ -1,0 +1,38 @@
+:where([data-mantine-color-scheme='light']) {
+
+    .pylonCheckboxGroup {
+    }
+
+    .pylonCheckboxRoot {
+        margin-top: 12px;
+        &[data-checked='true'] {
+            input.pylonCheckboxInput {
+                background-color: #005ea2;
+                border-color: #005ea2;
+            }
+
+            svg.pylonCheckboxIcon {
+                opacity: 1;
+            }        
+        }
+    }
+
+    .pylonCheckboxLabel {
+        font-size: 1.06rem;
+    }
+
+    input.pylonCheckboxInput {
+        border: 2px solid black;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    svg.pylonCheckboxIcon {
+        opacity: 0;
+        width: 24px;
+        height: 24px;
+        margin-top: -7px;
+        margin-right: -2px;
+    }
+
+}

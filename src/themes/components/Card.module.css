@@ -1,10 +1,16 @@
 .pylonCardBody {  
+  font-size: 1.06rem;
+  line-height: 1.5;
+
+  /* .usa-card__header */
   &[data-first-section] {
-    * {
-      font-family: Merriweather Web, Georgia, Cambria, Times New Roman, Times, serif;
-      font-size: 1.34rem !important;
-      line-height: 1.2;
-      margin: 0;
+    font-size: 1.34rem !important;
+    line-height: 1.2 !important;
+
+    /* .usa-card__heading */
+  > :only-child {
+      margin: 0 !important;
+      line-height: 1.2 !important;
     }
   
   }
@@ -20,7 +26,4 @@
     }
   }
 
-  * {
-    font-size: 1.06rem !important;
-  }
 }
