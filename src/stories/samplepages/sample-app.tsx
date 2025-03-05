@@ -34,6 +34,7 @@ import {
   SampleButtonUswds,
 } from "./components/sample-button";
 import { SampleCardMantine, SampleCardUswds } from "./components/sample-card";
+import { SampleTableMantine, SampleTableUswds } from "./components/sample-table";
 
 export interface SampleComponent {
   name: string;
@@ -72,6 +73,11 @@ const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Card",
     uswdsComponent: <SampleCardUswds />,
     mantineComponent: <SampleCardMantine />,
+  },
+  {
+    name: "Table",
+    uswdsComponent: <SampleTableUswds />,
+    mantineComponent: <SampleTableMantine />,
   },
 ];
 
