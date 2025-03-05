@@ -1,16 +1,10 @@
 import {
-  Accordion,
   AppShell,
-  NavLink,
   Image,
   Flex,
   Text,
   Group,
   Button,
-  Title,
-  Table,
-  ColorSwatch,
-  Stack,
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
@@ -28,17 +22,29 @@ import {
   SampleBreadcrumbsMantine,
   SampleBreadcrumbsUswds,
 } from "./components/sample-breadcrumbs";
-import { ComponentComparison } from "./component-comparison";
+import { ComponentComparison } from "./sample-app-components/component-comparison";
 import {
   SampleButtonMantine,
   SampleButtonUswds,
 } from "./components/sample-button";
 import { SampleCardMantine, SampleCardUswds } from "./components/sample-card";
+import {
+  SampleCheckboxMantine,
+  SampleCheckboxUswds,
+} from "./components/sample-checkbox";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { ColorsPage } from "./pages/colors.page";
+import { TypographyPage } from "./pages/typography.page";
+import { SampleAppSideNav } from "./sample-app-components/sample-app-sidenav";
 
 export interface SampleComponent {
   name: string;
   uswdsComponent: ReactNode;
   mantineComponent: ReactNode;
+}
+export interface StylingPage {
+  name: string;
+  page: ReactNode;
 }
 
 type SampleAppProps = {
@@ -47,7 +53,12 @@ type SampleAppProps = {
   alertColors?: MantineThemeColorsOverride;
 };
 
-const SAMPLE_COMPONENTS: SampleComponent[] = [
+export const STYLING_PAGES: StylingPage[] = [
+  { name: "Typography", page: <TypographyPage /> },
+  { name: "Colors", page: <ColorsPage /> },
+];
+
+export const SAMPLE_COMPONENTS: SampleComponent[] = [
   {
     name: "Accordion",
     uswdsComponent: <SampleAccordionUswds />,
@@ -73,6 +84,11 @@ const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleCardUswds />,
     mantineComponent: <SampleCardMantine />,
   },
+  {
+    name: "Checkbox",
+    uswdsComponent: <SampleCheckboxUswds />,
+    mantineComponent: <SampleCheckboxMantine />,
+  },
 ];
 
 export const SampleApp: React.FC<SampleAppProps> = ({
@@ -80,122 +96,57 @@ export const SampleApp: React.FC<SampleAppProps> = ({
   // buttonColors = theme.colors,
 }) => {
   return (
-    <MantineProvider theme={theme}>
-      <AppShell
-        navbar={{
-          width: { xs: 300 },
-          breakpoint: 300,
-        }}
-        padding="md"
-      >
-        <AppShell.Header h={60} p="xs" className="usa-header usa-header--basic">
-          <Flex>
-            <Image
-              src="https://placehold.co/80x50/DDDDDD/AF3036"
-              width="80px"
-              mr="auto"
-            />
-            <Group>
-              <Text c="dimmed">Username</Text>
-              <Button>Logout</Button>
-            </Group>
-          </Flex>
-        </AppShell.Header>
+    <MantineProvider theme={theme} forceColorScheme="light">
+      <BrowserRouter>
+        <AppShell
+          navbar={{
+            width: { xs: 300 },
+            breakpoint: 300,
+          }}
+          padding="md"
+        >
+          <AppShell.Header
+            h={60}
+            p="xs"
+            className="usa-header usa-header--basic"
+          >
+            <Flex>
+              <Image
+                src="https://placehold.co/80x50/DDDDDD/AF3036"
+                width="80px"
+                mr="auto"
+              />
+              <Group>
+                <Text c="dimmed">Username</Text>
+                <Button>Logout</Button>
+              </Group>
+            </Flex>
+          </AppShell.Header>
 
-        <AppShell.Navbar p="xs" h={500}>
-          <NavLink label="Parent link" />
-          <NavLink label="Current page" active>
-            <NavLink label="Child link" />
-            <NavLink label="Child link">
-              <NavLink label="Grandchild link" />
-              <NavLink label="Grandchild link" active />
-              <NavLink label="Grandchild link" />
-            </NavLink>
-            <NavLink label="Child link" />
-          </NavLink>
-          <NavLink label="Parent link" />
-        </AppShell.Navbar>
+          <AppShell.Navbar p="xs">
+            <SampleAppSideNav />
+          </AppShell.Navbar>
 
-        <AppShell.Main>
-          <Stack pt={72}>
-            <Title order={1}>Sample Application</Title>
-            <Title order={2}>Typography</Title>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              mi erat, fringilla vitae dapibus eu, elementum at augue.
-            </Text>
-            <Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              eleifend mattis rutrum. Vivamus at venenatis tortor. Mauris nec
-              leo nulla. Donec ut mattis justo. Vestibulum ante ipsum primis in
-              faucibus orci luctus et ultrices posuere cubilia curae; Duis orci
-              dui, vulputate eget libero ut, pulvinar tristique libero.
-            </Text>
-            <Accordion>
-              <Accordion.Item value="colors">
-                <Accordion.Control>Colors</Accordion.Control>
-                <Accordion.Panel>
-                  <Title order={2}>Colors</Title>
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th rowSpan={2}>Color</th>
-                        <th colSpan={10}>Shade</th>
-                      </tr>
-                      <tr>
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((shade) => (
-                          <th key={shade}>
-                            <Text ta="center">{shade}</Text>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {theme &&
-                        theme.colors &&
-                        Object.keys(theme.colors).map((color) => (
-                          <tr key={color}>
-                            <th>{color}</th>
-                            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((shade) => {
-                              if (!theme || !theme.colors) {
-                                return null;
-                              }
-
-                              const themeColor = theme.colors[color];
-
-                              if (!themeColor) {
-                                return null;
-                              }
-
-                              const colorHex = themeColor[shade];
-                              return (
-                                <td key={shade}>
-                                  <ColorSwatch
-                                    mx="auto"
-                                    color={colorHex ?? "transparent"}
-                                  />
-                                </td>
-                              );
-                            })}
-                          </tr>
-                        ))}
-                    </tbody>
-                  </Table>
-                </Accordion.Panel>
-              </Accordion.Item>
-
-              {SAMPLE_COMPONENTS.map((component) => (
-                <Accordion.Item value={component.name} key={component.name}>
-                  <Accordion.Control>{component.name}</Accordion.Control>
-                  <Accordion.Panel>
-                    <ComponentComparison component={component} />
-                  </Accordion.Panel>
-                </Accordion.Item>
+          <AppShell.Main pt={80}>
+            <Routes>
+              {STYLING_PAGES.map((styling) => (
+                <Route
+                  key={styling.name}
+                  path={`/${styling.name.toLowerCase()}`}
+                  element={styling.page}
+                />
               ))}
-            </Accordion>
-          </Stack>
-        </AppShell.Main>
-      </AppShell>
+              {SAMPLE_COMPONENTS.map((component) => (
+                <Route
+                  key={component.name}
+                  path={`/components/${component.name.toLowerCase()}`}
+                  element={<ComponentComparison component={component} />}
+                />
+              ))}
+            </Routes>
+          </AppShell.Main>
+        </AppShell>
+      </BrowserRouter>
     </MantineProvider>
   );
 };

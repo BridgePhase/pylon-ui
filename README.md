@@ -1,10 +1,11 @@
 # Pylon UI
 
+## Running Sample App
+
 ```bash
 nvm use
-yarn
-yarn build
-yarn storybook
+npm install
+npm run dev
 ```
 
 ## USWDS Component Targets

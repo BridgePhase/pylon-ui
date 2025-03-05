@@ -4,8 +4,10 @@ import {
   Breadcrumbs,
   Button,
   Card,
+  Checkbox,
   MantineThemeOverride,
   Text,
+  Title,
 } from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
 import { UswdsColorTokens } from "./uswds-colors-tokens";
@@ -13,25 +15,45 @@ import breadrumbsClasses from "./components/Breadcrumbs.module.css";
 import navLinkClasses from "./components/NavLink.module.css";
 import textClasses from "./components/Text.module.css";
 import cardClasses from "./components/Card.module.css";
+import checkboxClasses from "./components/Checkbox.module.css";
 
 import "./uswds-theme.scss";
 
 export const UswdsTheme: MantineThemeOverride = {
+  // Colors
   autoContrast: true,
-  primaryShade: 5,
-  defaultRadius: "0.25rem",
   black: "base",
   colors: Object.assign(UswdsAlertColors, UswdsButtonColors, UswdsColorTokens),
+  primaryColor: "default",
+  primaryShade: 5,
+
+  // Typography
   fontFamily:
     "Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif",
+  // Based on normalized size for Source Sans Pro: https://designsystem.digital.gov/design-tokens/typesetting/overview/#fonts-with-normalization-applied-2
+  // Standard size is "md", other sizes are scaled based on Mantine font size ratios.
+  fontSizes: {
+    xs: "0.77rem",
+    sm: "0.83rem",
+    md: "1.06rem",
+    lg: "1.23rem",
+    xl: "1.51rem",
+  },
   lineHeights: { xs: "1.2" },
-  primaryColor: "default",
   headings: {
     fontFamily: "Merriweather Web",
     sizes: {
-      h1: { fontSize: "2rem" },
+      h1: { fontSize: "46.8px" /* .font-heading-3xl */ },
+      h2: { fontSize: "31.2px" /* .font-heading-xl  */ },
+      h3: { fontSize: "21.5px" /* .font-heading-lg  */ },
+      h4: { fontSize: "16.6px" /* .font-heading-md  */ },
+      h5: { fontSize: "14.6px" /* .font-heading-xs  */ },
+      h6: { fontSize: "12.7px" /* .font-heading-3xs */ },
     },
   },
+
+  // Component Styling
+  defaultRadius: "0.25rem",
   components: {
     Accordion: {
       defaultProps: {
@@ -63,6 +85,9 @@ export const UswdsTheme: MantineThemeOverride = {
         title: "usa-alert__heading",
         label: "usa-alert__text",
       }),
+      defaultProps: {
+        radius: 0,
+      },
       styles: () => ({
         root: {
           padding: 0,
@@ -95,6 +120,23 @@ export const UswdsTheme: MantineThemeOverride = {
         navbar: "usa-sidenav",
       },
     },
+    Breadcrumbs: Breadcrumbs.extend({
+      classNames: (_theme, props) => ({
+        root: `${
+          breadrumbsClasses.pylonBreadcrumbs
+        } usa-breadcrumb usa-breadcrumb--${props.variant ?? "default"}`,
+        breadcrumb: `usa-breadcrumb__list-item ${breadrumbsClasses.pylonBreadcrumbItem} breadcrumb-${props.variant}`,
+      }),
+      defaultProps: {
+        separator: "",
+        variant: "default",
+      },
+      styles: () => ({
+        separator: {
+          display: "none",
+        },
+      }),
+    }),
     Button: Button.extend({
       classNames: (_theme, props) => ({
         root: cx({
@@ -113,6 +155,7 @@ export const UswdsTheme: MantineThemeOverride = {
         inner: {},
         label: {
           overflow: "visible",
+          whiteSpace: "nowrap",
         },
       },
     }),
@@ -123,27 +166,27 @@ export const UswdsTheme: MantineThemeOverride = {
       }),
       defaultProps: {
         w: "100%",
-      },
-    }),
-    Text: Text.extend({
-      classNames: textClasses,
-    }),
-    Breadcrumbs: Breadcrumbs.extend({
-      classNames: (_theme, props) => ({
-        root: `${
-          breadrumbsClasses.pylonBreadcrumbs
-        } usa-breadcrumb usa-breadcrumb--${props.variant ?? "default"}`,
-        breadcrumb: `usa-breadcrumb__list-item ${breadrumbsClasses.pylonBreadcrumbItem} breadcrumb-${props.variant}`,
-      }),
-      defaultProps: {
-        separator: "",
         variant: "default",
       },
-      styles: () => ({
-        separator: {
-          display: "none",
-        },
+    }),
+    Checkbox: Checkbox.extend({
+      classNames: () => ({
+        root: checkboxClasses.pylonCheckboxRoot,
+        label: checkboxClasses.pylonCheckboxLabel,
+        input: checkboxClasses.pylonCheckboxInput,
+        icon: checkboxClasses.pylonCheckboxIcon,
       }),
+    }),
+    CheckboxGroup: Checkbox.Group.extend({
+      classNames: {
+        root: `usa-fieldset ${checkboxClasses.pylonCheckboxGroup}`,
+        label: "usa-legend",
+      },
+      styles: {
+        root: {
+          backgroundColor: "lightgoldenrod",
+        },
+      },
     }),
     NavLink: {
       classNames: {
@@ -156,5 +199,18 @@ export const UswdsTheme: MantineThemeOverride = {
         defaultOpened: true,
       },
     },
+    Text: Text.extend({
+      classNames: textClasses,
+    }),
+    Title: Title.extend({
+      styles: {
+        root: {
+          fontSize: "1.17em",
+          lineHeight: "1.6em",
+          marginBlockEnd: "1em",
+          marginBlockStart: "1em",
+        },
+      },
+    }),
   },
 };
