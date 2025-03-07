@@ -36,6 +36,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ColorsPage } from "./pages/colors.page";
 import { TypographyPage } from "./pages/typography.page";
 import { SampleAppSideNav } from "./sample-app-components/sample-app-sidenav";
+import { SampleTagMantine, SampleTagUswds } from "./components/sample-tag";
 
 export interface SampleComponent {
   name: string;
@@ -88,6 +89,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Checkbox",
     uswdsComponent: <SampleCheckboxUswds />,
     mantineComponent: <SampleCheckboxMantine />,
+  },
+  {
+    name: "Tag",
+    uswdsComponent: <SampleTagUswds />,
+    mantineComponent: <SampleTagMantine />,
   },
 ];
 

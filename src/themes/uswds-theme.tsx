@@ -1,6 +1,7 @@
 import cx from "clsx";
 import {
   Alert,
+  Badge,
   Breadcrumbs,
   Button,
   Card,
@@ -16,6 +17,7 @@ import navLinkClasses from "./components/NavLink.module.css";
 import textClasses from "./components/Text.module.css";
 import cardClasses from "./components/Card.module.css";
 import checkboxClasses from "./components/Checkbox.module.css";
+import badgeClasses from "./components/Badge.module.css";
 
 import "./uswds-theme.scss";
 
@@ -120,6 +122,23 @@ export const UswdsTheme: MantineThemeOverride = {
         navbar: "usa-sidenav",
       },
     },
+    Badge: Badge.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          [badgeClasses.pylonBadge]: true,
+          ["usa-tag"]: true,
+          ["usa-tag--big"]: props.size === 'big',
+        }),
+      }),
+      styles: {
+        root: {
+          fontWeight: "inherit",
+          border: "inherit",
+          letterSpacing: 'inherit',
+          display: 'inline'
+        },
+      },
+    }),
     Breadcrumbs: Breadcrumbs.extend({
       classNames: (_theme, props) => ({
         root: `${
