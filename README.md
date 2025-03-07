@@ -25,11 +25,11 @@ Components used in Waves application:
 | CardBody          | Card.Section\*\*   | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CardGroup         | –                  | ![](https://img.shields.io/badge/unnecessary%3f-2b83e2)             |
 | CardHeader        | Card.Section\*\*   | ![](https://img.shields.io/badge/done-83e22b)                       |
-| Checkbox          | Checkbox           | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
+| Checkbox          | Checkbox           | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CollectionHeading | –                  | ![](https://img.shields.io/badge/need%20alternative-8A2BE2)         |
 | CollectionItem    | –                  | ![](https://img.shields.io/badge/need%20alternative-8A2BE2)         |
 | CollectionMeta    | –                  | ![](https://img.shields.io/badge/need%20alternative-8A2BE2)         |
-| DatePicker        | DateInput          | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| DatePicker        | DateInput          | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
 | ErrorMessage      | Input.Error        | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Footer            | AppShell.Footer    | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | FormGroup         | Fieldset?          | ![](https://img.shields.io/badge/backlog-e22b83)                    |
