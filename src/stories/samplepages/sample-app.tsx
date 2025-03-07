@@ -28,6 +28,7 @@ import {
   SampleButtonUswds,
 } from "./components/sample-button";
 import { SampleCardMantine, SampleCardUswds } from "./components/sample-card";
+import { SampleTableMantine, SampleTableUswds } from "./components/sample-table";
 import {
   SampleCheckboxMantine,
   SampleCheckboxUswds,
@@ -89,6 +90,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Checkbox",
     uswdsComponent: <SampleCheckboxUswds />,
     mantineComponent: <SampleCheckboxMantine />,
+  },
+  {
+    name: "Table",
+    uswdsComponent: <SampleTableUswds />,
+    mantineComponent: <SampleTableMantine />,
   },
   {
     name: "Tag",

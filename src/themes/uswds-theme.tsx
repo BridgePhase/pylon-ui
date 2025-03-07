@@ -7,6 +7,8 @@ import {
   Card,
   Checkbox,
   MantineThemeOverride,
+  Table,
+  TableScrollContainer,
   Text,
   Title,
 } from "@mantine/core";
@@ -218,6 +220,44 @@ export const UswdsTheme: MantineThemeOverride = {
         defaultOpened: true,
       },
     },
+    Table: Table.extend({
+      classNames: (_theme, props) => ({
+        table: cx({
+          [`usa-table`]: true,
+          ["usa-table--striped"]: props.striped,
+          ["usa-table--borderless"]: !props.withTableBorder,
+          ["usa-table--sticky-header"]: props.stickyHeader,
+          ["usa-table--stacked"]: props.verticalSpacing === "stacked",
+        }),
+      }),
+      styles: (_theme, props) => ({
+        caption: {
+          color: "inherit",
+        },
+        table: {
+          border: props.verticalSpacing === "stacked" ? "none" : undefined,
+        },
+        thead: {
+          top: props.stickyHeaderOffset,
+        },
+      }),
+      defaultProps: {
+        captionSide: "top",
+        withTableBorder: true,
+        withColumnBorders: true,
+        w: "inherit",
+      },
+    }),
+    TableScrollContainer: TableScrollContainer.extend({
+      classNames: () => ({
+        scrollContainer: "usa-table-container--scrollable",
+      }),
+      defaultProps: {
+        minWidth: 0,
+        type: "native",
+        tabIndex: 0,
+      },
+    }),
     Text: Text.extend({
       classNames: textClasses,
     }),
