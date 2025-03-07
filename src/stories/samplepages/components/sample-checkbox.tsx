@@ -1,4 +1,4 @@
-import { Box, Checkbox, Title } from "@mantine/core";
+import { Checkbox, Stack } from "@mantine/core";
 import { useState } from "react";
 
 const OPTIONS = [
@@ -14,10 +14,8 @@ export const SampleCheckboxMantine: React.FC = () => {
   return (
     <>
       {["Default"].map((variant) => (
-        <Box key={variant}>
-          <Title order={3} className="usa-prose">
-            {variant}
-          </Title>
+        <Stack key={variant} gap={0}>
+          <h3>{variant}</h3>
 
           <Checkbox.Group label="Select any historical figure" value={values}>
             {OPTIONS.map((option) => (
@@ -41,7 +39,7 @@ export const SampleCheckboxMantine: React.FC = () => {
               />
             ))}
           </Checkbox.Group>
-        </Box>
+        </Stack>
       ))}
     </>
   );

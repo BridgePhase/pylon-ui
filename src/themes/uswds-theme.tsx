@@ -180,7 +180,7 @@ export const UswdsTheme: MantineThemeOverride = {
     CheckboxGroup: Checkbox.Group.extend({
       classNames: {
         root: `usa-fieldset ${checkboxClasses.pylonCheckboxGroup}`,
-        label: "usa-legend",
+        label: `usa-legend ${checkboxClasses.pylonCheckboxLegend}`,
       },
       styles: {
         root: {
