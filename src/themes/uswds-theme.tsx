@@ -208,11 +208,15 @@ export const UswdsTheme: MantineThemeOverride = {
           ["usa-table--striped"]: props.striped,
           ["usa-table--borderless"]: !props.withTableBorder,
           ["usa-table--sticky-header"]: props.stickyHeader,
+          ["usa-table--stacked"]: props.verticalSpacing === "stacked",
         }),
       }),
       styles: (_theme, props) => ({
         caption: {
-          color: "#1b1b1b",
+          color: "inherit",
+        },
+        table: {
+          border: props.verticalSpacing === "stacked" ? "none" : undefined,
         },
         thead: {
           top: props.stickyHeaderOffset,

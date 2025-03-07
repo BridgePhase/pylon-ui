@@ -222,7 +222,7 @@ const SampleTableMantineSorting: React.FC = () => {
 const SampleTableMantineResponsive: React.FC = () => {
   return (
     <div className="width-mobile">
-      <Table className="usa-table--stacked" style={{ border: "none" }}>
+      <Table verticalSpacing={'stacked'}>
         <Table.Caption>
           Stacked bordered table (when on a mobile-width screen)
         </Table.Caption>
