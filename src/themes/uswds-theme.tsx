@@ -1,6 +1,7 @@
 import cx from "clsx";
 import {
   Alert,
+  Badge,
   Breadcrumbs,
   Button,
   Card,
@@ -122,6 +123,22 @@ export const UswdsTheme: MantineThemeOverride = {
         navbar: "usa-sidenav",
       },
     },
+    Badge: Badge.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-tag"]: true,
+          ["usa-tag--big"]: props.size === 'big',
+        }),
+      }),
+      styles: {
+        root: {
+          fontWeight: "inherit",
+          border: "inherit",
+          letterSpacing: 'inherit',
+          display: 'inline'
+        },
+      },
+    }),
     Breadcrumbs: Breadcrumbs.extend({
       classNames: (_theme, props) => ({
         root: `${
