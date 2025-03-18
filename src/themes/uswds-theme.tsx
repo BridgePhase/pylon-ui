@@ -1,6 +1,7 @@
 import cx from "clsx";
 import {
   Alert,
+  Badge,
   Breadcrumbs,
   Button,
   Card,
@@ -20,7 +21,7 @@ import cardClasses from "./components/Card.module.css";
 import checkboxClasses from "./components/Checkbox.module.css";
 
 import "./uswds-theme.scss";
-import { DateInput, DateTimePicker } from "@mantine/dates";
+import { DateInput } from "@mantine/dates";
 
 export const UswdsTheme: MantineThemeOverride = {
   // Colors
@@ -123,6 +124,22 @@ export const UswdsTheme: MantineThemeOverride = {
         navbar: "usa-sidenav",
       },
     },
+    Badge: Badge.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-tag"]: true,
+          ["usa-tag--big"]: props.size === "big",
+        }),
+      }),
+      styles: {
+        root: {
+          fontWeight: "inherit",
+          border: "inherit",
+          letterSpacing: "inherit",
+          display: "inline",
+        },
+      },
+    }),
     Breadcrumbs: Breadcrumbs.extend({
       classNames: (_theme, props) => ({
         root: `${
