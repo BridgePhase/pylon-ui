@@ -1,5 +1,4 @@
 .root {
-    color: cyan;
     line-height: 1.5;
 
     &[data-variant='prose'] {

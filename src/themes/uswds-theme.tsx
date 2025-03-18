@@ -20,6 +20,7 @@ import cardClasses from "./components/Card.module.css";
 import checkboxClasses from "./components/Checkbox.module.css";
 
 import "./uswds-theme.scss";
+import { DateInput, DateTimePicker } from "@mantine/dates";
 
 export const UswdsTheme: MantineThemeOverride = {
   // Colors
@@ -184,10 +185,50 @@ export const UswdsTheme: MantineThemeOverride = {
         root: `usa-fieldset ${checkboxClasses.pylonCheckboxGroup}`,
         label: `usa-legend ${checkboxClasses.pylonCheckboxLegend}`,
       },
-      styles: {
-        root: {
-          backgroundColor: "lightgoldenrod",
+    }),
+    Calendar: {
+      classNames: {
+        root: "usa-date-picker__calendar",
+      },
+    },
+    DateInput: DateInput.extend({
+      classNames: (_theme, _props) => ({
+        root: "usa-form-group",
+        label: "usa-label",
+        description: "usa-hint",
+        wrapper: "usa-date-picker",
+        input: "usa-input",
+      }),
+      styles: (_theme, _props) => ({
+        input: {
+          width: "calc(100% - 2.75em)",
+          marginTop: "0",
         },
+        wrapper: {
+          maxWidth: "480px",
+          display: "flex",
+          gap: "0",
+        },
+      }),
+      defaultProps: {
+        w: "inherit",
+        rightSection: (
+          <Button
+            variant="filled"
+            className="usa-date-picker__button"
+            style={{
+              position: "relative",
+              left: "-5px",
+              borderRadius: 0,
+              margin: 0,
+              paddingBlockEnd: "1px",
+              paddingBlockStart: "1px",
+              paddingInlineEnd: "22px",
+              paddingInlineStart: "25px",
+              display: "block",
+            }}
+          />
+        ),
       },
     }),
     NavLink: {

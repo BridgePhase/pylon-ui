@@ -28,7 +28,10 @@ import {
   SampleButtonUswds,
 } from "./components/sample-button";
 import { SampleCardMantine, SampleCardUswds } from "./components/sample-card";
-import { SampleTableMantine, SampleTableUswds } from "./components/sample-table";
+import {
+  SampleTableMantine,
+  SampleTableUswds,
+} from "./components/sample-table";
 import {
   SampleCheckboxMantine,
   SampleCheckboxUswds,
@@ -37,6 +40,10 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ColorsPage } from "./pages/colors.page";
 import { TypographyPage } from "./pages/typography.page";
 import { SampleAppSideNav } from "./sample-app-components/sample-app-sidenav";
+import {
+  SampleDatepickerMantine,
+  SampleDatepickerUswds,
+} from "./components/sample-datepicker";
 
 export interface SampleComponent {
   name: string;
@@ -89,6 +96,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Checkbox",
     uswdsComponent: <SampleCheckboxUswds />,
     mantineComponent: <SampleCheckboxMantine />,
+  },
+  {
+    name: "Datepicker",
+    uswdsComponent: <SampleDatepickerUswds />,
+    mantineComponent: <SampleDatepickerMantine />,
   },
   {
     name: "Table",

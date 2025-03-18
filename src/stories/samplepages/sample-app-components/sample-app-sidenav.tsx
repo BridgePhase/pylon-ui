@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 export const SampleAppSideNav = () => {
   const { pathname } = useLocation();
-  console.log("Location:", location);
   return (
     <>
       {STYLING_PAGES.map((page) => {
