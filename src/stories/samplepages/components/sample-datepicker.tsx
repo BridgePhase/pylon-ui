@@ -1,10 +1,11 @@
-import { DateInput, DateValue } from "@mantine/dates";
+import { DateValue } from "@mantine/dates";
 import { useState } from "react";
+import { PylonDatePicker } from "../../../widgets/form/date-picker/date-picker";
 
 export const SampleDatepickerMantine: React.FC = () => {
   const [value, setValue] = useState<DateValue>();
   return (
-    <DateInput
+    <PylonDatePicker
       value={value}
       onChange={(value) => setValue(value)}
       label="Appointment date"
@@ -59,7 +60,6 @@ export const SampleDatepickerUswds: React.FC = () => {
               role="application"
               data-value="2025-03-21"
               style={{ top: "48px" }}
-              hidden
             >
               <div
                 tabIndex={-1}
