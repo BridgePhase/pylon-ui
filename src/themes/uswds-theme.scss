@@ -2,22 +2,63 @@
 @import "@mantine/dates/styles.css";
 @import "@uswds/uswds/css/uswds.css";
 
-.pylon-date-picker {
-  .mantine-Calendar-weekday,
-  .mantine-Calendar-calendarHeaderLevel {
-    font-size: 16px;
+.pylon-date-picker-root {
+  .mantine-DateInput-input {
+    width: calc(100% - 50px);
   }
 
-  .mantine-Calendar-day.mantine-UnstyledButton-root {
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
-    &:where([data-weekend]) {
-      color: black;
+  .pylon-date-picker-button.usa-date-picker__button {
+    margin: 0;
+    background-color: transparent;
+    &:hover {
+      background-color: #e6e6e6;
     }
-    &:where([data-outside]) {
-      color: black;
-      opacity: 0.6;
+    &:active {
+      background-color: #adadad;
     }
   }
+}
+
+.pylon-date-picker-dropdown {
+  .pylon-date-picker {
+    border-radius: 0;
+    scale: 1.1;
+    transform-origin: top right;
+
+    .mantine-Calendar-weekday,
+    .mantine-Calendar-calendarHeaderLevel {
+      font-size: 16px;
+    }
+
+    .mantine-Calendar-day.mantine-UnstyledButton-root {
+      font-family: "Source Sans Pro Web", "Helvetica Neue", Helvetica, Roboto,
+        Arial, sans-serif;
+
+      font-size: 16px;
+      padding: 20px 0;
+      font-weight: 500;
+      border-radius: 0;
+      color: black;
+
+      &:where([data-today]) {
+        background-color: #0050d8;
+        color: #f9f9f9;
+      }
+      &:where([data-weekend]) {
+        color: black;
+      }
+      &:where([data-outside]) {
+        color: black;
+        opacity: 0.6;
+      }
+      &:hover {
+        background-color: #e6e6e6;
+      }
+    }
+  }
+}
+
+// Don't show the native Mantine dropdown
+.mantine-Popover-dropdown:not(.pylon-date-picker-dropdown) {
+  display: none;
 }
