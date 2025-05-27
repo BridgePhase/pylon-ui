@@ -8,6 +8,7 @@ import {
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
+  Stack,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
@@ -45,6 +46,10 @@ import {
   SampleDatepickerMantine,
   SampleDatepickerUswds,
 } from "./components/sample-datepicker";
+import { AppShellFooterHeading } from "../../widgets/app-shell/footer/app-shell-footer-heading";
+import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-footer";
+
+import icon from "/pylon.png";
 
 export interface SampleComponent {
   name: string;
@@ -169,6 +174,16 @@ export const SampleApp: React.FC<SampleAppProps> = ({
               ))}
             </Routes>
           </AppShell.Main>
+
+          <PylonAppShellFooter
+            heading={
+              <Stack gap={0}>
+                <AppShellFooterHeading text="Pylon UI" />
+                <p className="font-serif-xs">A Division of Pylon</p>
+              </Stack>
+            }
+            image={<Image src={icon} mah="5rem" />}
+          />
         </AppShell>
       </BrowserRouter>
     </MantineProvider>
