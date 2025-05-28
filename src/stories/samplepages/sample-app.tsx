@@ -8,6 +8,9 @@ import {
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
+  Stack,
+  Burger,
+  Anchor,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
@@ -45,6 +48,11 @@ import {
   SampleDatepickerMantine,
   SampleDatepickerUswds,
 } from "./components/sample-datepicker";
+import { AppShellFooterHeading } from "../../widgets/app-shell/footer/app-shell-footer-heading";
+import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-footer";
+
+import icon from "/pylon.png";
+import { useDisclosure } from "@mantine/hooks";
 
 export interface SampleComponent {
   name: string;
@@ -119,28 +127,49 @@ export const SampleApp: React.FC<SampleAppProps> = ({
   theme,
   // buttonColors = theme.colors,
 }) => {
+  const [opened, { toggle }] = useDisclosure();
+
   return (
     <MantineProvider theme={theme} forceColorScheme="light">
       <BrowserRouter>
         <AppShell
+          header={{ height: 60 }}
+          footer={{ height: 120 }}
           navbar={{
-            width: { xs: 300 },
-            breakpoint: 300,
+            width: 300,
+            breakpoint: "sm",
+            collapsed: { mobile: !opened },
+          }}
+          aside={{
+            width: 300,
+            breakpoint: "md",
+            collapsed: { desktop: false, mobile: true },
           }}
           padding="md"
         >
-          <AppShell.Header
-            h={60}
-            p="xs"
-            className="usa-header usa-header--basic"
-          >
-            <Flex>
-              <Image
-                src="https://placehold.co/80x50/DDDDDD/AF3036"
-                width="80px"
-                mr="auto"
-              />
-              <Group>
+          <AppShell.Header className="usa-header usa-header--basic">
+            <Flex align="center" m="xs">
+              <Group h="100%" px="md">
+                <Burger
+                  opened={opened}
+                  onClick={toggle}
+                  hiddenFrom="sm"
+                  size="sm"
+                  color="#000"
+                />
+                <Image src="/pylon.png" w={40} fit="contain" />
+                <Anchor href="/" c="#">
+                  <Text
+                    className="font-body-lg text-bold"
+                    ml={-25}
+                    td="default"
+                    c="#414142"
+                  >
+                    Pylon UI
+                  </Text>
+                </Anchor>
+              </Group>
+              <Group ml="auto">
                 <Text c="dimmed">Username</Text>
                 <Button>Logout</Button>
               </Group>
@@ -151,7 +180,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
             <SampleAppSideNav />
           </AppShell.Navbar>
 
-          <AppShell.Main pt={80}>
+          <AppShell.Main>
             <Routes>
               {STYLING_PAGES.map((styling) => (
                 <Route
@@ -169,6 +198,16 @@ export const SampleApp: React.FC<SampleAppProps> = ({
               ))}
             </Routes>
           </AppShell.Main>
+
+          <PylonAppShellFooter
+            heading={
+              <Stack gap={0}>
+                <AppShellFooterHeading text="Pylon UI" />
+                <p className="font-serif-xs">©2025 BridgePhase, LLC</p>
+              </Stack>
+            }
+            image={<Image src={icon} mah="5rem" />}
+          />
         </AppShell>
       </BrowserRouter>
     </MantineProvider>
