@@ -40,7 +40,7 @@ Components used in Waves application:
 | InputGroup        | FieldSet            | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | InputSuffix       | TextInput           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Label             | InputWrapper.Label  | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| Link              | Anchor              | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Link              | Anchor              | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Logo              | PylonAppShellFooter | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Modal             | Modal               | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | ModalFooter       | Modal.Content       | ![](https://img.shields.io/badge/backlog-e22b83)                    |

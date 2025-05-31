@@ -55,6 +55,7 @@ import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-fo
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
 import { SampleLogoUswds, SampleLogoMantine } from "./components/sample-logo";
+import { SampleLinkMantine, SampleLinkUswds } from "./components/sample-link";
 
 export interface SampleComponent {
   name: string;
@@ -114,6 +115,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleDatepickerMantine />,
   },
   {
+    name: "Link",
+    uswdsComponent: <SampleLinkUswds />,
+    mantineComponent: <SampleLinkMantine />,
+  },
+  {
     name: "Logo",
     uswdsComponent: <SampleLogoUswds />,
     mantineComponent: <SampleLogoMantine />,
@@ -130,10 +136,7 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
   },
 ];
 
-export const SampleApp: React.FC<SampleAppProps> = ({
-  theme,
-  // buttonColors = theme.colors,
-}) => {
+export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -147,7 +150,10 @@ export const SampleApp: React.FC<SampleAppProps> = ({
             collapsed: { mobile: !opened },
           }}
         >
-          <AppShell.Header className="usa-header usa-header--basic">
+          <AppShell.Header
+            className="usa-header usa-header--basic"
+            style={{ background: "linear-gradient(#AF3036, #87252a)" }}
+          >
             <Flex align="center" m="xs">
               <Group h="100%" px="md">
                 <Burger
@@ -155,7 +161,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                   onClick={toggle}
                   hiddenFrom="sm"
                   size="sm"
-                  color="#000"
+                  color="white"
                 />
                 <Image src="/pylon.png" w={40} fit="contain" />
                 <Anchor href="/" c="#">
@@ -163,9 +169,10 @@ export const SampleApp: React.FC<SampleAppProps> = ({
                     className="font-body-lg text-bold"
                     ml={-25}
                     td="default"
-                    c="#414142"
+                    c="white"
                   >
-                    Pylon UI
+                    Pylon{" "}
+                    <span style={{ fontWeight: 100, color: "#aaa" }}>UI</span>
                   </Text>
                 </Anchor>
               </Group>

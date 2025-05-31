@@ -1,6 +1,7 @@
 import cx from "clsx";
 import {
   Alert,
+  Anchor,
   Badge,
   Breadcrumbs,
   Button,
@@ -113,12 +114,20 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     }),
-    Anchor: {
+    Anchor: Anchor.extend({
       defaultProps: {
         variant: "default",
         underline: "hover",
       },
-    },
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-link"]: true,
+          ["usa-link--external"]:
+            props.variant === "external" || props.variant === "external-alt",
+          ["usa-link--alt"]: props.variant === "external-alt",
+        }),
+      }),
+    }),
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",

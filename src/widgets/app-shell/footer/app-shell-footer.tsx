@@ -6,7 +6,7 @@ export const PylonAppShellFooter: React.FC<{
   image: React.ReactNode;
 }> = ({ size = "medium", heading, image }) => {
   return (
-    <Box className="usa-footer__secondary-section" px="md">
+    <Box className="usa-footer__secondary-section">
       <div
         className={`usa-footer__logo usa-footer__${size} grid-row grid-gap-2`}
         data-testid="footerLogo"
