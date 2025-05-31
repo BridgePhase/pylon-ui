@@ -1,4 +1,4 @@
-import { AppShell } from "@mantine/core";
+import { Box } from "@mantine/core";
 
 export const PylonAppShellFooter: React.FC<{
   size?: "big" | "medium" | "slim";
@@ -6,7 +6,7 @@ export const PylonAppShellFooter: React.FC<{
   image: React.ReactNode;
 }> = ({ size = "medium", heading, image }) => {
   return (
-    <AppShell.Footer className="usa-footer__secondary-section">
+    <Box className="usa-footer__secondary-section" px="md">
       <div
         className={`usa-footer__logo usa-footer__${size} grid-row grid-gap-2`}
         data-testid="footerLogo"
@@ -14,6 +14,6 @@ export const PylonAppShellFooter: React.FC<{
         <div className="grid-col-auto">{image}</div>
         <div className="grid-col-auto">{heading}</div>
       </div>
-    </AppShell.Footer>
+    </Box>
   );
 };
