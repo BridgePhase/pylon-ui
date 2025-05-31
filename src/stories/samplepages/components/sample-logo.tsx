@@ -1,0 +1,43 @@
+import { PylonAppShellFooter } from "../../../widgets/app-shell/footer/app-shell-footer";
+
+export const SampleLogoMantine: React.FC = () => {
+  return (
+    <PylonAppShellFooter
+      heading={<p className="usa-footer__logo-heading">Name of Agency</p>}
+      image={
+        <img
+          className="usa-footer__logo-img"
+          alt="Mock logo"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAMAAACZHrEMAAAAwFBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+Kz6mvAAAAQHRSTlMACi1ObIihuMvc6vT7/wM0Y4+64ylimc8xcbDuHGSpO4fSSpzsTKL3QZso5GXHOJ1n0CWR/Ue21QZ78BWNH5qk8DjDAgAAAq1JREFUeAHM1AOi7EAABdH7jLw7Zpyxbe5/Vd/+g6i75+yhCqHd3T88Pj2/vL69ax/80N7fXl+enx4f7u8gVyKZSmeyPC2bSaeSCciRyxeKvKZYyOcgWqmsG/TH0MsliGNatsEgDNsyIYTjegzOcx3ErlKtMZxatYJY1RtNhtds1BGbVltjNFq7hVh03C6j67odRJbo9RmPfi+BaAZDxmc4QBSjMeM0HiG0yXTGeM2mE4QzXzB+iznCSC0pwjKFwFbrDcXYrFcIZrujOLstgtgfKNJhHySjBsVq+I9qcqRoxwn82TcoXmMPP7YHynDY+ml6Rzl2PgpfU5Y1rkltKMsmhcvmS8qznF+OekGZFhcDn1KuKc4bzSjXbIRzBmPKNh7gtMSQ8g0TOKlHFXo4pdOnCv0OTnCphov/tbpUo9vCf9pUpY1/1TWqotXxjwbVaeBvlSbVaVbwlypVquJPTo0q1Rx/j5H/GtOjWp6JXyyqZuEXm6rZ+KlkUDWjhB/KVK+MH3Sqp+O7nEH1jBy+yfMW5PFNgbeggK8SRd6C4udm7oKAgRiIguiUcXvk32ttvHFwmGQ//KqWMViq1jFYq7Yx2Kr2Mdir0zEGx6nOo3Cuyyhc6joK17qNwq3uo3Cvxyg86jkKz3qNwqveo/Cuzyh86jsK3xoH6s5Q7wz1NVH/GeoPTK1N1KpN7WeonR62B6ZOB9S5iTpROmdtagpBzWeoyZU006OmndQcWJqQU9oBpapIehOlxFEapaTeUrq2pPhTXgjJJUL5ZyRnEeW5ktxolE9PcjBS3k7J9Sr5gSWnNOUhl9z1Uu5ASmRQWRUpxSPlm6Tkl5SJk9KCUo5SSphC2VsplSzltaEku5Txl9oPoF4IqDED6hKBWlag/hmpmcfvLPLbnPyeK6ABDOAPfVE3i9SerfUAAAAASUVORK5CYII="
+        />
+      }
+    />
+  );
+};
+
+export const SampleLogoUswds: React.FC = () => {
+  return (
+    <div
+      id="story--components-footer-logo--slim--primary-inner"
+      data-name="Slim"
+    >
+      <div className="usa-footer__secondary-section">
+        <div
+          className="usa-footer__logo grid-row grid-gap-2"
+          data-testid="footerLogo"
+        >
+          <div className="grid-col-auto">
+            <img
+              className="usa-footer__logo-img"
+              alt="Mock logo"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAMAAACZHrEMAAAAwFBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+Kz6mvAAAAQHRSTlMACi1ObIihuMvc6vT7/wM0Y4+64ylimc8xcbDuHGSpO4fSSpzsTKL3QZso5GXHOJ1n0CWR/Ue21QZ78BWNH5qk8DjDAgAAAq1JREFUeAHM1AOi7EAABdH7jLw7Zpyxbe5/Vd/+g6i75+yhCqHd3T88Pj2/vL69ax/80N7fXl+enx4f7u8gVyKZSmeyPC2bSaeSCciRyxeKvKZYyOcgWqmsG/TH0MsliGNatsEgDNsyIYTjegzOcx3ErlKtMZxatYJY1RtNhtds1BGbVltjNFq7hVh03C6j67odRJbo9RmPfi+BaAZDxmc4QBSjMeM0HiG0yXTGeM2mE4QzXzB+iznCSC0pwjKFwFbrDcXYrFcIZrujOLstgtgfKNJhHySjBsVq+I9qcqRoxwn82TcoXmMPP7YHynDY+ml6Rzl2PgpfU5Y1rkltKMsmhcvmS8qznF+OekGZFhcDn1KuKc4bzSjXbIRzBmPKNh7gtMSQ8g0TOKlHFXo4pdOnCv0OTnCphov/tbpUo9vCf9pUpY1/1TWqotXxjwbVaeBvlSbVaVbwlypVquJPTo0q1Rx/j5H/GtOjWp6JXyyqZuEXm6rZ+KlkUDWjhB/KVK+MH3Sqp+O7nEH1jBy+yfMW5PFNgbeggK8SRd6C4udm7oKAgRiIguiUcXvk32ttvHFwmGQ//KqWMViq1jFYq7Yx2Kr2Mdir0zEGx6nOo3Cuyyhc6joK17qNwq3uo3Cvxyg86jkKz3qNwqveo/Cuzyh86jsK3xoH6s5Q7wz1NVH/GeoPTK1N1KpN7WeonR62B6ZOB9S5iTpROmdtagpBzWeoyZU006OmndQcWJqQU9oBpapIehOlxFEapaTeUrq2pPhTXgjJJUL5ZyRnEeW5ktxolE9PcjBS3k7J9Sr5gSWnNOUhl9z1Uu5ASmRQWRUpxSPlm6Tkl5SJk9KCUo5SSphC2VsplSzltaEku5Txl9oPoF4IqDED6hKBWlag/hmpmcfvLPLbnPyeK6ABDOAPfVE3i9SerfUAAAAASUVORK5CYII="
+            />
+          </div>
+          <div className="grid-col-auto">
+            <p className="usa-footer__logo-heading">Name of Agency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

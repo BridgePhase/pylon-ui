@@ -11,6 +11,7 @@ import {
   Stack,
   Burger,
   Anchor,
+  Box,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
@@ -53,6 +54,7 @@ import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-fo
 
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
+import { SampleLogoUswds, SampleLogoMantine } from "./components/sample-logo";
 
 export interface SampleComponent {
   name: string;
@@ -112,6 +114,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleDatepickerMantine />,
   },
   {
+    name: "Logo",
+    uswdsComponent: <SampleLogoUswds />,
+    mantineComponent: <SampleLogoMantine />,
+  },
+  {
     name: "Table",
     uswdsComponent: <SampleTableUswds />,
     mantineComponent: <SampleTableMantine />,
@@ -134,18 +141,11 @@ export const SampleApp: React.FC<SampleAppProps> = ({
       <BrowserRouter>
         <AppShell
           header={{ height: 60 }}
-          footer={{ height: 120 }}
           navbar={{
             width: 300,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
-          aside={{
-            width: 300,
-            breakpoint: "md",
-            collapsed: { desktop: false, mobile: true },
-          }}
-          padding="md"
         >
           <AppShell.Header className="usa-header usa-header--basic">
             <Flex align="center" m="xs">
@@ -180,34 +180,35 @@ export const SampleApp: React.FC<SampleAppProps> = ({
             <SampleAppSideNav />
           </AppShell.Navbar>
 
-          <AppShell.Main>
-            <Routes>
-              {STYLING_PAGES.map((styling) => (
-                <Route
-                  key={styling.name}
-                  path={`/${styling.name.toLowerCase()}`}
-                  element={styling.page}
-                />
-              ))}
-              {SAMPLE_COMPONENTS.map((component) => (
-                <Route
-                  key={component.name}
-                  path={`/components/${component.name.toLowerCase()}`}
-                  element={<ComponentComparison component={component} />}
-                />
-              ))}
-            </Routes>
+          <AppShell.Main style={{ flexDirection: "column" }} display="flex">
+            <Box style={{ flexGrow: 1 }} mx="md">
+              <Routes>
+                {STYLING_PAGES.map((styling) => (
+                  <Route
+                    key={styling.name}
+                    path={`/${styling.name.toLowerCase()}`}
+                    element={styling.page}
+                  />
+                ))}
+                {SAMPLE_COMPONENTS.map((component) => (
+                  <Route
+                    key={component.name}
+                    path={`/components/${component.name.toLowerCase()}`}
+                    element={<ComponentComparison component={component} />}
+                  />
+                ))}
+              </Routes>
+            </Box>
+            <PylonAppShellFooter
+              heading={
+                <Stack gap={0}>
+                  <AppShellFooterHeading text="Pylon UI" />
+                  <p className="font-serif-xs">©2025 BridgePhase, LLC</p>
+                </Stack>
+              }
+              image={<Image src={icon} mah="5rem" />}
+            />
           </AppShell.Main>
-
-          <PylonAppShellFooter
-            heading={
-              <Stack gap={0}>
-                <AppShellFooterHeading text="Pylon UI" />
-                <p className="font-serif-xs">©2025 BridgePhase, LLC</p>
-              </Stack>
-            }
-            image={<Image src={icon} mah="5rem" />}
-          />
         </AppShell>
       </BrowserRouter>
     </MantineProvider>
