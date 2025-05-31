@@ -12,6 +12,9 @@ import {
   Burger,
   Anchor,
   Box,
+  ActionIcon,
+  Divider,
+  Tooltip,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
@@ -56,6 +59,11 @@ import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
 import { SampleLogoUswds, SampleLogoMantine } from "./components/sample-logo";
 import { SampleLinkMantine, SampleLinkUswds } from "./components/sample-link";
+import { IconBrandGithub } from "@tabler/icons-react";
+import {
+  SampleModalMantine,
+  SampleModalUswds,
+} from "./components/sample-modal";
 
 export interface SampleComponent {
   name: string;
@@ -123,6 +131,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Logo",
     uswdsComponent: <SampleLogoUswds />,
     mantineComponent: <SampleLogoMantine />,
+  },
+  {
+    name: "Modal",
+    uswdsComponent: <SampleModalUswds />,
+    mantineComponent: <SampleModalMantine />,
   },
   {
     name: "Table",
@@ -210,7 +223,20 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
               heading={
                 <Stack gap={0}>
                   <AppShellFooterHeading text="Pylon UI" />
-                  <p className="font-serif-xs">©2025 BridgePhase, LLC</p>
+                  <Group className="font-serif-xs" gap="xs">
+                    ©2025{" "}
+                    <Anchor href="https://bridgephase.com/" variant="external">
+                      BridgePhase, LLC
+                    </Anchor>
+                    <Divider orientation="vertical" mx="md" />
+                    <Tooltip label="Pylon UI Git Repository">
+                      <Anchor href="https://github.com/BridgePhase/pylon-ui">
+                        <ActionIcon color="#AF3036">
+                          <IconBrandGithub />
+                        </ActionIcon>
+                      </Anchor>
+                    </Tooltip>
+                  </Group>
                 </Stack>
               }
               image={<Image src={icon} mah="5rem" />}

@@ -42,7 +42,7 @@ Components used in Waves application:
 | Label             | InputWrapper.Label  | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Link              | Anchor              | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Logo              | PylonAppShellFooter | ![](https://img.shields.io/badge/done-83e22b)                       |
-| Modal             | Modal               | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Modal             | Modal               | ![](https://img.shields.io/badge/done-83e22b)                       |
 | ModalFooter       | Modal.Content       | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | ModalHeading      | Modal.Header        | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | ModalRef          | Modal.Stack         | ![](https://img.shields.io/badge/backlog-e22b83)                    |

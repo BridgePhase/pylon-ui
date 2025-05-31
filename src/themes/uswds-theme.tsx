@@ -8,6 +8,7 @@ import {
   Card,
   Checkbox,
   MantineThemeOverride,
+  Modal,
   Table,
   TableScrollContainer,
   Text,
@@ -224,6 +225,23 @@ export const UswdsTheme: MantineThemeOverride = {
         w: "inherit",
       },
     }),
+    Modal: Modal.extend({
+      classNames: {
+        root: "usa-modal",
+        inner: "usa-modal__content",
+        content: "usa-modal__main",
+        header: "",
+        overlay: "",
+        title: "usa-modal__heading",
+        body: "",
+        close: "usa-button usa-modal__close",
+      },
+      styles: () => ({
+        content: {
+          maxHeight: "fit-content",
+        },
+      }),
+    }),
     NavLink: {
       classNames: {
         root: `${navLinkClasses.pylonSideNavItem} usa-sidenav__item`,
@@ -286,5 +304,10 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
     }),
+    Tooltip: {
+      defaultProps: {
+        withArrow: true,
+      },
+    },
   },
 };
