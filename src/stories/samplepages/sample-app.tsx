@@ -54,6 +54,7 @@ import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-fo
 
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
+import { SampleLogoUswds, SampleLogoMantine } from "./components/sample-logo";
 
 export interface SampleComponent {
   name: string;
@@ -113,6 +114,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleDatepickerMantine />,
   },
   {
+    name: "Logo",
+    uswdsComponent: <SampleLogoUswds />,
+    mantineComponent: <SampleLogoMantine />,
+  },
+  {
     name: "Table",
     uswdsComponent: <SampleTableUswds />,
     mantineComponent: <SampleTableMantine />,
@@ -140,12 +146,6 @@ export const SampleApp: React.FC<SampleAppProps> = ({
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
-          // aside={{
-          //   width: 300,
-          //   breakpoint: "md",
-          //   collapsed: { desktop: false, mobile: true },
-          // }}
-          // padding="md"
         >
           <AppShell.Header className="usa-header usa-header--basic">
             <Flex align="center" m="xs">
