@@ -135,6 +135,11 @@ export const UswdsTheme: MantineThemeOverride = {
         header: "usa-header usa-header--basic site-header",
       },
     },
+    AppShellHeader: {
+      defaultProps: {
+        component: "header",
+      },
+    },
     Badge: Badge.extend({
       classNames: (_theme, props) => ({
         root: cx({

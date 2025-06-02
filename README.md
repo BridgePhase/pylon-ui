@@ -35,11 +35,11 @@ Components used in Waves application:
 | FormGroup         | Fieldset?           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Grid              | Grid                | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | GridContainer     | Container           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| Header            | AppShell.Header     | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Header            | AppShell.Header     | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Icon              | Icon                | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | InputGroup        | FieldSet            | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | InputSuffix       | TextInput           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| Label             | InputWrapper.Label  | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Label             | PylonLabel          | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Link              | Anchor              | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Logo              | PylonAppShellFooter | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Modal             | Modal               | ![](https://img.shields.io/badge/done-83e22b)                       |

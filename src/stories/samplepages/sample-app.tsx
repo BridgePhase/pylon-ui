@@ -69,6 +69,10 @@ import {
   SampleTitleMantine,
   SampleTitleUswds,
 } from "./components/sample-title";
+import {
+  SampleLabelUswds,
+  SampleLabelMantine,
+} from "./components/sample-label";
 
 export interface SampleComponent {
   name: string;
@@ -138,7 +142,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
   { name: "Icon" },
   { name: "InputGroup" },
   { name: "InputSuffix" },
-  { name: "Label" },
+  {
+    name: "Label",
+    uswdsComponent: <SampleLabelUswds />,
+    mantineComponent: <SampleLabelMantine />,
+  },
   {
     name: "Link",
     uswdsComponent: <SampleLinkUswds />,
