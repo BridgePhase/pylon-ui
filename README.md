@@ -58,7 +58,7 @@ Components used in Waves application:
 | Tag               | Badge               | ![](https://img.shields.io/badge/done-83e22b)                       |
 | TextInput         | TextInput           | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
 | TextInputMask     | –                   | [react-imask](https://www.npmjs.com/package/react-imask) + `Input`? |
-| Title             | Title               | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| Title             | AppShellHeaderTitle | ![](https://img.shields.io/badge/done-83e22b)                       |
 
 ## React + TypeScript + Vite Template README
 

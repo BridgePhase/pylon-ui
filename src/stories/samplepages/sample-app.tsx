@@ -64,11 +64,16 @@ import {
   SampleModalMantine,
   SampleModalUswds,
 } from "./components/sample-modal";
+import { AppShellHeaderTitle } from "../../widgets/app-shell/header/app-shell-header-title";
+import {
+  SampleTitleMantine,
+  SampleTitleUswds,
+} from "./components/sample-title";
 
 export interface SampleComponent {
   name: string;
-  uswdsComponent: ReactNode;
-  mantineComponent: ReactNode;
+  uswdsComponent?: ReactNode;
+  mantineComponent?: ReactNode;
 }
 export interface StylingPage {
   name: string;
@@ -92,6 +97,7 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleAccordionUswds />,
     mantineComponent: <SampleAccordionMantine />,
   },
+  { name: "Address" },
   {
     name: "Alert",
     uswdsComponent: <SampleAlertUswds />,
@@ -117,11 +123,22 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleCheckboxUswds />,
     mantineComponent: <SampleCheckboxMantine />,
   },
+  { name: "Collection" },
   {
     name: "Datepicker",
     uswdsComponent: <SampleDatepickerUswds />,
     mantineComponent: <SampleDatepickerMantine />,
   },
+  { name: "ErrorMessage" },
+  { name: "Footer" },
+  { name: "FormGroup" },
+  { name: "Grid" },
+  { name: "GridContainer" },
+  { name: "Header" },
+  { name: "Icon" },
+  { name: "InputGroup" },
+  { name: "InputSuffix" },
+  { name: "Label" },
   {
     name: "Link",
     uswdsComponent: <SampleLinkUswds />,
@@ -137,6 +154,17 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleModalUswds />,
     mantineComponent: <SampleModalMantine />,
   },
+  { name: "ModalFooter" },
+  { name: "ModalHeading" },
+  { name: "ModalRef" },
+  { name: "ModalToggleButton" },
+  { name: "NavMenuButton" },
+  { name: "Pagination" },
+  { name: "PrimaryNav" },
+  { name: "RequiredMarker" },
+  { name: "Select" },
+  { name: "StepIndicator" },
+  { name: "StepIndicatorStep" },
   {
     name: "Table",
     uswdsComponent: <SampleTableUswds />,
@@ -146,6 +174,13 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Tag",
     uswdsComponent: <SampleTagUswds />,
     mantineComponent: <SampleTagMantine />,
+  },
+  { name: "TextInput" },
+  { name: "TextInputMask" },
+  {
+    name: "Title",
+    uswdsComponent: <SampleTitleUswds />,
+    mantineComponent: <SampleTitleMantine />,
   },
 ];
 
@@ -158,14 +193,14 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
         <AppShell
           header={{ height: 60 }}
           navbar={{
-            width: 300,
+            width: 180,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
         >
           <AppShell.Header
-            className="usa-header usa-header--basic"
             style={{ background: "linear-gradient(#AF3036, #87252a)" }}
+            miw={450}
           >
             <Flex align="center" m="xs">
               <Group h="100%" px="md">
@@ -176,20 +211,15 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
                   size="sm"
                   color="white"
                 />
-                <Image src="/pylon.png" w={40} fit="contain" />
-                <Anchor href="/" c="#">
-                  <Text
-                    className="font-body-lg text-bold"
-                    ml={-25}
-                    td="default"
-                    c="white"
-                  >
-                    Pylon{" "}
-                    <span style={{ fontWeight: 100, color: "#aaa" }}>UI</span>
-                  </Text>
-                </Anchor>
+                {/* <Anchor href="/" c="#" variant="text"> */}
+                <AppShellHeaderTitle
+                  shortText="PylonUI"
+                  longText="Pylon UI Toolkit"
+                  logo={<Image src="/pylon.png" w={40} fit="contain" />}
+                />
+                {/* </Anchor> */}
               </Group>
-              <Group ml="auto">
+              <Group ml="auto" wrap="nowrap">
                 <Text c="dimmed">Username</Text>
                 <Button>Logout</Button>
               </Group>
@@ -200,7 +230,11 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
             <SampleAppSideNav />
           </AppShell.Navbar>
 
-          <AppShell.Main style={{ flexDirection: "column" }} display="flex">
+          <AppShell.Main
+            style={{ flexDirection: "column" }}
+            display="flex"
+            miw={450}
+          >
             <Box style={{ flexGrow: 1 }} mx="md">
               <Routes>
                 {STYLING_PAGES.map((styling) => (

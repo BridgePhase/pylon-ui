@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
 import { UswdsColorTokens } from "./uswds-colors-tokens";
+import { DateInput } from "@mantine/dates";
 import breadrumbsClasses from "./components/Breadcrumbs.module.css";
 import navLinkClasses from "./components/NavLink.module.css";
 import textClasses from "./components/Text.module.css";
@@ -23,7 +24,6 @@ import cardClasses from "./components/Card.module.css";
 import checkboxClasses from "./components/Checkbox.module.css";
 
 import "./uswds-theme.scss";
-import { DateInput } from "@mantine/dates";
 
 export const UswdsTheme: MantineThemeOverride = {
   // Colors
@@ -132,6 +132,7 @@ export const UswdsTheme: MantineThemeOverride = {
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",
+        header: "usa-header usa-header--basic site-header",
       },
     },
     Badge: Badge.extend({
