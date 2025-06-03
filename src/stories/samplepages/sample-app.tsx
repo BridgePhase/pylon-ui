@@ -73,6 +73,10 @@ import {
   SampleLabelUswds,
   SampleLabelMantine,
 } from "./components/sample-label";
+import {
+  SampleFooterUswds,
+  SampleFooterMantine,
+} from "./components/sample-footer";
 
 export interface SampleComponent {
   name: string;
@@ -134,11 +138,14 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleDatepickerMantine />,
   },
   { name: "ErrorMessage" },
-  { name: "Footer" },
+  {
+    name: "Footer",
+    uswdsComponent: <SampleFooterUswds />,
+    mantineComponent: <SampleFooterMantine />,
+  },
   { name: "FormGroup" },
   { name: "Grid" },
   { name: "GridContainer" },
-  { name: "Header" },
   { name: "Icon" },
   { name: "InputGroup" },
   { name: "InputSuffix" },
@@ -219,13 +226,11 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
                   size="sm"
                   color="white"
                 />
-                {/* <Anchor href="/" c="#" variant="text"> */}
                 <AppShellHeaderTitle
                   shortText="PylonUI"
                   longText="Pylon UI Toolkit"
                   logo={<Image src="/pylon.png" w={40} fit="contain" />}
                 />
-                {/* </Anchor> */}
               </Group>
               <Group ml="auto" wrap="nowrap">
                 <Text c="dimmed">Username</Text>

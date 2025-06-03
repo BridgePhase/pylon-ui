@@ -1,4 +1,3 @@
-import { Anchor } from "@mantine/core";
 import { PylonLabel } from "../../../widgets/text/label/label";
 
 export const SampleLabelMantine: React.FC = () => {
