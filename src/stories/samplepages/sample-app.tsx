@@ -8,13 +8,12 @@ import {
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
-  Stack,
   Burger,
   Anchor,
   Box,
   ActionIcon,
-  Divider,
   Tooltip,
+  Container,
 } from "@mantine/core";
 import {
   SampleAccordionMantine,
@@ -52,8 +51,8 @@ import {
   SampleDatepickerMantine,
   SampleDatepickerUswds,
 } from "./components/sample-datepicker";
-import { AppShellFooterHeading } from "../../widgets/app-shell/footer/app-shell-footer-heading";
-import { PylonAppShellFooter } from "../../widgets/app-shell/footer/app-shell-footer";
+import { PylonFooterHeading } from "../../widgets/app-shell/footer/footer-heading";
+import { PylonFooter } from "../../widgets/app-shell/footer/footer";
 
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
@@ -77,6 +76,11 @@ import {
   SampleFooterUswds,
   SampleFooterMantine,
 } from "./components/sample-footer";
+import {
+  SampleFooterItemsMantine,
+  SampleFooterItemsUswds,
+} from "./components/sample-footer-tems";
+import { PylonFooterItems } from "../../widgets/app-shell/footer/footer-items";
 
 export interface SampleComponent {
   name: string;
@@ -105,7 +109,6 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleAccordionUswds />,
     mantineComponent: <SampleAccordionMantine />,
   },
-  { name: "Address" },
   {
     name: "Alert",
     uswdsComponent: <SampleAlertUswds />,
@@ -142,6 +145,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Footer",
     uswdsComponent: <SampleFooterUswds />,
     mantineComponent: <SampleFooterMantine />,
+  },
+  {
+    name: "Footer Item (Address)",
+    uswdsComponent: <SampleFooterItemsUswds />,
+    mantineComponent: <SampleFooterItemsMantine />,
   },
   { name: "FormGroup" },
   { name: "Grid" },
@@ -208,7 +216,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
         <AppShell
           header={{ height: 60 }}
           navbar={{
-            width: 180,
+            width: 200,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
@@ -266,28 +274,33 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
                 ))}
               </Routes>
             </Box>
-            <PylonAppShellFooter
-              heading={
-                <Stack gap={0}>
-                  <AppShellFooterHeading text="Pylon UI" />
-                  <Group className="font-serif-xs" gap="xs">
-                    ©2025{" "}
-                    <Anchor href="https://bridgephase.com/" variant="external">
-                      BridgePhase, LLC
-                    </Anchor>
-                    <Divider orientation="vertical" mx="md" />
+            <PylonFooter
+              heading={<PylonFooterHeading text="Pylon UI" />}
+              image={<Image src={icon} mah="5rem" />}
+            >
+              <Container>
+                <PylonFooterItems
+                  items={[
+                    <Group className="font-serif-xs" gap="xs">
+                      ©2025{" "}
+                      <Anchor
+                        href="https://bridgephase.com/"
+                        variant="external"
+                      >
+                        BridgePhase, LLC
+                      </Anchor>
+                    </Group>,
                     <Tooltip label="Pylon UI Git Repository">
                       <Anchor href="https://github.com/BridgePhase/pylon-ui">
                         <ActionIcon color="#AF3036">
                           <IconBrandGithub />
                         </ActionIcon>
                       </Anchor>
-                    </Tooltip>
-                  </Group>
-                </Stack>
-              }
-              image={<Image src={icon} mah="5rem" />}
-            />
+                    </Tooltip>,
+                  ]}
+                />
+              </Container>
+            </PylonFooter>
           </AppShell.Main>
         </AppShell>
       </BrowserRouter>

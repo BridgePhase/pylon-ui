@@ -1,12 +1,12 @@
 import { Image } from "@mantine/core";
-import { PylonAppShellFooter } from "../../../widgets/app-shell/footer/app-shell-footer";
-import { AppShellFooterHeading } from "../../../widgets/app-shell/footer/app-shell-footer-heading";
+import { PylonFooter } from "../../../widgets/app-shell/footer/footer";
+import { PylonFooterHeading } from "../../../widgets/app-shell/footer/footer-heading";
 import icon from "/pylon.png";
 
 export const SampleFooterMantine: React.FC = () => {
   return (
-    <PylonAppShellFooter
-      heading={<AppShellFooterHeading text="Name of Agency" />}
+    <PylonFooter
+      heading={<PylonFooterHeading text="Name of Agency" />}
       image={<Image src={icon} mah="5rem" />}
     />
   );

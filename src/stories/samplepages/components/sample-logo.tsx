@@ -1,8 +1,8 @@
-import { PylonAppShellFooter } from "../../../widgets/app-shell/footer/app-shell-footer";
+import { PylonFooter } from "../../../widgets/app-shell/footer/footer";
 
 export const SampleLogoMantine: React.FC = () => {
   return (
-    <PylonAppShellFooter
+    <PylonFooter
       heading={<p className="usa-footer__logo-heading">Name of Agency</p>}
       image={
         <img

@@ -15,7 +15,7 @@ Components used in Waves application:
 | USWDS             | Mantine             | Progress                                                            |
 | ----------------- | ------------------- | ------------------------------------------------------------------- |
 | Accordion         | Accordion           | ![](https://img.shields.io/badge/done-83e22b)                       |
-| Address           | –                   | ![](https://img.shields.io/badge/need%20alternative-8A2BE2)         |
+| Address           | PylonFooterItems    | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Alert             | Alert               | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Breadcrumb        | Breadcrumbs\*       | ![](https://img.shields.io/badge/done-83e22b)                       |
 | BreadcrumbItem    | Breadcrumbs\*       | ![](https://img.shields.io/badge/done-83e22b)                       |
@@ -41,7 +41,7 @@ Components used in Waves application:
 | InputSuffix       | TextInput           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Label             | PylonLabel          | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Link              | Anchor              | ![](https://img.shields.io/badge/done-83e22b)                       |
-| Logo              | PylonAppShellFooter | ![](https://img.shields.io/badge/done-83e22b)                       |
+| Logo              | PylonFooter         | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Modal             | Modal               | ![](https://img.shields.io/badge/done-83e22b)                       |
 | ModalFooter       | Modal.Content       | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | ModalHeading      | Modal.Header        | ![](https://img.shields.io/badge/backlog-e22b83)                    |
