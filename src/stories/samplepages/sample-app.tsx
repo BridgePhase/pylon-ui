@@ -81,6 +81,10 @@ import {
   SampleFooterItemsUswds,
 } from "./components/sample-footer-tems";
 import { PylonFooterItems } from "../../widgets/app-shell/footer/footer-items";
+import {
+  SampleCollectionUswds,
+  SampleCollectionMantine,
+} from "./components/sample-collection";
 
 export interface SampleComponent {
   name: string;
@@ -134,7 +138,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleCheckboxUswds />,
     mantineComponent: <SampleCheckboxMantine />,
   },
-  { name: "Collection" },
+  {
+    name: "Collection",
+    uswdsComponent: <SampleCollectionUswds />,
+    mantineComponent: <SampleCollectionMantine />,
+  },
   {
     name: "Datepicker",
     uswdsComponent: <SampleDatepickerUswds />,

@@ -6,8 +6,8 @@ export const PylonFooterItems: React.FC<{ items: ReactNode[] }> = ({
   return (
     <address className="usa-footer__address">
       <div className="usa-footer__contact-info grid-row grid-gap">
-        {items.map((item) => (
-          <div>{item}</div>
+        {items.map((item, index) => (
+          <div key={`item-${index}`}>{item}</div>
         ))}
       </div>
     </address>
