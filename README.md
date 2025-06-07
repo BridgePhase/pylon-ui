@@ -57,7 +57,7 @@ Components used in Waves application:
 | StepIndicatorStep | Stepper.Step           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Table             | Table                  | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Tag               | Badge                  | ![](https://img.shields.io/badge/done-83e22b)                       |
-| TextInput         | TextInput              | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
+| TextInput         | TextInput              | ![](https://img.shields.io/badge/done-83e22b)                       |
 | TextInputMask     | –                      | [react-imask](https://www.npmjs.com/package/react-imask) + `Input`? |
 | Title             | AppShellHeaderTitle    | ![](https://img.shields.io/badge/done-83e22b)                       |
 

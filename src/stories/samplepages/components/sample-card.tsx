@@ -1,25 +1,24 @@
-import { Button, Card, Stack, Text, Title } from "@mantine/core";
+import { Button, Card, Text, Title } from "@mantine/core";
+import { PylonCardGroup } from "../../../widgets/card/card-group";
 
 export const SampleCardMantine: React.FC = () => {
   return (
-    <>
-      <Stack className="usa-card-group">
-        <Card>
-          <Card.Section>
-            <Title order={4}>Card</Title>
-          </Card.Section>
-          <Card.Section>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              earum tenetur quo cupiditate, eaque qui officia recusandae.
-            </Text>
-          </Card.Section>
-          <Card.Section>
-            <Button>Visit Florida Keys</Button>
-          </Card.Section>
-        </Card>
-      </Stack>
-    </>
+    <PylonCardGroup>
+      <Card>
+        <Card.Section>
+          <Title order={4}>Card</Title>
+        </Card.Section>
+        <Card.Section>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+            earum tenetur quo cupiditate, eaque qui officia recusandae.
+          </Text>
+        </Card.Section>
+        <Card.Section>
+          <Button>Visit Florida Keys</Button>
+        </Card.Section>
+      </Card>
+    </PylonCardGroup>
   );
 };
 
