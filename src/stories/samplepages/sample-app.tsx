@@ -85,6 +85,10 @@ import {
   SampleCollectionUswds,
   SampleCollectionMantine,
 } from "./components/sample-collection";
+import {
+  SampleTextInputMantine,
+  SampleTextInputUswds,
+} from "./components/sample-text-input";
 
 export interface SampleComponent {
   name: string;
@@ -206,7 +210,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleTagUswds />,
     mantineComponent: <SampleTagMantine />,
   },
-  { name: "TextInput" },
+  {
+    name: "TextInput",
+    uswdsComponent: <SampleTextInputUswds />,
+    mantineComponent: <SampleTextInputMantine />,
+  },
   { name: "TextInputMask" },
   {
     name: "Title",
@@ -264,7 +272,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
             display="flex"
             miw={450}
           >
-            <Box style={{ flexGrow: 1 }} mx="md">
+            <Box style={{ flexGrow: 1 }} mx="xl">
               <Routes>
                 {STYLING_PAGES.map((styling) => (
                   <Route

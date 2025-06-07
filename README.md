@@ -23,7 +23,7 @@ Components used in Waves application:
 | ButtonGroup       | –                      | ![](https://img.shields.io/badge/unnecessary%3f-2b83e2)             |
 | Card              | Card                   | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CardBody          | Card.Section\*\*       | ![](https://img.shields.io/badge/done-83e22b)                       |
-| CardGroup         | –                      | ![](https://img.shields.io/badge/unnecessary%3f-2b83e2)             |
+| CardGroup         | PylonCardGroup         | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CardHeader        | Card.Section\*\*       | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Checkbox          | Checkbox               | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Collection        | PylonCollection        | ![](https://img.shields.io/badge/done-83e22b)                       |

@@ -12,6 +12,7 @@ import {
   Table,
   TableScrollContainer,
   Text,
+  TextInput,
   Title,
 } from "@mantine/core";
 import { UswdsAlertColors, UswdsButtonColors } from "./uswds-colors-contextual";
@@ -82,6 +83,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     },
+
     Alert: Alert.extend({
       classNames: (_theme, props) => ({
         root: `usa-alert usa-alert--${[
@@ -115,6 +117,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     }),
+
     Anchor: Anchor.extend({
       defaultProps: {
         variant: "default",
@@ -129,17 +132,20 @@ export const UswdsTheme: MantineThemeOverride = {
         }),
       }),
     }),
+
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",
         header: "usa-header usa-header--basic site-header",
       },
     },
+
     AppShellHeader: {
       defaultProps: {
         component: "header",
       },
     },
+
     Badge: Badge.extend({
       classNames: (_theme, props) => ({
         root: cx({
@@ -156,6 +162,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
     }),
+
     Breadcrumbs: Breadcrumbs.extend({
       classNames: (_theme, props) => ({
         root: `${
@@ -173,6 +180,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     }),
+
     Button: Button.extend({
       classNames: (_theme, props) => ({
         root: cx({
@@ -195,6 +203,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
     }),
+
     Card: Card.extend({
       classNames: () => ({
         root: "usa-card__container",
@@ -205,6 +214,7 @@ export const UswdsTheme: MantineThemeOverride = {
         variant: "default",
       },
     }),
+
     Checkbox: Checkbox.extend({
       classNames: () => ({
         root: checkboxClasses.pylonCheckboxRoot,
@@ -213,12 +223,14 @@ export const UswdsTheme: MantineThemeOverride = {
         icon: checkboxClasses.pylonCheckboxIcon,
       }),
     }),
+
     CheckboxGroup: Checkbox.Group.extend({
       classNames: {
         root: `usa-fieldset ${checkboxClasses.pylonCheckboxGroup}`,
         label: `usa-legend ${checkboxClasses.pylonCheckboxLegend}`,
       },
     }),
+
     DateInput: DateInput.extend({
       classNames: (_theme, _props) => ({
         root: "usa-form-group",
@@ -231,6 +243,7 @@ export const UswdsTheme: MantineThemeOverride = {
         w: "inherit",
       },
     }),
+
     Modal: Modal.extend({
       classNames: {
         root: "usa-modal",
@@ -248,6 +261,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       }),
     }),
+
     NavLink: {
       classNames: {
         root: `${navLinkClasses.pylonSideNavItem} usa-sidenav__item`,
@@ -259,6 +273,7 @@ export const UswdsTheme: MantineThemeOverride = {
         defaultOpened: true,
       },
     },
+
     Table: Table.extend({
       classNames: (_theme, props) => ({
         table: cx({
@@ -287,6 +302,7 @@ export const UswdsTheme: MantineThemeOverride = {
         w: "inherit",
       },
     }),
+
     TableScrollContainer: TableScrollContainer.extend({
       classNames: () => ({
         scrollContainer: "usa-table-container--scrollable",
@@ -297,9 +313,45 @@ export const UswdsTheme: MantineThemeOverride = {
         tabIndex: 0,
       },
     }),
+
     Text: Text.extend({
       classNames: textClasses,
     }),
+
+    TextInput: TextInput.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-form-group"]: true,
+          ["usa-form-group--error"]: props.error,
+        }),
+        label: cx({
+          ["usa-label"]: true,
+          ["usa-label--error"]: props.error,
+        }),
+        input: cx({
+          ["usa-input"]: true,
+          ["usa-input--error"]: props.error,
+        }),
+        error: "usa-error-message",
+      }),
+      styles: {
+        root: {
+          display: "flex",
+          flexDirection: "column",
+        },
+        label: {
+          order: -2,
+        },
+        error: {
+          order: -1,
+          fontSize: "1.06rem",
+        },
+        input: {
+          order: 2,
+        },
+      },
+    }),
+
     Title: Title.extend({
       styles: {
         root: {
@@ -310,6 +362,7 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
     }),
+
     Tooltip: {
       defaultProps: {
         withArrow: true,
