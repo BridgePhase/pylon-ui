@@ -7,6 +7,8 @@ import {
   Button,
   Card,
   Checkbox,
+  Grid,
+  GridCol,
   MantineThemeOverride,
   Modal,
   Table,
@@ -232,7 +234,7 @@ export const UswdsTheme: MantineThemeOverride = {
     }),
 
     DateInput: DateInput.extend({
-      classNames: (_theme, _props) => ({
+      classNames: () => ({
         root: "usa-form-group",
         label: "usa-label",
         description: "usa-hint",
@@ -241,6 +243,21 @@ export const UswdsTheme: MantineThemeOverride = {
       }),
       defaultProps: {
         w: "inherit",
+      },
+    }),
+
+    Grid: Grid.extend({
+      classNames: () => ({
+        root: "grid-container",
+        col: "grid-col",
+      }),
+      defaultProps: {
+        gutter: 0,
+      },
+    }),
+    GridCol: GridCol.extend({
+      defaultProps: {
+        span: 1,
       },
     }),
 

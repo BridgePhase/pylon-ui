@@ -20,7 +20,7 @@ Components used in Waves application:
 | Breadcrumb        | Breadcrumbs\*          | ![](https://img.shields.io/badge/done-83e22b)                       |
 | BreadcrumbItem    | Breadcrumbs\*          | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Button            | Button                 | ![](https://img.shields.io/badge/done-83e22b)                       |
-| ButtonGroup       | –                      | ![](https://img.shields.io/badge/unnecessary%3f-2b83e2)             |
+| ButtonGroup       | Group                  | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Card              | Card                   | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CardBody          | Card.Section\*\*       | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CardGroup         | PylonCardGroup         | ![](https://img.shields.io/badge/done-83e22b)                       |
@@ -31,9 +31,9 @@ Components used in Waves application:
 | CollectionItem    | PylonCollectionItem    | ![](https://img.shields.io/badge/done-83e22b)                       |
 | CollectionMeta    | PylonCollectionMeta    | ![](https://img.shields.io/badge/done-83e22b)                       |
 | DatePicker        | DateInput              | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
-| ErrorMessage      | Input.Error            | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| Footer            | AppShell.Footer        | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| FormGroup         | Fieldset?              | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| ErrorMessage      | Input.Error            | ![](https://img.shields.io/badge/done-83e22b)                       |
+| Footer            | PylonFooter            | ![](https://img.shields.io/badge/done-83e22b)                       |
+| FormGroup         | Fieldset?              | ![](https://img.shields.io/badge/20progress-e28a2b)                 |
 | Grid              | Grid                   | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | GridContainer     | Container              | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Header            | AppShell.Header        | ![](https://img.shields.io/badge/done-83e22b)                       |

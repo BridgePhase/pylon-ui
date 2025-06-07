@@ -89,6 +89,7 @@ import {
   SampleTextInputMantine,
   SampleTextInputUswds,
 } from "./components/sample-text-input";
+import { SampleGridUswds, SampleGridMantine } from "./components/sample-grid";
 
 export interface SampleComponent {
   name: string;
@@ -152,20 +153,21 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleDatepickerUswds />,
     mantineComponent: <SampleDatepickerMantine />,
   },
-  { name: "ErrorMessage" },
   {
     name: "Footer",
     uswdsComponent: <SampleFooterUswds />,
     mantineComponent: <SampleFooterMantine />,
   },
   {
-    name: "Footer Item (Address)",
+    name: "Footer Item / Address",
     uswdsComponent: <SampleFooterItemsUswds />,
     mantineComponent: <SampleFooterItemsMantine />,
   },
-  { name: "FormGroup" },
-  { name: "Grid" },
-  { name: "GridContainer" },
+  {
+    name: "Grid / GridContainer",
+    uswdsComponent: <SampleGridUswds />,
+    mantineComponent: <SampleGridMantine />,
+  },
   { name: "Icon" },
   { name: "InputGroup" },
   { name: "InputSuffix" },

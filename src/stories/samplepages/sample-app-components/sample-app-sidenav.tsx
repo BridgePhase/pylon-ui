@@ -1,8 +1,16 @@
-import { Highlight, NavLink, ScrollArea, TextInput } from "@mantine/core";
+import {
+  Flex,
+  Highlight,
+  NavLink,
+  ScrollArea,
+  Text,
+  TextInput,
+} from "@mantine/core";
 import { STYLING_PAGES, SAMPLE_COMPONENTS } from "../sample-app";
 import { useLocation } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
+import { ProgressBar } from "./progress-bar";
 
 export const SampleAppSideNav = () => {
   const { pathname } = useLocation();
@@ -15,9 +23,17 @@ export const SampleAppSideNav = () => {
     page.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const stylingComplete = STYLING_PAGES.filter((link) => link.page).length;
+  const componentsComplete = SAMPLE_COMPONENTS.filter(
+    (link) => link.mantineComponent && link.uswdsComponent
+  ).length;
+
   return (
     <ScrollArea offsetScrollbars="x">
       <TextInput
+        label={null}
+        mt={0}
+        inputWrapperOrder={["input"]}
         mb="sm"
         size="xs"
         value={searchQuery}
@@ -27,27 +43,51 @@ export const SampleAppSideNav = () => {
         rightSectionProps={{
           className: "usa-button",
           style: {
-            margin: 0,
+            margin: "8px 0 0 0",
+            height: "38px",
             paddingLeft: 8,
             paddingRight: 8,
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0,
+            borderRadius: 0,
           },
         }}
       />
-      {filteredStylingPages.map((page) => {
-        const path = `/${page.name.toLowerCase()}`;
-        return (
-          <NavLink
-            key={page.name}
-            label={page.name}
-            href={path}
-            active={pathname === path}
-          />
-        );
-      })}
+
+      <NavLink
+        label={
+          <Flex gap={3} align="center" w="100%">
+            <Text fw="bold" size="sm">
+              Styling
+            </Text>
+            <ProgressBar count={stylingComplete} total={STYLING_PAGES.length} />
+          </Flex>
+        }
+      >
+        {filteredStylingPages.map((page) => {
+          const path = `/${page.name.toLowerCase()}`;
+          return (
+            <NavLink
+              key={page.name}
+              label={page.name}
+              href={path}
+              active={pathname === path}
+            />
+          );
+        })}
+      </NavLink>
       {filteredComponents.length > 0 && (
-        <NavLink label={<b>Components</b>} disabled>
+        <NavLink
+          label={
+            <Flex gap={3} align="center" w="100%">
+              <Text fw="bold" size="sm">
+                Components
+              </Text>
+              <ProgressBar
+                count={componentsComplete}
+                total={SAMPLE_COMPONENTS.length}
+              />
+            </Flex>
+          }
+        >
           {filteredComponents.map((page) => {
             if (!page.mantineComponent || !page.uswdsComponent) {
               return (
