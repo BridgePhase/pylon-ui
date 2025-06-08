@@ -4,6 +4,7 @@ import {
   Anchor,
   Badge,
   Breadcrumbs,
+  Burger,
   Button,
   Card,
   Checkbox,
@@ -206,6 +207,12 @@ export const UswdsTheme: MantineThemeOverride = {
       },
     }),
 
+    Burger: Burger.extend({
+      classNames: {
+        root: "usa-menu-btn",
+      },
+    }),
+
     Card: Card.extend({
       classNames: () => ({
         root: "usa-card__container",
@@ -275,6 +282,11 @@ export const UswdsTheme: MantineThemeOverride = {
       styles: () => ({
         content: {
           maxHeight: "fit-content",
+          paddingTop: 32,
+          paddingBottom: 32,
+        },
+        title: {
+          fontWeight: 700,
         },
       }),
     }),
@@ -351,6 +363,25 @@ export const UswdsTheme: MantineThemeOverride = {
         }),
         error: "usa-error-message",
       }),
+      defaultProps: {
+        leftSectionProps: {
+          className: "usa-input-prefix",
+          style: {
+            marginTop: "8px",
+            height: "38px",
+            borderRadius: 0,
+          },
+        },
+        rightSectionProps: {
+          className: "usa-input-suffix",
+          style: {
+            marginTop: "8px",
+            marginRight: "15px",
+            height: "38px",
+            borderRadius: 0,
+          },
+        },
+      },
       styles: {
         root: {
           display: "flex",

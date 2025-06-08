@@ -45,10 +45,8 @@ Components used in Waves application:
 | Logo              | PylonFooter            | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Modal             | Modal                  | ![](https://img.shields.io/badge/done-83e22b)                       |
 | ModalFooter       | Modal.Content          | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| ModalHeading      | Modal.Header           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| ModalRef          | Modal.Stack            | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| ModalToggleButton | CloseButton?           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| NavMenuButton     | NavLink                | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| ModalRef          | useModalsStack         | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| NavMenuButton     | Burger                 | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | Pagination        | Pagination             | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | PrimaryNav        | AppShell.Navbar        | ![](https://img.shields.io/badge/backlog-e22b83)                    |
 | RequiredMarker    | –                      | ![](https://img.shields.io/badge/backlog-e22b83)                    |

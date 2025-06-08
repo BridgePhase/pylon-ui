@@ -90,6 +90,10 @@ import {
   SampleTextInputUswds,
 } from "./components/sample-text-input";
 import { SampleGridUswds, SampleGridMantine } from "./components/sample-grid";
+import {
+  SampleInputPrefixSuffixUswds,
+  SampleInputPrefixSuffixMantine,
+} from "./components/sample-input-prefix-suffix";
 
 export interface SampleComponent {
   name: string;
@@ -168,9 +172,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleGridUswds />,
     mantineComponent: <SampleGridMantine />,
   },
-  { name: "Icon" },
-  { name: "InputGroup" },
-  { name: "InputSuffix" },
+  {
+    name: "InputGroup / InputSuffix",
+    uswdsComponent: <SampleInputPrefixSuffixUswds />,
+    mantineComponent: <SampleInputPrefixSuffixMantine />,
+  },
   {
     name: "Label",
     uswdsComponent: <SampleLabelUswds />,
@@ -187,15 +193,10 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleLogoMantine />,
   },
   {
-    name: "Modal",
+    name: "Modal / Modal Heading",
     uswdsComponent: <SampleModalUswds />,
     mantineComponent: <SampleModalMantine />,
   },
-  { name: "ModalFooter" },
-  { name: "ModalHeading" },
-  { name: "ModalRef" },
-  { name: "ModalToggleButton" },
-  { name: "NavMenuButton" },
   { name: "Pagination" },
   { name: "PrimaryNav" },
   { name: "RequiredMarker" },
@@ -234,7 +235,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
         <AppShell
           header={{ height: 60 }}
           navbar={{
-            width: 200,
+            width: 220,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
