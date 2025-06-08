@@ -62,3 +62,32 @@
 .mantine-Popover-dropdown:not(.pylon-date-picker-dropdown) {
   display: none;
 }
+
+.usa-pagination > .mantine-Group-root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  .usa-button {
+    height: 40px;
+    width: 40px;
+    &:first-child {
+      width: auto;
+      border: none;
+      &::after {
+        content: "Previous";
+      }
+    }
+    &:last-child {
+      width: auto;
+      border: none;
+      &::before {
+        content: "Next";
+      }
+    }
+    &[data-active] {
+      background: black;
+      color: white;
+    }
+  }
+}

@@ -94,6 +94,10 @@ import {
   SampleInputPrefixSuffixUswds,
   SampleInputPrefixSuffixMantine,
 } from "./components/sample-input-prefix-suffix";
+import {
+  SamplePaginationMantine,
+  SamplePaginationUswds,
+} from "./components/sample-pagination";
 
 export interface SampleComponent {
   name: string;
@@ -197,7 +201,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleModalUswds />,
     mantineComponent: <SampleModalMantine />,
   },
-  { name: "Pagination" },
+  {
+    name: "Pagination",
+    uswdsComponent: <SamplePaginationUswds />,
+    mantineComponent: <SamplePaginationMantine />,
+  },
   { name: "PrimaryNav" },
   { name: "RequiredMarker" },
   { name: "Select" },

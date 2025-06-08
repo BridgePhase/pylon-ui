@@ -12,6 +12,7 @@ import {
   GridCol,
   MantineThemeOverride,
   Modal,
+  Pagination,
   Table,
   TableScrollContainer,
   Text,
@@ -302,6 +303,13 @@ export const UswdsTheme: MantineThemeOverride = {
         defaultOpened: true,
       },
     },
+
+    Pagination: Pagination.extend({
+      classNames: (_theme, _props) => ({
+        root: "usa-pagination",
+        control: "usa-button usa-button--unstyled usa-pagination__button",
+      }),
+    }),
 
     Table: Table.extend({
       classNames: (_theme, props) => ({
