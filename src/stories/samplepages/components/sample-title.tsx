@@ -1,9 +1,9 @@
 import { Image } from "@mantine/core";
-import { AppShellHeaderTitle } from "../../../widgets/app-shell/header/app-shell-header-title";
+import { HeaderTitle } from "../../../widgets/app-shell/header/header-title";
 
 export const SampleTitleMantine: React.FC = () => {
   return (
-    <AppShellHeaderTitle
+    <HeaderTitle
       shortText="USWDS"
       longText="U.S. Web Design System (USWDS)"
       logo={<Image src="/pylon.png" w={40} fit="contain" />}

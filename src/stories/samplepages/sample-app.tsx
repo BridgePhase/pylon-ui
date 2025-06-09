@@ -63,7 +63,7 @@ import {
   SampleModalMantine,
   SampleModalUswds,
 } from "./components/sample-modal";
-import { AppShellHeaderTitle } from "../../widgets/app-shell/header/app-shell-header-title";
+import { HeaderTitle } from "../../widgets/app-shell/header/header-title";
 import {
   SampleTitleMantine,
   SampleTitleUswds,
@@ -98,6 +98,10 @@ import {
   SamplePaginationMantine,
   SamplePaginationUswds,
 } from "./components/sample-pagination";
+import {
+  SampleHeaderMantine,
+  SampleHeaderUswds,
+} from "./components/sample-header";
 
 export interface SampleComponent {
   name: string;
@@ -177,6 +181,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleGridMantine />,
   },
   {
+    name: "Header / PrimaryNav",
+    uswdsComponent: <SampleHeaderUswds />,
+    mantineComponent: <SampleHeaderMantine />,
+  },
+  {
     name: "InputGroup / InputSuffix",
     uswdsComponent: <SampleInputPrefixSuffixUswds />,
     mantineComponent: <SampleInputPrefixSuffixMantine />,
@@ -206,7 +215,6 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SamplePaginationUswds />,
     mantineComponent: <SamplePaginationMantine />,
   },
-  { name: "PrimaryNav" },
   { name: "RequiredMarker" },
   { name: "Select" },
   { name: "StepIndicator" },
@@ -261,7 +269,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
                   size="sm"
                   color="white"
                 />
-                <AppShellHeaderTitle
+                <HeaderTitle
                   shortText="PylonUI"
                   longText="Pylon UI Toolkit"
                   logo={<Image src="/pylon.png" w={40} fit="contain" />}
