@@ -1,10 +1,8 @@
 import {
   AppShell,
   Image,
-  Flex,
   Text,
   Group,
-  Button,
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
@@ -102,6 +100,8 @@ import {
   SampleHeaderMantine,
   SampleHeaderUswds,
 } from "./components/sample-header";
+import { HeaderNav } from "../../widgets/app-shell/header/header-nav";
+import { HeaderNavLink } from "../../widgets/app-shell/header/header-nav-link";
 
 export interface SampleComponent {
   name: string;
@@ -257,29 +257,34 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
           }}
         >
           <AppShell.Header
-            style={{ background: "linear-gradient(#AF3036, #87252a)" }}
+            px="lg"
+            bg="#e29699"
+            display="flex"
+            style={{
+              alignItems: "center",
+            }}
             miw={450}
           >
-            <Flex align="center" m="xs">
-              <Group h="100%" px="md">
-                <Burger
-                  opened={opened}
-                  onClick={toggle}
-                  hiddenFrom="sm"
-                  size="sm"
-                  color="white"
-                />
-                <HeaderTitle
-                  shortText="PylonUI"
-                  longText="Pylon UI Toolkit"
-                  logo={<Image src="/pylon.png" w={40} fit="contain" />}
-                />
-              </Group>
-              <Group ml="auto" wrap="nowrap">
-                <Text c="dimmed">Username</Text>
-                <Button>Logout</Button>
-              </Group>
-            </Flex>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom="sm"
+              size="sm"
+              color="white"
+            />
+            <HeaderTitle
+              shortText="PylonUI"
+              longText="Pylon UI Toolkit"
+              logo={<Image src="/pylon.png" w={40} fit="contain" />}
+            />
+            <HeaderNav>
+              <Box className="usa-nav__primary-item">
+                <Text fw="lighter" fz="0.9rem">
+                  Username
+                </Text>
+              </Box>
+              <HeaderNavLink href="#">Logout</HeaderNavLink>
+            </HeaderNav>
           </AppShell.Header>
 
           <AppShell.Navbar p="xs">

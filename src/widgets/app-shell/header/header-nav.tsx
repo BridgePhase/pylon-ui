@@ -8,7 +8,10 @@ export const HeaderNav: React.FC<{
 
   return (
     <Box component="nav" className="usa-nav" ml="auto">
-      <ul className="usa-nav__primary usa-accordion">
+      <ul
+        className="usa-nav__primary usa-accordion"
+        style={{ alignItems: "center" }}
+      >
         {items.map((item) => (
           <li className="usa-nav__primary-item">{item}</li>
         ))}
