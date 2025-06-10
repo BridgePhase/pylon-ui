@@ -9,7 +9,14 @@ export const HeaderTitle: React.FC<{
 }> = ({ longText, shortText, id, logo }) => {
   return (
     <div className="usa-navbar">
-      <Group className="usa-logo site-logo" id={id} gap={0} wrap="nowrap" m={0}>
+      <Group
+        className="usa-logo site-logo"
+        id={id}
+        gap={0}
+        wrap="nowrap"
+        m={0}
+        mih="70px"
+      >
         {logo}
         <em className="usa-logo__text site-logo__text">
           <a href="/" title={`${longText} Home`}>

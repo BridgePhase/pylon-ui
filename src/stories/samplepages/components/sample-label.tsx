@@ -1,4 +1,4 @@
-import { PylonLabel } from "../../../widgets/text/label/label";
+import { PylonLabel } from "../../../widgets/form/label/label";
 
 export const SampleLabelMantine: React.FC = () => {
   return (

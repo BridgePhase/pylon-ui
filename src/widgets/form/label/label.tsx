@@ -1,3 +1,5 @@
+import { RequiredMarker } from "../required-marker/required-marker";
+
 export const PylonLabel: React.FC<{
   text: React.ReactNode;
   htmlFor?: string;
@@ -12,14 +14,7 @@ export const PylonLabel: React.FC<{
       htmlFor={htmlFor}
     >
       {text}
-      {required && (
-        <abbr
-          title="required"
-          className="usa-hint usa-hint--required margin-left-05"
-        >
-          *
-        </abbr>
-      )}
+      {required && <RequiredMarker />}
       {hint && <span className="usa-hint"> {hint}</span>}
     </label>
   );
