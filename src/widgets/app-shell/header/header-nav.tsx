@@ -1,4 +1,5 @@
 import { Box } from "@mantine/core";
+import { useId } from "@mantine/hooks";
 import { ReactNode } from "react";
 
 export const HeaderNav: React.FC<{
@@ -13,7 +14,9 @@ export const HeaderNav: React.FC<{
         style={{ alignItems: "center" }}
       >
         {items.map((item) => (
-          <li className="usa-nav__primary-item">{item}</li>
+          <li className="usa-nav__primary-item" key={useId()}>
+            {item}
+          </li>
         ))}
       </ul>
     </Box>

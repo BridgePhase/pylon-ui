@@ -83,7 +83,7 @@ export const ComponentComparison: React.FC<{ component: SampleComponent }> = ({
           />{" "}
           <Divider size="xs" style={{ flexGrow: 1 }} />
         </Flex>
-        <SimpleGrid cols={numCols}>
+        <SimpleGrid cols={numCols} spacing="xl">
           <Stack gap={0} justify="flex-start">
             {LABEL_USWDS}
             {component.uswdsComponent}

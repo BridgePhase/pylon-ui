@@ -47,10 +47,10 @@ Components used in Waves application:
 | NavMenuButton     | Burger                 | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Pagination        | Pagination             | ![](https://img.shields.io/badge/done-83e22b)                       |
 | PrimaryNav        | PylonHeaderNav         | ![](https://img.shields.io/badge/done-83e22b)                       |
-| RequiredMarker    | –                      | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
-| Select            | Select                 | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| StepIndicator     | Stepper                | ![](https://img.shields.io/badge/backlog-e22b83)                    |
-| StepIndicatorStep | Stepper.Step           | ![](https://img.shields.io/badge/backlog-e22b83)                    |
+| RequiredMarker    | –                      | ![](https://img.shields.io/badge/done-83e22b)                       |
+| Select            | Select                 | ![](https://img.shields.io/badge/done-83e22b)                       |
+| StepIndicator     | Stepper                | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
+| StepIndicatorStep | Stepper.Step           | ![](https://img.shields.io/badge/in%20progress-e28a2b)              |
 | Table             | Table                  | ![](https://img.shields.io/badge/done-83e22b)                       |
 | Tag               | Badge                  | ![](https://img.shields.io/badge/done-83e22b)                       |
 | TextInput         | TextInput              | ![](https://img.shields.io/badge/done-83e22b)                       |

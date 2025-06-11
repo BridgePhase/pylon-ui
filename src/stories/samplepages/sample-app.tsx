@@ -102,6 +102,11 @@ import {
 } from "./components/sample-header";
 import { HeaderNav } from "../../widgets/app-shell/header/header-nav";
 import { HeaderNavLink } from "../../widgets/app-shell/header/header-nav-link";
+import {
+  SampleSelectMantine,
+  SampleSelectUswds,
+} from "./components/sample-select";
+import { LandingPage } from "./pages/landing.page";
 
 export interface SampleComponent {
   name: string;
@@ -215,9 +220,12 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SamplePaginationUswds />,
     mantineComponent: <SamplePaginationMantine />,
   },
-  { name: "Select" },
-  { name: "StepIndicator" },
-  { name: "StepIndicatorStep" },
+  {
+    name: "Select",
+    uswdsComponent: <SampleSelectUswds />,
+    mantineComponent: <SampleSelectMantine />,
+  },
+  { name: "Step Indicator / Step Indicator Step" },
   {
     name: "Table",
     uswdsComponent: <SampleTableUswds />,
@@ -250,7 +258,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
         <AppShell
           header={{ height: 60 }}
           navbar={{
-            width: 220,
+            width: 270,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
@@ -297,6 +305,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
           >
             <Box style={{ flexGrow: 1 }} mx="xl">
               <Routes>
+                <Route path="/" element={<LandingPage />} />
                 {STYLING_PAGES.map((styling) => (
                   <Route
                     key={styling.name}

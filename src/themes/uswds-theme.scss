@@ -17,6 +17,11 @@
       background-color: #adadad;
     }
   }
+
+  // Don't show the native Mantine dropdown
+  .mantine-Popover-dropdown:not(.pylon-date-picker-dropdown) {
+    display: none;
+  }
 }
 
 .pylon-date-picker-dropdown {
@@ -56,11 +61,6 @@
       }
     }
   }
-}
-
-// Don't show the native Mantine dropdown
-.mantine-Popover-dropdown:not(.pylon-date-picker-dropdown) {
-  display: none;
 }
 
 .usa-pagination > .mantine-Group-root {

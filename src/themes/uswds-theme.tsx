@@ -13,6 +13,7 @@ import {
   MantineThemeOverride,
   Modal,
   Pagination,
+  Select,
   Table,
   TableScrollContainer,
   Text,
@@ -311,6 +312,36 @@ export const UswdsTheme: MantineThemeOverride = {
       }),
     }),
 
+    Select: Select.extend({
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-form-group"]: true,
+          ["usa-form-group--error"]: props.error,
+        }),
+        label: cx({
+          ["usa-label"]: true,
+          ["usa-label--error"]: props.error,
+        }),
+        input: cx({
+          ["usa-select"]: true,
+          ["usa-select--error"]: props.error,
+        }),
+        error: "usa-error-message",
+      }),
+      defaultProps: {
+        placeholder: "- Select -",
+        inputWrapperOrder: ["label", "description", "error", "input"],
+      },
+      styles: {
+        error: {
+          fontSize: "1.06rem",
+        },
+        section: {
+          display: "none",
+        },
+      },
+    }),
+
     Table: Table.extend({
       classNames: (_theme, props) => ({
         table: cx({
@@ -372,6 +403,7 @@ export const UswdsTheme: MantineThemeOverride = {
         error: "usa-error-message",
       }),
       defaultProps: {
+        inputWrapperOrder: ["label", "description", "error", "input"],
         leftSectionProps: {
           className: "usa-input-prefix",
           style: {
@@ -391,19 +423,8 @@ export const UswdsTheme: MantineThemeOverride = {
         },
       },
       styles: {
-        root: {
-          display: "flex",
-          flexDirection: "column",
-        },
-        label: {
-          order: -2,
-        },
         error: {
-          order: -1,
           fontSize: "1.06rem",
-        },
-        input: {
-          order: 2,
         },
       },
     }),
