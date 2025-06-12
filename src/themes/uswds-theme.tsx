@@ -14,6 +14,7 @@ import {
   Modal,
   Pagination,
   Select,
+  Stepper,
   Table,
   TableScrollContainer,
   Text,
@@ -342,10 +343,25 @@ export const UswdsTheme: MantineThemeOverride = {
       },
     }),
 
+    Stepper: Stepper.extend({
+      classNames: {
+        root: "usa-step-indicator",
+        steps: "usa-step-indicator__segments",
+        step: "usa-step-indicator__segment",
+        stepBody: "usa-step-indicator__segment-label",
+      },
+      styles: {
+        separator: { display: "none" },
+        steps: { alignItems: "flex-start" },
+        stepBody: { marginLeft: 0 },
+        stepIcon: { display: "none" },
+      },
+    }),
+
     Table: Table.extend({
       classNames: (_theme, props) => ({
         table: cx({
-          [`usa-table`]: true,
+          ["usa-table"]: true,
           ["usa-table--striped"]: props.striped,
           ["usa-table--borderless"]: !props.withTableBorder,
           ["usa-table--sticky-header"]: props.stickyHeader,

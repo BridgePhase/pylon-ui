@@ -107,6 +107,10 @@ import {
   SampleSelectUswds,
 } from "./components/sample-select";
 import { LandingPage } from "./pages/landing.page";
+import {
+  SampleStepIndicatorMantine,
+  SampleStepIndicatorUswds,
+} from "./components/sample-step-indicator";
 
 export interface SampleComponent {
   name: string;
@@ -225,7 +229,11 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     uswdsComponent: <SampleSelectUswds />,
     mantineComponent: <SampleSelectMantine />,
   },
-  { name: "Step Indicator / Step Indicator Step" },
+  {
+    name: "Step Indicator / Step Indicator Step",
+    uswdsComponent: <SampleStepIndicatorUswds />,
+    mantineComponent: <SampleStepIndicatorMantine />,
+  },
   {
     name: "Table",
     uswdsComponent: <SampleTableUswds />,

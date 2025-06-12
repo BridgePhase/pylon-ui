@@ -91,3 +91,23 @@
     }
   }
 }
+
+.usa-step-indicator {
+  .usa-step-indicator__segment[data-completed="true"] {
+    .mantine-Stepper-stepLabel {
+      color: #162e51;
+    }
+    &::after {
+      background-color: #162e51;
+    }
+  }
+  .usa-step-indicator__segment[data-progress="true"] {
+    .mantine-Stepper-stepLabel {
+      color: #005ea2;
+      font-weight: 700;
+    }
+    &::after {
+      background-color: #005ea2;
+    }
+  }
+}
