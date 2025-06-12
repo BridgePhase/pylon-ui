@@ -1,5 +1,5 @@
 import { Avatar, Badge, Group, Text } from "@mantine/core";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 import { IconMail, IconPhone, IconStar } from "@tabler/icons-react";
 import { DataListItem } from "../../../widgets/datalist/datalistitem.widget";
 

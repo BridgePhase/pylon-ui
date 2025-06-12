@@ -6,16 +6,17 @@ import {
   Text,
   TextInput,
 } from "@mantine/core";
-import { STYLING_PAGES, SAMPLE_COMPONENTS } from "../sample-app";
 import { useLocation } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
+import { STYLE_GUIDES } from "../sample-app-style-guides";
+import { SAMPLE_COMPONENTS } from "../sample-app-components";
 
 export const SampleAppSideNav = () => {
   const { pathname } = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredStylingPages = STYLING_PAGES.filter((page) =>
+  const filteredStylingPages = STYLE_GUIDES.filter((page) =>
     page.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   const filteredComponents = SAMPLE_COMPONENTS.filter((page) =>

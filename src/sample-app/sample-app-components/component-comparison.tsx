@@ -16,8 +16,10 @@ import {
 } from "@tabler/icons-react";
 import React, { useState } from "react";
 import { ReactCompareSlider } from "react-compare-slider";
-import { SampleComponent } from "../sample-app";
-import { IconLabel, LABEL_MANTINE, LABEL_USWDS } from "./icon-label";
+import { IconLabel } from "./icon-label/icon-label";
+import { IconLabelUswds } from "./icon-label/icon-label.uswds";
+import { IconLabelMantine } from "./icon-label/icon-label.mantine";
+import { SampleComponent } from "../sample-app-components";
 
 export const ComponentComparison: React.FC<{ component: SampleComponent }> = ({
   component,
@@ -85,11 +87,11 @@ export const ComponentComparison: React.FC<{ component: SampleComponent }> = ({
         </Flex>
         <SimpleGrid cols={numCols} spacing="xl">
           <Stack gap={0} justify="flex-start">
-            {LABEL_USWDS}
+            <IconLabelUswds />
             {component.uswdsComponent}
           </Stack>
           <Stack gap={0}>
-            {LABEL_MANTINE}
+            <IconLabelMantine />
             {component.mantineComponent}
           </Stack>
         </SimpleGrid>

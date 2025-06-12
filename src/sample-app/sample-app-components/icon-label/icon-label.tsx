@@ -1,5 +1,4 @@
 import { alpha, Group, Text } from "@mantine/core";
-import { IconAperture, IconPokeball } from "@tabler/icons-react";
 import React, { ReactNode } from "react";
 
 export const IconLabel: React.FC<{
@@ -27,16 +26,3 @@ export const IconLabel: React.FC<{
     </Group>
   );
 };
-
-export const LABEL_USWDS = (
-  <IconLabel label="USWDS" icon={<IconAperture />} color="#C08081" />
-);
-
-export const LABEL_MANTINE = (
-  <IconLabel
-    label="Themed Mantine"
-    icon={<IconPokeball />}
-    color="#80BFBE"
-    right
-  />
-);

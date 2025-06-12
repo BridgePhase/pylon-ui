@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { SampleApp } from "./sample-app";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { SampleApp } from "../../sample-app/sample-app";
 import { DEFAULT_THEME } from "@mantine/core";
 import { UswdsTheme } from "../../themes/uswds-theme";
 import {
