@@ -245,11 +245,10 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     mantineComponent: <SampleTagMantine />,
   },
   {
-    name: "TextInput",
+    name: "Text Input / Text Input Mask",
     uswdsComponent: <SampleTextInputUswds />,
     mantineComponent: <SampleTextInputMantine />,
   },
-  { name: "TextInputMask" },
   {
     name: "Title",
     uswdsComponent: <SampleTitleUswds />,
