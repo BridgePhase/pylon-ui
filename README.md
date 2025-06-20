@@ -57,6 +57,14 @@ Components used in Waves application:
 | TextInputMask     | PylonMaskedTextInput   | ![](https://img.shields.io/badge/done-83e22b)          |
 | Title             | AppShellHeaderTitle    | ![](https://img.shields.io/badge/done-83e22b)          |
 
+## Packaging Release
+
+You might need to install `json` if you don't already have it: `npm install -g json`
+
+1. `npm run prepack`
+2. `npm publish`
+3. Verify: https://www.npmjs.com/package/@bridgephase/pylon-ui
+
 ## React + TypeScript + Vite Template README
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

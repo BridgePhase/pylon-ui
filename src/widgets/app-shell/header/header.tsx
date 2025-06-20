@@ -1,0 +1,89 @@
+import { AppShell, Burger, Flex, MantineColor, Stack } from "@mantine/core";
+import { ReactNode } from "react";
+import { HeaderNav } from "./header-nav";
+import { HeaderTitle } from "./header-title";
+
+export const PylonHeader: React.FC<{
+  shortTitle: string;
+  longTitle: string;
+  logo: ReactNode;
+  opened: boolean;
+  toggle: () => void;
+  mainItems?: ReactNode[];
+  navItems?: ReactNode[];
+  mainBg?: MantineColor;
+  navBg?: MantineColor;
+}> = ({
+  shortTitle,
+  longTitle,
+  logo,
+  opened,
+  toggle,
+  mainItems = [],
+  navItems = [],
+  navBg = "gray.1",
+  mainBg = "red.1",
+}) => {
+  return (
+    <AppShell.Header
+      display="flex"
+      component="div"
+      style={{
+        alignItems: "center",
+      }}
+      miw={450}
+    >
+      <Stack w="100%" gap={0}>
+        {/* Main header */}
+        <Flex
+          component="header"
+          px="lg"
+          bg={mainBg}
+          align="center"
+          className="usa-header usa-header--basic site-header"
+        >
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            hiddenFrom="sm"
+            size="sm"
+            color="white"
+          />
+          <HeaderTitle
+            shortText={shortTitle}
+            longText={longTitle}
+            logo={logo}
+          />
+          {mainItems && mainItems.length > 0 && (
+            <Flex
+              className="usa-nav__secondary"
+              direction="row"
+              my="auto"
+              align="baseline"
+              justify="flex-end"
+              gap="sm"
+              bottom="auto"
+            >
+              {mainItems}
+            </Flex>
+          )}
+        </Flex>
+        {/* Primary navigation (under header) */}
+        {navItems && navItems.length > 0 && (
+          <Flex
+            pb={10}
+            px="lg"
+            bg={navBg}
+            component="nav"
+            aria-label="Primary navigation"
+            className="usa-nav site-nav"
+          >
+            <div className="usa-nav__inner site-nav__inner">
+              <HeaderNav items={navItems} />
+            </div>
+          </Flex>
+        )}
+      </Stack>
+    </AppShell.Header>
+  );
+};

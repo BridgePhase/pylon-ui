@@ -142,13 +142,6 @@ export const UswdsTheme: MantineThemeOverride = {
     AppShell: {
       classNames: {
         navbar: "usa-sidenav",
-        header: "usa-header usa-header--basic site-header",
-      },
-    },
-
-    AppShellHeader: {
-      defaultProps: {
-        component: "header",
       },
     },
 

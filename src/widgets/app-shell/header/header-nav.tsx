@@ -1,24 +1,14 @@
-import { Box } from "@mantine/core";
-import { useId } from "@mantine/hooks";
 import { ReactNode } from "react";
+import { HeaderNavItem } from "./header-nav-tem";
 
 export const HeaderNav: React.FC<{
-  children: ReactNode[] | ReactNode;
-}> = ({ children }) => {
-  const items = Array.isArray(children) ? [...children] : [children];
-
+  items: ReactNode[];
+}> = ({ items }) => {
   return (
-    <Box component="nav" className="usa-nav" ml="auto">
-      <ul
-        className="usa-nav__primary usa-accordion"
-        style={{ alignItems: "center" }}
-      >
-        {items.map((item) => (
-          <li className="usa-nav__primary-item" key={useId()}>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </Box>
+    <ul className="usa-nav__primary usa-nav__primary--desktop ">
+      {items.map((item) => (
+        <HeaderNavItem item={item} />
+      ))}
+    </ul>
   );
 };

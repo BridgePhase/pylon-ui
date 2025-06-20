@@ -1,4 +1,4 @@
-import { AnchorVariant, ButtonVariant, MantineSize } from "@mantine/core";
+import { AnchorVariant } from "@mantine/core";
 
 type ExtendedAnchorVariant =
   | AnchorVariant

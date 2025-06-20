@@ -6,12 +6,12 @@ import {
   MantineProvider,
   MantineThemeOverride,
   MantineThemeColorsOverride,
-  Burger,
   Anchor,
   Box,
   ActionIcon,
   Tooltip,
   Container,
+  Button,
 } from "@mantine/core";
 import { ComponentComparison } from "./sample-app-components/component-comparison";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -22,13 +22,12 @@ import { PylonFooter } from "../widgets/app-shell/footer/footer";
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { HeaderTitle } from "../widgets/app-shell/header/header-title";
 import { PylonFooterItems } from "../widgets/app-shell/footer/footer-items";
-import { HeaderNav } from "../widgets/app-shell/header/header-nav";
 import { HeaderNavLink } from "../widgets/app-shell/header/header-nav-link";
 import { LandingPage } from "./pages/landing.page";
 import { STYLE_GUIDES } from "./sample-app-style-guides";
 import { SAMPLE_COMPONENTS } from "./sample-app-components";
+import { PylonHeader } from "../widgets/app-shell/header/header";
 
 type SampleAppProps = {
   theme: MantineThemeOverride;
@@ -38,48 +37,39 @@ type SampleAppProps = {
 
 export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
   const [opened, { toggle }] = useDisclosure();
-
   return (
     <MantineProvider theme={theme} forceColorScheme="light">
       <BrowserRouter>
         <AppShell
-          header={{ height: 60 }}
+          header={{ height: 126 }}
           navbar={{
             width: 270,
             breakpoint: "sm",
             collapsed: { mobile: !opened },
           }}
         >
-          <AppShell.Header
-            px="lg"
-            bg="#e29699"
-            display="flex"
-            style={{
-              alignItems: "center",
-            }}
-            miw={450}
-          >
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-              color="white"
-            />
-            <HeaderTitle
-              shortText="PylonUI"
-              longText="Pylon UI Toolkit"
-              logo={<Image src="/pylon.png" w={40} fit="contain" />}
-            />
-            <HeaderNav>
-              <Box className="usa-nav__primary-item">
-                <Text fw="lighter" fz="0.9rem">
-                  Username
-                </Text>
-              </Box>
-              <HeaderNavLink href="#">Logout</HeaderNavLink>
-            </HeaderNav>
-          </AppShell.Header>
+          <PylonHeader
+            shortTitle="PylonUI"
+            longTitle="Pylon UI Toolkit"
+            logo={<Image src="/pylon.png" w={40} fit="contain" />}
+            opened={opened}
+            toggle={toggle}
+            mainBg="#e29699"
+            mainItems={[
+              <Text fw="lighter" fz="0.9rem">
+                Username
+              </Text>,
+              <Button>Logout</Button>,
+            ]}
+            navBg="#ccc"
+            navItems={[
+              <HeaderNavLink href="/" current>
+                Sample App
+              </HeaderNavLink>,
+              <HeaderNavLink href="#">Repository</HeaderNavLink>,
+              <HeaderNavLink href="#">NPMJS</HeaderNavLink>,
+            ]}
+          />
 
           <AppShell.Navbar p="xs">
             <SampleAppSideNav />
@@ -112,6 +102,11 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
             <PylonFooter
               heading={<PylonFooterHeading text="Pylon UI" />}
               image={<Image src={icon} mah="5rem" />}
+              preFooter={
+                <Text tt="uppercase" ta="center" c="bp-red" fw="lighter">
+                  For internal use only
+                </Text>
+              }
             >
               <Container>
                 <PylonFooterItems

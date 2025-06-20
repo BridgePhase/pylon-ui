@@ -1,4 +1,4 @@
-import { Box, Flex } from "@mantine/core";
+import { Box, Flex, Stack } from "@mantine/core";
 import { ReactNode } from "react";
 
 export const PylonFooter: React.FC<{
@@ -6,9 +6,18 @@ export const PylonFooter: React.FC<{
   heading?: ReactNode;
   image: ReactNode;
   children?: ReactNode;
-}> = ({ size = "medium", heading, image, children = null }) => {
-  return (
-    <Box className="usa-footer__secondary-section">
+  preFooter?: ReactNode;
+}> = ({
+  size = "medium",
+  heading,
+  image,
+  children = null,
+  preFooter = null,
+}) => {
+  const footer = (
+    <Box
+      className={`usa-footer__${preFooter ? "secondary" : "primary"}-section`}
+    >
       <Flex
         className={`usa-footer__logo usa-footer__${size} grid-row grid-gap-2`}
         data-testid="footerLogo"
@@ -23,4 +32,15 @@ export const PylonFooter: React.FC<{
       </Flex>
     </Box>
   );
+
+  if (preFooter) {
+    return (
+      <Stack gap={0}>
+        <Box className="usa-footer__primary-section">{preFooter}</Box>
+        {footer}
+      </Stack>
+    );
+  }
+
+  return footer;
 };

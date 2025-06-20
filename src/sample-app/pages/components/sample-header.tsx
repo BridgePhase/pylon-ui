@@ -9,7 +9,7 @@ export const SampleHeaderMantine: React.FC = () => {
       <Flex align="center" m={0} bg="#ddd" px="lg">
         <HeaderTitle shortText="PylonUI" longText="Project Title" />
         <HeaderNav>
-          <Menu position="bottom-start" offset={0}>
+          <Menu position="bottom-start" offset={0} key="menu">
             <Menu.Target>
               <Button className="usa-accordion__button usa-nav__link usa-current">
                 Nav Label
@@ -28,8 +28,9 @@ export const SampleHeaderMantine: React.FC = () => {
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
-          <HeaderNavLink href="/">Parent link</HeaderNavLink>
-          <HeaderNavLink href="/">Parent link</HeaderNavLink>
+          <HeaderNavLink key="link" href="/">
+            Nav link
+          </HeaderNavLink>
         </HeaderNav>
       </Flex>
 
@@ -40,7 +41,7 @@ export const SampleHeaderMantine: React.FC = () => {
           logo={<Image src="/pylon.png" w={40} fit="contain" />}
         />
         <HeaderNav>
-          <Menu position="bottom-start" offset={0}>
+          <Menu position="bottom-start" offset={0} key="menu">
             <Menu.Target>
               <Button className="usa-accordion__button usa-nav__link usa-current">
                 Nav Label
@@ -59,8 +60,10 @@ export const SampleHeaderMantine: React.FC = () => {
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
-          <HeaderNavLink href="/">Parent link</HeaderNavLink>
-          <HeaderNavLink href="/">Parent link</HeaderNavLink>
+          ,
+          <HeaderNavLink href="/" key="link">
+            Parent link
+          </HeaderNavLink>
         </HeaderNav>
       </Flex>
     </Stack>
@@ -92,7 +95,7 @@ export const SampleHeaderUswds: React.FC = () => {
           </button>
         </div>
         <nav
-          className="usa-nav"
+          // className="usa-nav"
           style={{
             display: "flex",
             marginLeft: "auto",
@@ -124,12 +127,12 @@ export const SampleHeaderUswds: React.FC = () => {
                 <span>Parent link</span>
               </a>
             </li>
-            <li className="usa-nav__primary-item">
-              <a href="#three" className="usa-nav__link">
-                <span>Parent link</span>
-              </a>
-            </li>
           </ul>
+          <div>
+            <button className="usa-button" type="button">
+              Logout
+            </button>
+          </div>
         </nav>
       </div>
       <div
@@ -187,14 +190,9 @@ export const SampleHeaderUswds: React.FC = () => {
                 <span>Parent link</span>
               </a>
             </li>
-            <li className="usa-nav__primary-item">
-              <a href="#three" className="usa-nav__link">
-                <span>Parent link</span>
-              </a>
-            </li>
           </ul>
         </nav>
-      </div>{" "}
+      </div>
     </Stack>
   );
 };
