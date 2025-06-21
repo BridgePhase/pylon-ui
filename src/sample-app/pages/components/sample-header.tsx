@@ -8,30 +8,32 @@ export const SampleHeaderMantine: React.FC = () => {
     <Stack gap="md">
       <Flex align="center" m={0} bg="#ddd" px="lg">
         <HeaderTitle shortText="PylonUI" longText="Project Title" />
-        <HeaderNav>
-          <Menu position="bottom-start" offset={0} key="menu">
-            <Menu.Target>
-              <Button className="usa-accordion__button usa-nav__link usa-current">
-                Nav Label
-              </Button>
-            </Menu.Target>
-            <Menu.Dropdown
-              className="usa-nav__submenu"
-              style={{ borderRadius: 0, border: "none" }}
-              miw="200"
-            >
-              <Menu.Item className="usa-nav__submenu-item" c="white">
-                Current Link
-              </Menu.Item>
-              <Menu.Item className="usa-nav__submenu-item" c="white">
-                Simple Link Two
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
-          <HeaderNavLink key="link" href="/">
-            Nav link
-          </HeaderNavLink>
-        </HeaderNav>
+        <HeaderNav
+          items={[
+            <Menu position="bottom-start" offset={0} key="menu">
+              <Menu.Target>
+                <Button className="usa-accordion__button usa-nav__link usa-current">
+                  Nav Label
+                </Button>
+              </Menu.Target>
+              <Menu.Dropdown
+                className="usa-nav__submenu"
+                style={{ borderRadius: 0, border: "none" }}
+                miw="200"
+              >
+                <Menu.Item className="usa-nav__submenu-item" c="white">
+                  Current Link
+                </Menu.Item>
+                <Menu.Item className="usa-nav__submenu-item" c="white">
+                  Simple Link Two
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>,
+            <HeaderNavLink key="link" href="/">
+              Nav link
+            </HeaderNavLink>,
+          ]}
+        />
       </Flex>
 
       <Flex align="center" m={0} bg="#ddd" px="lg">
@@ -40,31 +42,32 @@ export const SampleHeaderMantine: React.FC = () => {
           longText="Project Title"
           logo={<Image src="/pylon.png" w={40} fit="contain" />}
         />
-        <HeaderNav>
-          <Menu position="bottom-start" offset={0} key="menu">
-            <Menu.Target>
-              <Button className="usa-accordion__button usa-nav__link usa-current">
-                Nav Label
-              </Button>
-            </Menu.Target>
-            <Menu.Dropdown
-              className="usa-nav__submenu"
-              style={{ borderRadius: 0, border: "none" }}
-              miw="200"
-            >
-              <Menu.Item className="usa-nav__submenu-item" c="white">
-                Current Link
-              </Menu.Item>
-              <Menu.Item className="usa-nav__submenu-item" c="white">
-                Simple Link Two
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
-          ,
-          <HeaderNavLink href="/" key="link">
-            Parent link
-          </HeaderNavLink>
-        </HeaderNav>
+        <HeaderNav
+          items={[
+            <Menu position="bottom-start" offset={0} key="menu">
+              <Menu.Target>
+                <Button className="usa-accordion__button usa-nav__link usa-current">
+                  Nav Label
+                </Button>
+              </Menu.Target>
+              <Menu.Dropdown
+                className="usa-nav__submenu"
+                style={{ borderRadius: 0, border: "none" }}
+                miw="200"
+              >
+                <Menu.Item className="usa-nav__submenu-item" c="white">
+                  Current Link
+                </Menu.Item>
+                <Menu.Item className="usa-nav__submenu-item" c="white">
+                  Simple Link Two
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>,
+            <HeaderNavLink href="/" key="link">
+              Parent link
+            </HeaderNavLink>,
+          ]}
+        />
       </Flex>
     </Stack>
   );

@@ -6,7 +6,8 @@ export const HeaderTitle: React.FC<{
   shortText: string;
   id?: string;
   logo?: ReactNode;
-}> = ({ longText, shortText, id, logo }) => {
+  dark?: boolean;
+}> = ({ longText, shortText, id, logo, dark = false }) => {
   return (
     <div className="usa-navbar">
       <Group
@@ -27,6 +28,7 @@ export const HeaderTitle: React.FC<{
               hiddenFrom="sm"
               m={0}
               lh={1.1}
+              c={dark ? "white" : "black"}
             >
               {shortText}
             </Title>
@@ -38,6 +40,7 @@ export const HeaderTitle: React.FC<{
               visibleFrom="sm"
               m={0}
               lh={1.1}
+              c={dark ? "white" : "black"}
             >
               {longText}
             </Title>

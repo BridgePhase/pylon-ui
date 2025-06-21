@@ -13,6 +13,7 @@ export const PylonHeader: React.FC<{
   navItems?: ReactNode[];
   mainBg?: MantineColor;
   navBg?: MantineColor;
+  mainDark?: boolean;
 }> = ({
   shortTitle,
   longTitle,
@@ -23,6 +24,7 @@ export const PylonHeader: React.FC<{
   navItems = [],
   navBg = "gray.1",
   mainBg = "red.1",
+  mainDark = false,
 }) => {
   return (
     <AppShell.Header
@@ -40,6 +42,7 @@ export const PylonHeader: React.FC<{
           px="lg"
           bg={mainBg}
           align="center"
+          c={mainDark ? "white" : "black"}
           className="usa-header usa-header--basic site-header"
         >
           <Burger
@@ -53,6 +56,7 @@ export const PylonHeader: React.FC<{
             shortText={shortTitle}
             longText={longTitle}
             logo={logo}
+            dark={mainDark}
           />
           {mainItems && mainItems.length > 0 && (
             <Flex
@@ -78,9 +82,9 @@ export const PylonHeader: React.FC<{
             aria-label="Primary navigation"
             className="usa-nav site-nav"
           >
-            <div className="usa-nav__inner site-nav__inner">
+            <Flex className="usa-nav__inner site-nav__inner" pt="xs">
               <HeaderNav items={navItems} />
-            </div>
+            </Flex>
           </Flex>
         )}
       </Stack>

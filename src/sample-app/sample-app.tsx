@@ -41,7 +41,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
     <MantineProvider theme={theme} forceColorScheme="light">
       <BrowserRouter>
         <AppShell
-          header={{ height: 126 }}
+          header={{ height: 120 }}
           navbar={{
             width: 270,
             breakpoint: "sm",
@@ -61,7 +61,6 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
               </Text>,
               <Button>Logout</Button>,
             ]}
-            navBg="#ccc"
             navItems={[
               <HeaderNavLink href="/" current>
                 Sample App

@@ -131,7 +131,7 @@ export const UswdsTheme: MantineThemeOverride = {
       },
       classNames: (_theme, props) => ({
         root: cx({
-          ["usa-link"]: true,
+          ["usa-link"]: props.underline === "never",
           ["usa-link--external"]:
             props.variant === "external" || props.variant === "external-alt",
           ["usa-link--alt"]: props.variant === "external-alt",
