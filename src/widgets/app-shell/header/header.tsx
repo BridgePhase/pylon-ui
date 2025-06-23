@@ -2,6 +2,7 @@ import { AppShell, Burger, Flex, MantineColor, Stack } from "@mantine/core";
 import { ReactNode } from "react";
 import { HeaderNav } from "./header-nav";
 import { HeaderTitle } from "./header-title";
+import { HeaderNavItemProps } from "./header-nav-item";
 
 export const PylonHeader: React.FC<{
   shortTitle: string;
@@ -10,10 +11,11 @@ export const PylonHeader: React.FC<{
   opened: boolean;
   toggle: () => void;
   mainItems?: ReactNode[];
-  navItems?: ReactNode[];
+  navItems?: HeaderNavItemProps[];
   mainBg?: MantineColor;
   navBg?: MantineColor;
   mainDark?: boolean;
+  navDark?: boolean;
 }> = ({
   shortTitle,
   longTitle,
@@ -25,6 +27,7 @@ export const PylonHeader: React.FC<{
   navBg = "gray.1",
   mainBg = "red.1",
   mainDark = false,
+  navDark = false,
 }) => {
   return (
     <AppShell.Header
@@ -82,8 +85,8 @@ export const PylonHeader: React.FC<{
             aria-label="Primary navigation"
             className="usa-nav site-nav"
           >
-            <Flex className="usa-nav__inner site-nav__inner" pt="xs">
-              <HeaderNav items={navItems} />
+            <Flex className="usa-nav__inner site-nav__inner" pt="xs" w="100%">
+              <HeaderNav items={navItems} dark={navDark} />
             </Flex>
           </Flex>
         )}

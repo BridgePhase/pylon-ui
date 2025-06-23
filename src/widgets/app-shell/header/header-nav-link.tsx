@@ -2,8 +2,8 @@ import { Anchor, AnchorProps } from "@mantine/core";
 
 export type HeaderNavLinkProps = AnchorProps & {
   href: string;
-  children: React.ReactNode;
   current?: boolean;
+  children: React.ReactNode;
 };
 
 export const HeaderNavLink: React.FC<HeaderNavLinkProps> = (props) => {

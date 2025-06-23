@@ -1,18 +1,21 @@
-import { ReactNode } from "react";
-import { HeaderNavItem } from "./header-nav-item";
+import { HeaderNavItem, HeaderNavItemProps } from "./header-nav-item";
 import { List } from "@mantine/core";
 
 export const HeaderNav: React.FC<{
-  items: ReactNode[];
-}> = ({ items }) => {
+  items: HeaderNavItemProps[];
+  dark?: boolean;
+}> = ({ items, dark = false }) => {
   return (
     <List
-      className="usa-nav__primary usa-nav__primary--desktop"
+      style={{ flexGrow: 1 }}
+      className={`usa-nav__primary usa-nav__primary--desktop usa-nav__primary--${
+        dark ? "dark" : "light"
+      }`}
       type="unordered"
       listStyleType="none"
     >
       {items.map((item) => (
-        <HeaderNavItem item={item} />
+        <HeaderNavItem {...item} />
       ))}
     </List>
   );

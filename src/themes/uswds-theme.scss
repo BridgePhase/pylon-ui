@@ -2,27 +2,58 @@
 @import "@mantine/dates/styles.css";
 @import "@uswds/uswds/css/uswds.css";
 
-.usa-nav__primary--desktop a {
-  color: #757575;
-}
-.usa-nav__primary--desktop a:hover {
-  color: #2672de;
-}
-.usa-nav__primary--desktop .usa-current {
-  color: black;
-  font-weight: bold;
-}
-.usa-nav__primary--desktop .usa-current::after,
-.usa-nav__primary--desktop a:hover::after {
-  background-color: #2672de;
-  border-radius: 0;
-  content: "";
-  display: block;
-  position: relative;
-  height: 0.25rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  top: 0.6rem;
+.usa-nav__primary--desktop {
+  &.usa-nav__primary--light {
+    a,
+    span {
+      color: #757575;
+      &.usa-current {
+        color: black;
+      }
+      &:hover {
+        color: #2672de;
+      }
+    }
+    .usa-current::after,
+    :hover::after {
+      background-color: #2672de;
+    }
+  }
+  &.usa-nav__primary--dark {
+    a,
+    span {
+      color: #c2c2c2;
+      &.usa-current {
+        color: white;
+      }
+      &:hover {
+        color: #83ace6;
+      }
+    }
+    .usa-current::after,
+    :hover::after {
+      background-color: #83ace6;
+    }
+  }
+
+  .usa-current {
+    font-weight: bold;
+  }
+  .usa-current::after,
+  a:hover::after {
+    border-radius: 0;
+    content: "";
+    display: block;
+    position: relative;
+    height: 0.25rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    top: 0.6rem;
+  }
+
+  &.current {
+    color: white;
+  }
 }
 
 .pylon-date-picker-root {

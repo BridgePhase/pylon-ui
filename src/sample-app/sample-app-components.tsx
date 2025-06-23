@@ -85,10 +85,6 @@ import {
   SamplePaginationUswds,
 } from "./pages/components/sample-pagination";
 import {
-  SampleHeaderMantine,
-  SampleHeaderUswds,
-} from "./pages/components/sample-header";
-import {
   SampleSelectMantine,
   SampleSelectUswds,
 } from "./pages/components/sample-select";
@@ -158,11 +154,6 @@ export const SAMPLE_COMPONENTS: SampleComponent[] = [
     name: "Grid / Grid Container",
     uswdsComponent: <SampleGridUswds />,
     mantineComponent: <SampleGridMantine />,
-  },
-  {
-    name: "Header / Primary Nav",
-    uswdsComponent: <SampleHeaderUswds />,
-    mantineComponent: <SampleHeaderMantine />,
   },
   {
     name: "Input Group / Input Suffix",

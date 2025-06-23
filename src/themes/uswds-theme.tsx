@@ -1,5 +1,6 @@
 import cx from "clsx";
 import {
+  Accordion,
   Alert,
   Anchor,
   Badge,
@@ -68,17 +69,20 @@ export const UswdsTheme: MantineThemeOverride = {
   // Component Styling
   defaultRadius: "0.25rem",
   components: {
-    Accordion: {
+    Accordion: Accordion.extend({
       defaultProps: {
         chevron: null,
       },
-      classNames: {
-        root: "usa-accordion",
+      classNames: (_theme, props) => ({
+        root: cx({
+          ["usa-accordion"]: true,
+          ["usa-accordion--bordered"]: props.variant === "separated",
+        }),
         item: "usa-accordion__heading",
         control: "usa-accordion__button",
         content: "usa-accordion__content",
         label: "usa-accordion__label",
-      },
+      }),
       styles: () => ({
         item: {
           border: 0,
@@ -88,7 +92,7 @@ export const UswdsTheme: MantineThemeOverride = {
           fontWeight: "unset",
         },
       }),
-    },
+    }),
 
     Alert: Alert.extend({
       classNames: (_theme, props) => ({
@@ -300,7 +304,7 @@ export const UswdsTheme: MantineThemeOverride = {
     },
 
     Pagination: Pagination.extend({
-      classNames: (_theme, _props) => ({
+      classNames: () => ({
         root: "usa-pagination",
         control: "usa-button usa-button--unstyled usa-pagination__button",
       }),

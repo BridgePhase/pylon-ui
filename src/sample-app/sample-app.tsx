@@ -21,9 +21,12 @@ import { PylonFooter } from "../widgets/app-shell/footer/footer";
 
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandGithub } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconHelpCircleFilled,
+  IconHome,
+} from "@tabler/icons-react";
 import { PylonFooterItems } from "../widgets/app-shell/footer/footer-items";
-import { HeaderNavLink } from "../widgets/app-shell/header/header-nav-link";
 import { LandingPage } from "./pages/landing.page";
 import { STYLE_GUIDES } from "./sample-app-style-guides";
 import { SAMPLE_COMPONENTS } from "./sample-app-components";
@@ -41,7 +44,7 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
     <MantineProvider theme={theme} forceColorScheme="light">
       <BrowserRouter>
         <AppShell
-          header={{ height: 120 }}
+          header={{ height: 123 }}
           navbar={{
             width: 270,
             breakpoint: "sm",
@@ -54,7 +57,10 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
             logo={<Image src="/pylon.png" w={40} fit="contain" />}
             opened={opened}
             toggle={toggle}
-            mainBg="#e29699"
+            mainBg="#AF3036"
+            mainDark
+            navBg="#414142"
+            navDark
             mainItems={[
               <Text fw="lighter" fz="0.9rem">
                 Username
@@ -62,11 +68,25 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
               <Button>Logout</Button>,
             ]}
             navItems={[
-              <HeaderNavLink href="/" current>
-                Sample App
-              </HeaderNavLink>,
-              <HeaderNavLink href="#">Repository</HeaderNavLink>,
-              <HeaderNavLink href="#">NPMJS</HeaderNavLink>,
+              {
+                href: "/",
+                current: true,
+                body: <>Sample App</>,
+                icon: <IconHome />,
+              },
+              {
+                body: "Other Stuff",
+                children: [
+                  { href: "/", body: <>Repository</> },
+                  { href: "/", body: <>NPMJS</> },
+                ],
+              },
+              {
+                href: "/",
+                body: <>Help</>,
+                icon: <IconHelpCircleFilled />,
+                ml: "auto",
+              },
             ]}
           />
 
