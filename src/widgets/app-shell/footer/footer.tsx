@@ -1,4 +1,4 @@
-import { Box, Flex, Stack } from "@mantine/core";
+import { Box, Container, Flex, Stack } from "@mantine/core";
 import { ReactNode } from "react";
 
 export const PylonFooter: React.FC<{
@@ -18,18 +18,20 @@ export const PylonFooter: React.FC<{
     <Box
       className={`usa-footer__${preFooter ? "secondary" : "primary"}-section`}
     >
-      <Flex
-        className={`usa-footer__logo usa-footer__${size} grid-row grid-gap-2`}
-        data-testid="footerLogo"
-      >
-        <Box className="grid-col-auto" flex="0 auto">
-          {image}
-        </Box>
-        <Box className="grid-col-auto" flex="1 auto">
-          {heading}
-        </Box>
-        <Box>{children}</Box>
-      </Flex>
+      <Container>
+        <Flex
+          className={`usa-footer__logo usa-footer__${size} grid-row grid-gap-2`}
+          data-testid="footerLogo"
+        >
+          <Box className="grid-col-auto" flex="0 auto">
+            {image}
+          </Box>
+          <Box className="grid-col-auto" flex="1 auto">
+            {heading}
+          </Box>
+          <Box>{children}</Box>
+        </Flex>
+      </Container>
     </Box>
   );
 

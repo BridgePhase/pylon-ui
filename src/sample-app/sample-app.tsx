@@ -70,19 +70,22 @@ export const SampleApp: React.FC<SampleAppProps> = ({ theme }) => {
             navItems={[
               {
                 href: "/",
+                key: "home",
                 current: true,
                 body: <>Sample App</>,
                 icon: <IconHome />,
               },
               {
+                key: "other",
                 body: "Other Stuff",
                 children: [
-                  { href: "/", body: <>Repository</> },
-                  { href: "/", body: <>NPMJS</> },
+                  { href: "/", key: "repo", body: <>Repository</> },
+                  { href: "/", key: "npmjs", body: <>NPMJS</> },
                 ],
               },
               {
                 href: "/",
+                key: "help",
                 body: <>Help</>,
                 icon: <IconHelpCircleFilled />,
                 ml: "auto",

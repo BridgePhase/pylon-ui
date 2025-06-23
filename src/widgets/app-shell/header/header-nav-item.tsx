@@ -4,6 +4,7 @@ import { HeaderNavLink } from "./header-nav-link";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 
 export interface HeaderNavItemProps {
+  key: string;
   href?: string;
   current?: boolean;
   icon?: ReactNode;
@@ -13,6 +14,7 @@ export interface HeaderNavItemProps {
 }
 
 export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
+  key,
   href,
   current,
   icon,
@@ -21,13 +23,13 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
   children,
 }) => {
   const item = href ? (
-    <HeaderNavLink href={href} current={current}>
+    <HeaderNavLink href={href} current={current} key={key}>
       <Group gap="xs" align="center">
         {icon} {body}
       </Group>
     </HeaderNavLink>
   ) : (
-    <Group gap={5} align="center">
+    <Group gap={5} align="center" key={key}>
       {icon} {body}
     </Group>
   );
