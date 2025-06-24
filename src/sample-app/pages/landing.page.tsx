@@ -1,4 +1,5 @@
 import { Text, Title, Stack } from "@mantine/core";
+import { BarChart } from "@mantine/charts";
 
 export const LandingPage = () => {
   return (
@@ -21,6 +22,39 @@ export const LandingPage = () => {
         nunc nec ex posuere aliquet. Donec pellentesque odio vitae odio
         ultrices, ac lobortis lorem dapibus. Mauris at suscipit urna.
       </Text>
+      <BarChart
+        h={300}
+        orientation="horizontal"
+        withBarValueLabel
+        dataKey="date"
+        xAxisProps={{
+          domain: [0, 10],
+        }}
+        barChartProps={{
+          margin: {
+            top: 10,
+            right: 0,
+            left: -20,
+            bottom: 10,
+          },
+          barGap: 2,
+        }}
+        yAxisProps={{
+          domain: [0, 100],
+        }}
+        data={[{ arithmetic: [0, 10], exponential: [0, 100] }]}
+        textColor={"black"}
+        series={[
+          {
+            color: "red",
+            name: "arithmetic",
+          },
+          {
+            color: "green",
+            name: "exponential",
+          },
+        ]}
+      />
       <Text>
         Nulla ut volutpat ligula. In porta ac ligula sit amet faucibus. Sed leo
         ipsum, varius eget dapibus et, vehicula sit amet nulla. Cras nisi purus,

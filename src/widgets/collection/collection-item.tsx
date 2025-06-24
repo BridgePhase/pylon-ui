@@ -6,7 +6,7 @@ import {
 } from "./collection-meta";
 
 export type PylonCollectionItemProps = {
-  heading: string;
+  heading: ReactNode;
   href: string;
   metas: PylonCollectionMetaProps[];
   children: ReactNode;

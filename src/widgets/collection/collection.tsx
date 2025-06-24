@@ -9,9 +9,9 @@ export const PylonCollection: React.FC<{
 }> = ({ items }) => {
   return (
     <ul className="usa-collection" data-testid="collection">
-      {items.map((item) => (
+      {items.map((item, index) => (
         <PylonCollectionItem
-          key={item.heading}
+          key={`collection-item-${index}`}
           heading={item.heading}
           href={item.href}
           metas={item.metas}

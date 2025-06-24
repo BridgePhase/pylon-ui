@@ -1,8 +1,8 @@
 import { Anchor } from "@mantine/core";
-import React from "react";
+import React, { ReactNode } from "react";
 
 export const PylonCollectionHeading: React.FC<{
-  heading: string;
+  heading: ReactNode;
   href: string;
 }> = ({ heading, href }) => {
   return (
