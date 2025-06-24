@@ -22,17 +22,17 @@
   &.usa-nav__primary--dark {
     a,
     span {
-      color: #c2c2c2;
+      color: #e5e5e5;
       &.usa-current {
         color: white;
       }
       &:hover {
-        color: #83ace6;
+        color: #c0d7f8;
       }
     }
     .usa-current::after,
     :hover::after {
-      background-color: #83ace6;
+      background-color: #c0d7f8;
     }
   }
 

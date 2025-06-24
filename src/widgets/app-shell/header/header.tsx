@@ -71,7 +71,7 @@ export const PylonHeader: React.FC<{
               gap="sm"
               bottom="auto"
             >
-              {mainItems}
+              {...mainItems}
             </Flex>
           )}
         </Flex>

@@ -15,7 +15,18 @@ export const HeaderNav: React.FC<{
       listStyleType="none"
     >
       {items.map((item) => (
-        <HeaderNavItem {...item} />
+        <HeaderNavItem
+          key={item.id}
+          id={item.id}
+          href={item.href}
+          onClick={item.onClick}
+          current={item.current}
+          icon={item.icon}
+          ml={item.ml}
+          body={item.body}
+        >
+          {item.children}
+        </HeaderNavItem>
       ))}
     </List>
   );
