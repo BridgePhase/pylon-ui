@@ -324,6 +324,7 @@ export const UswdsTheme: MantineThemeOverride = {
           ["usa-select"]: true,
           ["usa-select--error"]: props.error,
         }),
+        description: "usa-hint",
         error: "usa-error-message",
       }),
       defaultProps: {

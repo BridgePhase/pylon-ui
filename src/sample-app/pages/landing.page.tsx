@@ -1,4 +1,4 @@
-import { Text, Title, Stack } from "@mantine/core";
+import { Text, Title, Stack, Box, Grid, SimpleGrid } from "@mantine/core";
 import { BarChart } from "@mantine/charts";
 
 export const LandingPage = () => {
@@ -62,6 +62,32 @@ export const LandingPage = () => {
         magna vulputate commodo. Nulla dictum metus ut dapibus aliquam. Maecenas
         ac dui consequat, ullamcorper massa semper, tristique diam.
       </Text>
+
+      <Grid bg="red.2" mt="md" h="20vh" w="100%">
+        <Grid.Col span={9}>
+          <Box bg="orange.4">A</Box>
+        </Grid.Col>
+
+        <Grid.Col span={3}>
+          <Box bg="yellow.4">B</Box>
+        </Grid.Col>
+
+        <Grid.Col span={6}>
+          <Box bg="green.4">C</Box>
+        </Grid.Col>
+
+        <Grid.Col span={6}>
+          <Box bg="blue.4">D</Box>
+        </Grid.Col>
+      </Grid>
+
+      <SimpleGrid cols={2} bg="red.2" mt="md" h="20vh" w="100%">
+        <Box bg="orange.4">A</Box>
+        <Box bg="yellow.4">B</Box>
+        <Box bg="green.4">C</Box>
+        <Box bg="blue.4">D</Box>
+      </SimpleGrid>
+
       <Text>
         Cras quis vestibulum libero. Praesent est felis, ultrices quis turpis
         in, congue euismod nunc. Pellentesque sed mi vel neque ultricies sodales

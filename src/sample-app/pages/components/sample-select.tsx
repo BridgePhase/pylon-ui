@@ -7,6 +7,7 @@ export const SampleSelectMantine: React.FC = () => {
 
       <Select
         label="Select label"
+        description="Psst..."
         data={[
           { label: "Option A", value: "value1" },
           { label: "Option B", value: "value2" },
@@ -35,6 +36,7 @@ export const SampleSelectUswds: React.FC = () => {
         <label data-testid="label" className="usa-label" htmlFor="input-select">
           Select label
         </label>
+        <div className="usa-hint">Psst...</div>
         <select
           data-testid="Select"
           className="usa-select"
