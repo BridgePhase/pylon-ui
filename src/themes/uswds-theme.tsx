@@ -135,7 +135,7 @@ export const UswdsTheme: MantineThemeOverride = {
       },
       classNames: (_theme, props) => ({
         root: cx({
-          ["usa-link"]: props.underline === "never",
+          ["usa-link"]: true,
           ["usa-link--external"]:
             props.variant === "external" || props.variant === "external-alt",
           ["usa-link--alt"]: props.variant === "external-alt",
@@ -225,11 +225,17 @@ export const UswdsTheme: MantineThemeOverride = {
     }),
 
     Checkbox: Checkbox.extend({
-      classNames: () => ({
-        root: checkboxClasses.pylonCheckboxRoot,
+      classNames: (_theme, props) => ({
+        root: cx({
+          [checkboxClasses.pylonCheckboxRoot]: true,
+          [checkboxClasses.pylonCheckboxRootTiled]: props.variant === "tiled",
+          [checkboxClasses.pylonCheckboxRootChecked]: props.checked,
+          [checkboxClasses.pylonCheckboxRootDisabled]: props.disabled,
+        }),
         label: checkboxClasses.pylonCheckboxLabel,
         input: checkboxClasses.pylonCheckboxInput,
         icon: checkboxClasses.pylonCheckboxIcon,
+        description: checkboxClasses.pylonCheckboxLabelDescription,
       }),
     }),
 
@@ -421,17 +427,13 @@ export const UswdsTheme: MantineThemeOverride = {
         leftSectionProps: {
           className: "usa-input-prefix",
           style: {
-            marginTop: "8px",
-            height: "38px",
             borderRadius: 0,
           },
         },
         rightSectionProps: {
           className: "usa-input-suffix",
           style: {
-            marginTop: "8px",
-            marginRight: "15px",
-            height: "38px",
+            marginRight: "1px",
             borderRadius: 0,
           },
         },

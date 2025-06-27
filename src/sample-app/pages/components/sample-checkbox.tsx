@@ -13,12 +13,12 @@ export const SampleCheckboxMantine: React.FC = () => {
   const [values, setValues] = useState<string[]>([OPTIONS[0]]);
   return (
     <>
-      {["Default"].map((variant) => (
+      {["Default", "tiled"].map((variant) => (
         <Stack key={variant} gap={0}>
           <h3>{variant}</h3>
 
           <Checkbox.Group label="Select any historical figure" value={values}>
-            {OPTIONS.map((option) => (
+            {OPTIONS.map((option, index) => (
               <Checkbox
                 key={option}
                 label={option}
@@ -34,6 +34,11 @@ export const SampleCheckboxMantine: React.FC = () => {
                   }
                 }}
                 disabled={OPTIONS_DISABLED.includes(option)}
+                description={
+                  variant === "tiled" && index === 0
+                    ? `This is optional text that can be used to describe the label in more detail.`
+                    : undefined
+                }
               />
             ))}
           </Checkbox.Group>
@@ -108,6 +113,78 @@ export const SampleCheckboxUswds: React.FC = () => {
           <label
             className="usa-checkbox__label"
             htmlFor="check-historical-carver"
+          >
+            George Washington Carver
+          </label>
+        </div>
+      </fieldset>
+
+      <h3>Tiled</h3>
+
+      <fieldset className="usa-fieldset">
+        <legend className="usa-legend">Select any historical figure</legend>
+        <div className="usa-checkbox">
+          <input
+            className="usa-checkbox__input usa-checkbox__input--tile"
+            id="check-historical-truth-2"
+            type="checkbox"
+            name="historical-figures-2"
+            value="sojourner-truth"
+            checked
+          />
+          <label
+            className="usa-checkbox__label"
+            htmlFor="check-historical-truth-2"
+          >
+            Sojourner Truth
+            <span className="usa-checkbox__label-description">
+              This is optional text that can be used to describe the label in
+              more detail.
+            </span>
+          </label>
+        </div>
+        <div className="usa-checkbox">
+          <input
+            className="usa-checkbox__input usa-checkbox__input--tile"
+            id="check-historical-douglass-2"
+            type="checkbox"
+            name="historical-figures-2"
+            value="frederick-douglass"
+          />
+          <label
+            className="usa-checkbox__label"
+            htmlFor="check-historical-douglass-2"
+          >
+            Frederick Douglass
+          </label>
+        </div>
+        <div className="usa-checkbox">
+          <input
+            className="usa-checkbox__input usa-checkbox__input--tile"
+            id="check-historical-washington-2"
+            type="checkbox"
+            name="historical-figures-2"
+            value="booker-t-washington"
+          />
+          <label
+            className="usa-checkbox__label"
+            htmlFor="check-historical-washington-2"
+          >
+            Booker T. Washington
+          </label>
+        </div>
+        <div className="usa-checkbox">
+          <input
+            className="usa-checkbox__input usa-checkbox__input--tile"
+            id="check-historical-carver-2"
+            type="checkbox"
+            name="historical-figures-2"
+            value="george-washington-carver"
+            disabled
+          />
+          <label
+            className="usa-checkbox__label"
+            htmlFor="check-historical-carver-2"
           >
             George Washington Carver
           </label>

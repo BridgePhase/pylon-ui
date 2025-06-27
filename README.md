@@ -11,7 +11,6 @@ npm run dev
 ## Known Issues
 
 - Mantine Grid container doesn't work with USWDS styles imported (SimpleGrid does work)
-- Checkbox doesn't have tile styling
 
 ## USWDS Component Targets
 
