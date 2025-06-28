@@ -1,0 +1,32 @@
+.pylonHeaderNavItemButton {
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+.pylonHeaderNavItemDark {
+  &.pylonHeaderNavItemButton {
+    &.pylonHeaderNavItemCurrent {
+      background-color: #0003;
+    }
+    &:hover {
+      background-color: #0006;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.pylonHeaderNavItemLight {
+  &.pylonHeaderNavItemButton {
+    &.pylonHeaderNavItemCurrent {
+      background-color: #fff3;
+    }
+    &:hover {
+      background-color: #fff6;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

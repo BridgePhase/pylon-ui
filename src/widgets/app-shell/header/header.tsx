@@ -42,19 +42,12 @@ export const PylonHeader: React.FC<{
         {/* Main header */}
         <Flex
           component="header"
-          px="lg"
+          pl="lg"
           bg={mainBg}
           align="center"
           c={mainDark ? "white" : "black"}
           className="usa-header usa-header--basic site-header"
         >
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            hiddenFrom="sm"
-            size="sm"
-            color="white"
-          />
           <HeaderTitle
             shortText={shortTitle}
             longText={longTitle}
@@ -63,6 +56,7 @@ export const PylonHeader: React.FC<{
           />
           {mainItems && mainItems.length > 0 && (
             <Flex
+              ml="auto"
               className="usa-nav__secondary"
               direction="row"
               my="auto"
@@ -74,6 +68,15 @@ export const PylonHeader: React.FC<{
               {...mainItems}
             </Flex>
           )}
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            hiddenFrom="64rem"
+            size="sm"
+            color="white"
+            ml="md"
+            mr="0"
+          />
         </Flex>
         {/* Primary navigation (under header) */}
         {navItems && navItems.length > 0 && (

@@ -1,5 +1,6 @@
+import cx from "clsx";
 import {
-  Button,
+  Anchor,
   Group,
   List,
   MantineSpacing,
@@ -10,6 +11,8 @@ import { ReactNode } from "react";
 import { HeaderNavLink } from "./header-nav-link";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 
+import classes from "./header-nav-item.module.css";
+
 export interface HeaderNavItemProps {
   id: string;
   href?: string;
@@ -18,6 +21,7 @@ export interface HeaderNavItemProps {
   icon?: ReactNode;
   ml?: StyleProp<MantineSpacing>;
   body: ReactNode;
+  dark?: boolean;
   children?: HeaderNavItemProps[];
 }
 
@@ -28,26 +32,39 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
   icon,
   ml = 0,
   body,
+  dark,
   children,
 }) => {
   let item: ReactNode;
   if (href) {
     item = (
       <HeaderNavLink href={href} current={current}>
-        <Group gap="xs" align="center">
+        <Group align="center">
           {icon} {body}
         </Group>
       </HeaderNavLink>
     );
   } else if (onClick) {
     item = (
-      <Button
+      <Anchor
         onClick={onClick}
-        variant={current ? "light" : "subtle"}
-        leftSection={icon}
+        display="block"
+        td="none"
+        px="xs"
+        py={2}
+        className={cx({
+          [classes.pylonHeaderNavItem]: true,
+          [classes.pylonHeaderNavItemButton]: true,
+          [classes.pylonHeaderNavItemDark]: dark,
+          [classes.pylonHeaderNavItemLight]: !dark,
+          [classes.pylonHeaderNavItemCurrent]: current,
+        })}
       >
-        {body}
-      </Button>
+        <Group gap={4}>
+          {icon}
+          {body}
+        </Group>
+      </Anchor>
     );
   } else {
     item = (
@@ -60,28 +77,39 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
   let content;
   if (children && children.length > 0) {
     content = (
-      <Menu>
+      <Menu offset={0}>
         <Menu.Target>
-          <Group style={{ cursor: "pointer" }}>
+          <Group
+            style={{ cursor: "pointer" }}
+            gap={4}
+            className={cx({
+              [classes.pylonHeaderNavItem]: true,
+              [classes.pylonHeaderNavItemButton]: true,
+              [classes.pylonHeaderNavItemDark]: dark,
+              [classes.pylonHeaderNavItemLight]: !dark,
+              [classes.pylonHeaderNavItemCurrent]: current,
+            })}
+          >
             {item}
-            <IconCaretDownFilled />
+            <IconCaretDownFilled opacity={0.5} />
           </Group>
         </Menu.Target>
         <Menu.Dropdown className="header-nav-item-menu-dropdown">
           <List type="unordered" listStyleType="none">
             {children.map((item) => (
-              <HeaderNavItem
+              <Menu.Item
                 key={item.id}
                 id={item.id}
-                href={item.href}
-                onClick={item.onClick}
-                current={item.current}
-                icon={item.icon}
+                onClick={
+                  item.onClick
+                    ? item.onClick
+                    : () => (window.location.href = item.href ?? "#")
+                }
+                leftSection={item.icon}
                 ml={item.ml}
-                body={item.body}
               >
-                {item.children}
-              </HeaderNavItem>
+                {item.body}
+              </Menu.Item>
             ))}
           </List>
         </Menu.Dropdown>

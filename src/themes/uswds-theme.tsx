@@ -41,6 +41,18 @@ export const UswdsTheme: MantineThemeOverride = {
   primaryColor: "default",
   primaryShade: 5,
 
+  breakpoints: {
+    card: "160px",
+    "card-lg": "240px",
+    mobile: "320px",
+    "mobile-lg": "480px",
+    tablet: "640px",
+    "tablet-lg": "880px",
+    desktop: "1024px",
+    "desktop-lg": "1200px",
+    widescreen: "1400px",
+  },
+
   // Typography
   fontFamily:
     "Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif",

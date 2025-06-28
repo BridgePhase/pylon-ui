@@ -24,6 +24,7 @@ export const HeaderNav: React.FC<{
           icon={item.icon}
           ml={item.ml}
           body={item.body}
+          dark={dark}
         >
           {item.children}
         </HeaderNavItem>
