@@ -18,9 +18,9 @@ import { PylonFooter } from "../widgets/app-shell/footer/footer";
 import icon from "/pylon.png";
 import { useDisclosure } from "@mantine/hooks";
 import {
+  IconBlocks,
   IconBrandGithub,
   IconBrandNpm,
-  IconHammer,
   IconHome,
   IconTools,
 } from "@tabler/icons-react";
@@ -84,7 +84,7 @@ export const SampleAppShell: React.FC = () => {
             id: "components",
             body: "Components",
             current: pathname.startsWith("/components"),
-            icon: <IconHammer />,
+            icon: <IconBlocks />,
             children: SAMPLE_COMPONENTS.map((item) => {
               return {
                 href: `/components/${item.name.toLowerCase()}`,
