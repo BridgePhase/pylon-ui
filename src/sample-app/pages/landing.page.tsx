@@ -38,10 +38,15 @@ export const LandingPage = () => {
               paddingLeft: 10,
               paddingRight: 10,
               borderRadius: 0,
+              height: 30,
             },
           }}
+          classNames={{
+            root: "usa-search",
+            input: "usa-search__input",
+          }}
         />
-        <Title order={3} mt="0">
+        <Title order={3} m="0">
           Contents
         </Title>
         <SampleAppSideNav searchQuery={searchQuery} />

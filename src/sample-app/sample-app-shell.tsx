@@ -55,9 +55,6 @@ export const SampleAppShell: React.FC = () => {
         navDark
         mainItems={[
           <Text fw="lighter" fz="0.9rem">
-            Nav open? {opened ? "Y" : "N"}
-          </Text>,
-          <Text fw="lighter" fz="0.9rem">
             Username
           </Text>,
           <Button>Logout</Button>,

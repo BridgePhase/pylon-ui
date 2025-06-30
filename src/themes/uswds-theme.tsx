@@ -445,12 +445,14 @@ export const UswdsTheme: MantineThemeOverride = {
         rightSectionProps: {
           className: "usa-input-suffix",
           style: {
-            marginRight: "1px",
             borderRadius: 0,
           },
         },
       },
       styles: {
+        wrapper: {
+          maxWidth: "30rem",
+        },
         error: {
           fontSize: "1.06rem",
         },

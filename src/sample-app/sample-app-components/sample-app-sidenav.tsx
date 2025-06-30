@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { FC } from "react";
 import { STYLE_GUIDES } from "../sample-app-style-guides";
 import { SAMPLE_COMPONENTS } from "../sample-app-components";
+import { IconFileOff } from "@tabler/icons-react";
 
 export const SampleAppSideNav: FC<{ searchQuery?: string }> = ({
   searchQuery = "",
@@ -17,32 +18,35 @@ export const SampleAppSideNav: FC<{ searchQuery?: string }> = ({
   );
 
   return (
-    <ScrollArea offsetScrollbars="x" miw="200px" pt="xs">
-      <NavLink
-        label={
-          <Flex gap={3} align="center" w="100%">
-            <Text fw="bold" size="sm">
-              Styling
-            </Text>
-          </Flex>
-        }
-      >
-        {filteredStylingPages.map((page) => {
-          const path = `/${page.name.toLowerCase()}`;
-          return (
-            <NavLink
-              key={page.name}
-              label={
-                <Highlight highlight={searchQuery} size="sm">
-                  {page.name}
-                </Highlight>
-              }
-              href={path}
-              active={pathname === path}
-            />
-          );
-        })}
-      </NavLink>
+    <ScrollArea offsetScrollbars="x" miw="200px">
+      {filteredStylingPages.length > 0 && (
+        <NavLink
+          label={
+            <Flex gap={3} align="center" w="100%">
+              <Text fw="bold" size="sm">
+                Styling
+              </Text>
+            </Flex>
+          }
+        >
+          {filteredStylingPages.map((page) => {
+            const path = `/${page.name.toLowerCase()}`;
+            return (
+              <NavLink
+                key={page.name}
+                label={
+                  <Highlight highlight={searchQuery} size="sm">
+                    {page.name}
+                  </Highlight>
+                }
+                href={path}
+                active={pathname === path}
+              />
+            );
+          })}
+        </NavLink>
+      )}
+
       {filteredComponents.length > 0 && (
         <NavLink
           label={
@@ -82,6 +86,21 @@ export const SampleAppSideNav: FC<{ searchQuery?: string }> = ({
             );
           })}
         </NavLink>
+      )}
+      {filteredComponents.length + filteredStylingPages.length === 0 && (
+        <Flex
+          bg="gray.2"
+          px="md"
+          py="sm"
+          c="gray.9"
+          fs="italic"
+          direction="column"
+          align="center"
+          style={{ borderRadius: 10 }}
+        >
+          <IconFileOff />
+          <Text>No matches.</Text>
+        </Flex>
       )}
     </ScrollArea>
   );

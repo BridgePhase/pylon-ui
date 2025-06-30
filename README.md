@@ -11,6 +11,7 @@ npm run dev
 ## Known Issues
 
 - Mantine Grid container doesn't work with USWDS styles imported (SimpleGrid does work)
+- Alerts don't support USWDS slim or headingLevel properties
 
 ## USWDS Component Targets
 

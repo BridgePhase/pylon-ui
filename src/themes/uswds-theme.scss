@@ -3,6 +3,15 @@
 @import "@mantine/dates/styles.css";
 @import "@uswds/uswds/css/uswds.css";
 
+* {
+  --input-placeholder-color: var(--mantine-color-gray-7);
+}
+
+[type="search"],
+.usa-search__input {
+  border-right: 1px solid;
+}
+
 .usa-nav__primary--desktop {
   &.usa-nav__primary--light {
     a,
