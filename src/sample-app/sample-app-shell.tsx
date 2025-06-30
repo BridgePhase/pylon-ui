@@ -122,7 +122,7 @@ export const SampleAppShell: React.FC = () => {
         display="flex"
         miw={450}
       >
-        <Box style={{ flexGrow: 1 }} mx="xl">
+        <Box style={{ flexGrow: 1 }} m="xl">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             {STYLE_GUIDES.map((styling) => (

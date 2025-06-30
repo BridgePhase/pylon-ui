@@ -45,8 +45,11 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
       </HeaderNavLink>
     );
   } else if (onClick) {
+    // Button style link
     item = (
       <Anchor
+        ml={"-1rem"}
+        mr={"-1rem"}
         onClick={onClick}
         display="block"
         td="none"
@@ -60,7 +63,7 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
           [classes.pylonHeaderNavItemCurrent]: current,
         })}
       >
-        <Group gap={4}>
+        <Group gap={4} wrap="nowrap">
           {icon}
           {body}
         </Group>
@@ -68,7 +71,7 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
     );
   } else {
     item = (
-      <Group gap={5} align="center">
+      <Group gap={5} align="center" wrap="nowrap">
         {icon} {body}
       </Group>
     );
@@ -76,10 +79,13 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
 
   let content;
   if (children && children.length > 0) {
+    // Menu
     content = (
       <Menu offset={0}>
         <Menu.Target>
           <Group
+            ml={"-1rem"}
+            mr={"-1rem"}
             style={{ cursor: "pointer" }}
             gap={4}
             className={cx({
@@ -89,9 +95,10 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
               [classes.pylonHeaderNavItemLight]: !dark,
               [classes.pylonHeaderNavItemCurrent]: current,
             })}
+            wrap="nowrap"
           >
             {item}
-            <IconCaretDownFilled opacity={0.5} />
+            <IconCaretDownFilled opacity={0.5} size={12} />
           </Group>
         </Menu.Target>
         <Menu.Dropdown className="header-nav-item-menu-dropdown">
@@ -120,7 +127,14 @@ export const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
   }
 
   return (
-    <List.Item px="md" ml={ml} className="usa-nav__submenu-item">
+    <List.Item
+      px="md"
+      ml={ml}
+      className="usa-nav__submenu-item"
+      style={{
+        alignContent: "flex-end",
+      }}
+    >
       {content}
     </List.Item>
   );
