@@ -1,7 +1,16 @@
-import { TextInput } from "@mantine/core";
+import { Button, TextInput } from "@mantine/core";
 import { PylonMaskedTextInput } from "../../../widgets/form/masked-text-input/masked-text-input";
+import { Controller, useForm } from "react-hook-form";
 
 export const SampleTextInputMantine: React.FC = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<{ phone: string }>({
+    mode: "onTouched",
+    defaultValues: { phone: "" },
+  });
   return (
     <>
       <h3>Text Input Form Group</h3>
@@ -14,12 +23,44 @@ export const SampleTextInputMantine: React.FC = () => {
 
       <h3>Text Input with Mask</h3>
 
-      <PylonMaskedTextInput
-        label="US Telephone Number"
-        description="For example, 123-456-7890"
-        mask="000-000-0000"
-        placeholder="___-___-____"
-      />
+      <form
+        noValidate
+        onSubmit={handleSubmit((data) => {
+          console.log("data:", data);
+        })}
+      >
+        <Controller
+          name="phone"
+          control={control}
+          rules={{
+            required: "Phone Number is required",
+            maxLength: {
+              value: 6,
+              message: "Phone Number must be 10 numbers long",
+            },
+            minLength: {
+              value: 6,
+              message: "Phone Number must be 10 numbers long",
+            },
+          }}
+          render={({ field: { ref, ...field } }) => {
+            console.log(">>> ref:", ref);
+            return (
+              <PylonMaskedTextInput
+                label="US Telephone Number"
+                description="For example, 123-456-7890"
+                mask="000-000-0000"
+                placeholder="___-___-____"
+                ref={ref}
+                required
+                error={errors.phone ? errors.phone.message : undefined}
+                {...field}
+              />
+            );
+          }}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
     </>
   );
 };
