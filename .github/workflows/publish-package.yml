@@ -1,9 +1,9 @@
-name: Node.js Package
+name: Publish to GitHub Packages
 
 on: [workflow_dispatch]
 
 jobs:
-  publish-gpr:
+  publish:
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -14,9 +14,11 @@ jobs:
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com/
-      - run: |
+      - name: Build Package
+        run: |
           npm ci
           npm run build
+          npm install -g json-server
           ls -ltr dist
       - name: Publish
         run: npm publish
