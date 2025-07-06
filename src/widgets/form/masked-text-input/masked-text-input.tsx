@@ -1,6 +1,7 @@
 import { Input, InputWrapper } from "@mantine/core";
 import { IMaskInput } from "react-imask";
-import { forwardRef } from "react";
+import React from "react";
+import { RefCallBack } from "react-hook-form";
 
 export type PylonMaskedTextInputProps = {
   label: string;
@@ -10,19 +11,18 @@ export type PylonMaskedTextInputProps = {
   /** Contents of `Input.Error` component. If not set, error is not rendered. */
   error?: React.ReactNode;
   required?: boolean;
+  refCallback?: RefCallBack;
 };
 
-export const PylonMaskedTextInput = forwardRef(function PylonMaskedTextInput(
-  {
-    label,
-    description,
-    mask,
-    placeholder,
-    error,
-    required = false,
-  }: PylonMaskedTextInputProps,
-  ref
-) {
+export const PylonMaskedTextInput: React.FC<PylonMaskedTextInputProps> = ({
+  label,
+  description,
+  mask,
+  placeholder,
+  error,
+  required = false,
+  refCallback,
+}) => {
   return (
     <InputWrapper
       required={required}
@@ -42,12 +42,21 @@ export const PylonMaskedTextInput = forwardRef(function PylonMaskedTextInput(
         <Input.Error className="usa-error-message">{error}</Input.Error>
       )}
       <IMaskInput
-        ref={ref}
-        className={`usa-input usa-input--${error ? "error" : "valid"}`}
+        onAccept={(_value, mask) => {
+          console.log(">>> mask:", mask);
+          console.log(">>> refCallback:", refCallback);
+          if (refCallback) {
+            console.log(">>> refCallback ->", mask.unmaskedValue);
+            refCallback(mask.unmaskedValue);
+          }
+        }}
+        className={`usa-input usa-input--${
+          error ? "error" : "valid"
+        } usa-maked`}
         mask={mask}
         placeholder={placeholder}
         lazy={false}
       />
     </InputWrapper>
   );
-});
+};

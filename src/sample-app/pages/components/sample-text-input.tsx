@@ -1,9 +1,11 @@
-import { Button, TextInput } from "@mantine/core";
+import { Button, Code, Group, Space, TextInput } from "@mantine/core";
 import { PylonMaskedTextInput } from "../../../widgets/form/masked-text-input/masked-text-input";
 import { Controller, useForm } from "react-hook-form";
 
 export const SampleTextInputMantine: React.FC = () => {
   const {
+    getValues,
+    setValue,
     control,
     handleSubmit,
     formState: { errors },
@@ -35,23 +37,24 @@ export const SampleTextInputMantine: React.FC = () => {
           rules={{
             required: "Phone Number is required",
             maxLength: {
-              value: 6,
+              value: 10,
               message: "Phone Number must be 10 numbers long",
             },
             minLength: {
-              value: 6,
+              value: 10,
               message: "Phone Number must be 10 numbers long",
             },
           }}
-          render={({ field: { ref, ...field } }) => {
-            console.log(">>> ref:", ref);
+          render={({ field: { ...field } }) => {
             return (
               <PylonMaskedTextInput
                 label="US Telephone Number"
                 description="For example, 123-456-7890"
                 mask="000-000-0000"
                 placeholder="___-___-____"
-                ref={ref}
+                refCallback={(value: string) => {
+                  setValue("phone", value);
+                }}
                 required
                 error={errors.phone ? errors.phone.message : undefined}
                 {...field}
@@ -59,7 +62,11 @@ export const SampleTextInputMantine: React.FC = () => {
             );
           }}
         />
-        <Button type="submit">Submit</Button>
+        <Space h="md" />
+        <Group>
+          <Button type="submit">Submit</Button>
+          Form value: <Code>{JSON.stringify(getValues())}</Code>
+        </Group>
       </form>
     </>
   );
@@ -148,6 +155,7 @@ export const SampleTextInputUswds: React.FC = () => {
             pattern="\d{3}-\d{3}-\d{4}"
             type="tel"
             value=""
+            onChange={() => null}
             name="input-type-tel"
           />
         </span>

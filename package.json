@@ -1,6 +1,7 @@
 {
   "name": "@bridgephase/pylon-ui",
-  "version": "0.0.24",
+  "private": true,
+  "version": "0.0.28",
   "type": "module",
   "scripts": {
     "dev": "vite",
