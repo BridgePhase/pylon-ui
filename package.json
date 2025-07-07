@@ -1,9 +1,13 @@
 {
   "name": "@bridgephase/pylon-ui",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "type": "module",
   "publishConfig": {
     "@bridgephase:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BridgePhase/pylon-ui.git"
   },
   "scripts": {
     "dev": "vite",
