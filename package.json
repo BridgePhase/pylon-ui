@@ -1,6 +1,5 @@
 {
   "name": "@bridgephase/pylon-ui",
-  "private": true,
   "version": "0.0.28",
   "type": "module",
   "publishConfig": {
