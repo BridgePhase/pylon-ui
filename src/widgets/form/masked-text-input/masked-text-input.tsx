@@ -43,10 +43,7 @@ export const PylonMaskedTextInput: React.FC<PylonMaskedTextInputProps> = ({
       )}
       <IMaskInput
         onAccept={(_value, mask) => {
-          console.log(">>> mask:", mask);
-          console.log(">>> refCallback:", refCallback);
           if (refCallback) {
-            console.log(">>> refCallback ->", mask.unmaskedValue);
             refCallback(mask.unmaskedValue);
           }
         }}

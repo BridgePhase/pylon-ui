@@ -48,12 +48,16 @@ export const SampleTextInputMantine: React.FC = () => {
           render={({ field: { ...field } }) => {
             return (
               <PylonMaskedTextInput
-                label="US Telephone Number"
+                label="U.S. Telephone Number"
                 description="For example, 123-456-7890"
                 mask="000-000-0000"
                 placeholder="___-___-____"
                 refCallback={(value: string) => {
-                  setValue("phone", value);
+                  setValue("phone", value, {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                    shouldTouch: true,
+                  });
                 }}
                 required
                 error={errors.phone ? errors.phone.message : undefined}
