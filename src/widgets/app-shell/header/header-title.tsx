@@ -25,7 +25,7 @@ export const HeaderTitle: React.FC<{
               component="span"
               order={1}
               className="site-title--short font-sans-sm"
-              hiddenFrom="sm"
+              hiddenFrom="desktop"
               m={0}
               lh={1.1}
               c={dark ? "white" : "black"}
@@ -36,8 +36,7 @@ export const HeaderTitle: React.FC<{
               component="span"
               order={1}
               className="site-title--long font-sans-sm"
-              fz="1.46rem"
-              visibleFrom="sm"
+              visibleFrom="desktop"
               m={0}
               lh={1.1}
               c={dark ? "white" : "black"}
