@@ -53,6 +53,7 @@ export const SampleAppShell: React.FC = () => {
         mainDark
         navBg="#414142"
         navDark
+        miw={450}
         mainItems={[
           <Text fw="lighter" fz="0.9rem">
             Username

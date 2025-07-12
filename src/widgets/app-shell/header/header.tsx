@@ -1,4 +1,11 @@
-import { AppShell, Burger, Flex, MantineColor, Stack } from "@mantine/core";
+import {
+  AppShell,
+  Burger,
+  Flex,
+  MantineColor,
+  Stack,
+  StyleProp,
+} from "@mantine/core";
 import { ReactNode } from "react";
 import { HeaderNav } from "./header-nav";
 import { HeaderTitle } from "./header-title";
@@ -16,6 +23,7 @@ export const PylonHeader: React.FC<{
   navBg?: MantineColor;
   mainDark?: boolean;
   navDark?: boolean;
+  miw?: StyleProp<React.CSSProperties["minWidth"]>;
 }> = ({
   shortTitle,
   longTitle,
@@ -28,6 +36,7 @@ export const PylonHeader: React.FC<{
   mainBg = "red.1",
   mainDark = false,
   navDark = false,
+  miw,
 }) => {
   return (
     <AppShell.Header
@@ -36,7 +45,7 @@ export const PylonHeader: React.FC<{
       style={{
         alignItems: "center",
       }}
-      miw={450}
+      miw={miw}
     >
       <Stack w="100%" gap={0}>
         {/* Main header */}
