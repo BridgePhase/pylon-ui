@@ -1,6 +1,6 @@
 {
   "name": "@bridgephase/pylon-ui",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "type": "module",
   "publishConfig": {
     "@bridgephase:registry": "https://npm.pkg.github.com"

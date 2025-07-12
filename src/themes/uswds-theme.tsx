@@ -433,6 +433,7 @@ export const UswdsTheme: MantineThemeOverride = {
           ["usa-input--error"]: props.error,
         }),
         error: "usa-error-message",
+        description: "usa-hint",
       }),
       defaultProps: {
         inputWrapperOrder: ["label", "description", "error", "input"],
