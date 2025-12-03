@@ -20,7 +20,6 @@ import { useDisclosure } from "@mantine/hooks";
 import {
   IconBlocks,
   IconBrandGithub,
-  IconBrandNpm,
   IconHome,
   IconTools,
 } from "@tabler/icons-react";
@@ -102,14 +101,6 @@ export const SampleAppShell: React.FC = () => {
             body: "Repository",
             icon: <IconBrandGithub />,
             ml: "auto",
-          },
-          {
-            id: "npmjs",
-            onClick: () =>
-              (window.location.href =
-                "https://www.npmjs.com/package/@bridgephase/pylon-ui"),
-            body: "NPMJS",
-            icon: <IconBrandNpm />,
           },
         ]}
       />

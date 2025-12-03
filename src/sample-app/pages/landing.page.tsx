@@ -52,7 +52,7 @@ export const LandingPage = () => {
         <SampleAppSideNav searchQuery={searchQuery} />
       </Stack>
 
-      <Stack>
+      <Stack mih={10}>
         <Title order={2}>Lorem Ipsum</Title>
         <Text className="font-heading-sm text-italic">
           "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
@@ -74,34 +74,28 @@ export const LandingPage = () => {
         </Text>
         <BarChart
           h={300}
-          orientation="horizontal"
           withBarValueLabel
-          dataKey="date"
-          xAxisProps={{
-            domain: [0, 10],
-          }}
-          barChartProps={{
-            margin: {
-              top: 10,
-              right: 0,
-              left: -20,
-              bottom: 10,
-            },
-            barGap: 2,
-          }}
-          yAxisProps={{
-            domain: [0, 100],
-          }}
-          data={[{ arithmetic: [0, 10], exponential: [0, 100] }]}
-          textColor={"black"}
+          dataKey="xKey"
+          data={[
+            { xKey: "arithmetic", first: 1, second: 2, third: 3, fourth: 4 },
+            { xKey: "exponential", first: 1, second: 2, third: 4, fourth: 8 },
+          ]}
           series={[
             {
-              color: "red",
-              name: "arithmetic",
+              color: "red.4",
+              name: "first",
             },
             {
-              color: "green",
-              name: "exponential",
+              color: "green.4",
+              name: "second",
+            },
+            {
+              color: "blue.4",
+              name: "third",
+            },
+            {
+              color: "orange.4",
+              name: "fourth",
             },
           ]}
         />

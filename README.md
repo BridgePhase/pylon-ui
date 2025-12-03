@@ -6,7 +6,7 @@ Pylon UI is being significantly enhanced to allow React development using the [M
 
 ## Running Sample App
 
-Pylon UI has been written and tested using Node v.22. It contains a `.nvmrc` which specifies this version target, so that if you have the [Node Version Manager (NVM)](https://sukiphan.medium.com/how-to-install-nvm-node-version-manager-on-macos-d9fe432cc7db) tool installed (e.g. via the [Homebrew package manager](https://brew.sh/) with `brew install nvm`) you can switch to it by just running `nvm use`.
+Pylon UI has been written and tested using Node v.24. It contains a `.nvmrc` which specifies this version target, so that if you have the [Node Version Manager (NVM)](https://sukiphan.medium.com/how-to-install-nvm-node-version-manager-on-macos-d9fe432cc7db) tool installed (e.g. via the [Homebrew package manager](https://brew.sh/) with `brew install nvm`) you can switch to it by just running `nvm use`.
 
 ```bash
 nvm use

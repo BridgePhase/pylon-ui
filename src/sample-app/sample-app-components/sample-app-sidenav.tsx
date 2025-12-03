@@ -30,7 +30,7 @@ export const SampleAppSideNav: FC<{ searchQuery?: string }> = ({
           }
         >
           {filteredStylingPages.map((page) => {
-            const path = `/${page.name.toLowerCase()}`;
+            const path = `/styling/${page.name.toLowerCase()}`;
             return (
               <NavLink
                 key={page.name}
