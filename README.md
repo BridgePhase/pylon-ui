@@ -112,5 +112,8 @@ Components used in Waves application:
 
 To package a new release of Pylon UI to the GitHub Packages Registry:
 
-- Manually update the version number in `package.json` and push to `main`
-- Run the [Publish to GitHub Packages](https://github.com/BridgePhase/pylon-ui/actions/workflows/publish-package.yml) action
+- Merge contributor pull requests into `main` using conventional commit messages, such as `fix: correct button styles` or `feat: add date picker variant`
+- The [Release](https://github.com/BridgePhase/pylon-ui/actions/workflows/release.yaml) action will automatically create or update a release pull request
+- Review and merge the release pull request when maintainers are ready to publish
+- Release Please creates the matching version tag and GitHub release
+- The same action builds and publishes the package to GitHub Packages

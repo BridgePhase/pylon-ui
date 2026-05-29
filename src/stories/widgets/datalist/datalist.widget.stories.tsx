@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DataListWidget } from "../../../widgets/datalist/datalist.widget";
 import {
-  ListItemWithAvatar,
-  ListItemWithAvatarAndSideContext,
-  SimpleListItem,
-} from "./datalistitem.widget.stories";
-import { InteractiveListItem } from "./interactivedatalistitem.widget.stories";
+  DataListItemWithAvatarAndSideContextStory,
+  DataListItemWithAvatarStory,
+  InteractiveDataListItemStory,
+  SimpleDataListItemStory,
+} from "./datalist-story-items";
 
 const meta: Meta<typeof DataListWidget> = {
   component: DataListWidget,
@@ -27,10 +27,10 @@ export const Primary: Story = {
   args: {
     children: (
       <>
-        <SimpleListItem />
-        <ListItemWithAvatar />
-        <ListItemWithAvatarAndSideContext />
-        <InteractiveListItem
+        <SimpleDataListItemStory />
+        <DataListItemWithAvatarStory />
+        <DataListItemWithAvatarAndSideContextStory />
+        <InteractiveDataListItemStory
           onSelect={() => alert("clicked the interactive one")}
         />
       </>

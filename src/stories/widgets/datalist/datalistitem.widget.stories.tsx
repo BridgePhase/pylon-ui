@@ -1,7 +1,10 @@
-import { Avatar, Badge, Group, Text } from "@mantine/core";
-import type { Meta, StoryFn } from "@storybook/react-vite";
-import { IconMail, IconPhone, IconStar } from "@tabler/icons-react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { DataListItem } from "../../../widgets/datalist/datalistitem.widget";
+import {
+  DataListItemWithAvatarAndSideContextStory,
+  DataListItemWithAvatarStory,
+  SimpleDataListItemStory,
+} from "./datalist-story-items";
 
 const meta: Meta<typeof DataListItem> = {
   component: DataListItem,
@@ -17,70 +20,16 @@ const meta: Meta<typeof DataListItem> = {
 };
 export default meta;
 
-type Story = StoryFn<typeof DataListItem>;
+type Story = StoryObj<typeof DataListItem>;
 
-export const SimpleListItem: Story = () => {
-  return (
-    <DataListItem>
-      <Group>
-        <Text span>John Doe</Text>
-        <Badge>developer</Badge>
-      </Group>
-      <Group>
-        <IconMail />
-        <Text>john.doe@rebar.candidate.io</Text>
-      </Group>
-      <Group>
-        <IconPhone />
-        <Text>(555) 555 - 1234</Text>
-      </Group>
-    </DataListItem>
-  );
+export const SimpleListItem: Story = {
+  render: () => <SimpleDataListItemStory />,
 };
 
-export const ListItemWithAvatar: Story = () => {
-  return (
-    <DataListItem image={<Avatar size={"xl"} />}>
-      <Group>
-        <Text span>John Doe</Text>
-        <Badge>developer</Badge>
-      </Group>
-      <Group>
-        <IconMail />
-        <Text>john.doe@rebar.candidate.io</Text>
-      </Group>
-      <Group>
-        <IconPhone />
-        <Text>(555) 555 - 1234</Text>
-      </Group>
-    </DataListItem>
-  );
+export const ListItemWithAvatar: Story = {
+  render: () => <DataListItemWithAvatarStory />,
 };
 
-export const ListItemWithAvatarAndSideContext: Story = () => {
-  return (
-    <DataListItem
-      image={<Avatar size={"xl"} />}
-      side={
-        <Group gap={"xs"}>
-          <IconStar />
-          <IconStar />
-          <IconStar />
-        </Group>
-      }
-    >
-      <Group>
-        <Text span>John Doe</Text>
-        <Badge>developer</Badge>
-      </Group>
-      <Group>
-        <IconMail />
-        <Text>john.doe@rebar.candidate.io</Text>
-      </Group>
-      <Group>
-        <IconPhone />
-        <Text>(555) 555 - 1234</Text>
-      </Group>
-    </DataListItem>
-  );
+export const ListItemWithAvatarAndSideContext: Story = {
+  render: () => <DataListItemWithAvatarAndSideContextStory />,
 };
