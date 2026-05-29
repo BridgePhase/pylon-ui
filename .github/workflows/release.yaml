@@ -48,6 +48,14 @@ jobs:
         if: ${{ steps.release.outputs.release_created == 'true' }}
         run: npm ci
 
+      - name: Lint
+        if: ${{ steps.release.outputs.release_created == 'true' }}
+        run: npm run lint
+
+      - name: Test
+        if: ${{ steps.release.outputs.release_created == 'true' }}
+        run: npm test
+
       - name: Build package
         if: ${{ steps.release.outputs.release_created == 'true' }}
         run: npm run build

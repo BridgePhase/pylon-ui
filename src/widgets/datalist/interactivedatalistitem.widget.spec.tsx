@@ -13,7 +13,7 @@ describe("DataListItem", () => {
   });
 
   it("calls handler", async () => {
-    const fakeCallback = vitest.fn();
+    const fakeCallback = vi.fn();
     const ComposedPrimary = composeStory(InteractiveListItem, meta);
     render(<ComposedPrimary onSelect={() => fakeCallback()} />);
 

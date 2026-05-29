@@ -49,6 +49,12 @@ jobs:
         env:
           TAG: ${{ inputs.tag }}
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
       - name: Build package
         run: npm run build
 

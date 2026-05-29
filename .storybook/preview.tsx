@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react-vite";
+import type { Preview, Decorator } from "@storybook/react-vite";
 import { MantineProvider } from "@mantine/core";
 import { UswdsTheme } from "../src/themes/uswds-theme";
 
@@ -16,8 +16,8 @@ const preview: Preview = {
   },
 };
 
-export const decorators = [
-  (renderStory: any) => (
+export const decorators: Decorator[] = [
+  (renderStory) => (
     <MantineProvider theme={UswdsTheme} forceColorScheme="light">
       Now with Mantine!
       {renderStory()}
