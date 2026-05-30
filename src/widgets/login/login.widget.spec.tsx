@@ -14,7 +14,7 @@ import userEvent from "@testing-library/user-event";
 
 describe("LoginWidget", () => {
   it("allows login with correct credentials", async () => {
-    const fakeSuccessHandler = vitest.fn();
+    const fakeSuccessHandler = vi.fn();
     const ComposedPrimary = composeStory(Primary, meta);
     render(<ComposedPrimary onSuccess={() => fakeSuccessHandler()} />);
 
@@ -24,7 +24,7 @@ describe("LoginWidget", () => {
   });
 
   it("shows an error and does not call the success handler when login fails", async () => {
-    const fakeSuccessHandler = vitest.fn();
+    const fakeSuccessHandler = vi.fn();
     const ComposedWrongLogin = composeStory(WrongLogin, meta);
     render(<ComposedWrongLogin onSuccess={() => fakeSuccessHandler()} />);
 
@@ -36,7 +36,7 @@ describe("LoginWidget", () => {
   });
 
   it("shows a loading indicator and login is disabled when login is in progress", async () => {
-    const fakeSuccessHandler = vitest.fn();
+    const fakeSuccessHandler = vi.fn();
     const ComposedWrongLogin = composeStory(WrongLogin, meta);
     render(
       <ComposedWrongLogin

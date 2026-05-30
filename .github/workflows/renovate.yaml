@@ -1,0 +1,55 @@
+on:
+  schedule:
+    - cron: 0 0 * * 0 # Runs every Sunday at midnight
+  issues:
+    types:
+      # React to checkbox checks on the Dependency Dashboard issue
+      - edited
+  workflow_dispatch:
+
+name: Renovate
+
+jobs:
+  renovate:
+    if: |
+      github.event_name != 'issues' ||
+      (
+        github.event_name == 'issues' &&
+        github.event.action == 'edited' &&
+        github.actor != 'bridgephase-renovate-bot[bot]' &&
+        contains(github.event.issue.title, 'Dependency Dashboard')
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+      contents: write
+      pull-requests: write
+      issues: write
+      checks: write
+      actions: write
+
+    steps:
+      - name: Create App Token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        id: app-token
+        with:
+          client-id: ${{ vars.BRIDGEPHASE_RENOVATE_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.BRIDGEPHASE_RENOVATE_BOT_PEM }}
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@693b9ef15eec82123529a37c782242f091365961 # v46.1.14
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+        env:
+          RENOVATE_CONFIG: |
+            {
+              "platform": "github",
+              "endpoint": "https://api.github.com",
+              "repositories": ["${{ github.repository }}"],
+              "configFileNames": ["renovate.jsonc"],
+              "onboarding": true,
+              "requireConfig": "optional"
+            }

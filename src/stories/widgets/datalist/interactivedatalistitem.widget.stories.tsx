@@ -1,7 +1,6 @@
-import { Badge, Group, Text } from "@mantine/core";
-import type { Meta, StoryFn } from "@storybook/react";
-import { IconMail, IconPhone } from "@tabler/icons-react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { InteractiveDataListItem } from "../../../widgets/datalist/interactivedatalistitem.widget";
+import { InteractiveDataListItemStory } from "./datalist-story-items";
 
 const meta: Meta<typeof InteractiveDataListItem> = {
   component: InteractiveDataListItem,
@@ -17,29 +16,18 @@ const meta: Meta<typeof InteractiveDataListItem> = {
 };
 export default meta;
 
-type Story = StoryFn<typeof InteractiveDataListItem>;
+type Story = StoryObj<typeof InteractiveDataListItem>;
 
-export const InteractiveListItem: Story = ({ onSelect }) => {
-  return (
-    <InteractiveDataListItem onSelect={onSelect}>
-      <Group>
-        <Text span>John Doe (this element is interactive)</Text>
-        <Badge>developer</Badge>
-      </Group>
-      <Group>
-        <IconMail />
-        <Text>john.doe@rebar.candidate.io</Text>
-      </Group>
-      <Group>
-        <IconPhone />
-        <Text>(555) 555 - 1234</Text>
-      </Group>
-    </InteractiveDataListItem>
-  );
-};
-
-InteractiveListItem.argTypes = {
-  onSelect: {
-    action: "Clicked datalist item",
+export const InteractiveListItem: Story = {
+  args: {
+    onSelect: () => undefined,
   },
+  argTypes: {
+    onSelect: {
+      action: "Clicked datalist item",
+    },
+  },
+  render: ({ onSelect = () => undefined }) => (
+    <InteractiveDataListItemStory onSelect={onSelect} />
+  ),
 };

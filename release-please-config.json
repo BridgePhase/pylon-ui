@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "a78b3b20af55f6cd6b1d3929b9b6f44c6da038c4",
+  "include-v-in-tag": true,
+  "pull-request-title-pattern": "chore(release): v${version}",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@bridgephase/pylon-ui",
+      "changelog-path": "CHANGELOG.md",
+      "include-component-in-tag": false
+    }
+  }
+}

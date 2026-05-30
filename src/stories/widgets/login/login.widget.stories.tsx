@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LoginWidget } from "../../../widgets/login/login.widget";
 
 const meta: Meta<typeof LoginWidget> = {
