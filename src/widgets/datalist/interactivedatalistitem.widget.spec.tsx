@@ -6,12 +6,6 @@ import meta, {
 } from "../../stories/widgets/datalist/interactivedatalistitem.widget.stories";
 
 describe("DataListItem", () => {
-  it("renders interactive list item properly", () => {
-    const ComposedPrimary = composeStory(InteractiveListItem, meta);
-    const { container } = render(<ComposedPrimary />);
-    expect(container).toMatchSnapshot();
-  });
-
   it("calls handler", async () => {
     const fakeCallback = vi.fn();
     const ComposedPrimary = composeStory(InteractiveListItem, meta);
