@@ -3,7 +3,9 @@
   "extends": [
     "config:best-practices",
     "group:allNonMajor",
-    "helpers:pinGitHubActionDigestsToSemver"
+    "helpers:pinGitHubActionDigestsToSemver",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(fix)"
   ],
   "minimumReleaseAge": "7 days",
   "packageRules": [
