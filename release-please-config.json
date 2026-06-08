@@ -6,7 +6,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@bridgephase/pylon-ui",
+      "package-name": "@bridgephasenpm/pylon-ui",
       "changelog-path": "CHANGELOG.md",
       "include-component-in-tag": false
     }

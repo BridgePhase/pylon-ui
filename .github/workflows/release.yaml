@@ -9,7 +9,6 @@ on:
 permissions:
   contents: write
   issues: write
-  packages: write
   pull-requests: write
 
 concurrency:
@@ -47,8 +46,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com
-          scope: "@bridgephase"
+          registry-url: https://registry.npmjs.org
+          scope: "@bridgephasenpm"
           cache: npm
 
       - name: Install dependencies
@@ -69,6 +68,6 @@ jobs:
 
       - name: Publish package
         if: ${{ steps.release.outputs.release_created == 'true' }}
-        run: npm publish
+        run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
