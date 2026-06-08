@@ -16,41 +16,9 @@ npm run dev
 
 ## Using Pylon UI in Another Project
 
-So as to not leave Pylon UI's source open to the world, to use it in your project you'll hae to set up a Personal Access Token (PAT) with permission to access repositories owned by the [BridgePhase organization in GitHub](https://github.com/BridgePhase/).
+Pylon UI is published as a public package on the npm registry, so consuming projects do not need a GitHub Packages token or project-level `.npmrc` registry mapping.
 
-**Note:** If you are not adding Pylon UI to a new project, but joining a project that is already using it, you should only have to complete the first two sections to set up your local environment.
-
-### 1. Create a Personal Access Token (PAT)
-
-First we will create a PAT so that our local NPM can authenticate with GitHub (and verify that we are in the BridgePhase organization).
-
-- From your GitHub Profile page, open [Developer settings](https://github.com/settings/apps)
-- Expand **Personal Access Tokens** and open [Tokens (classic)](https://github.com/settings/tokens)
-- Click **Generate new token** and select **Generate new token (classic)**
-- If prompted, reauthenticate with GitHub
-- Enter a note describing that this token will be used to read packages, along with a reasonable expiration date
-- Check the **read:packages** permission and click **Generate token**
-- When prompted, copy the value of your token (this will be your only chance to see it from GitHub, and you will need it later)
-
-### 2. Configure your Environment to Use Your PAT
-
-Next we will configure NPM to use our new token when accessing the GitHub package registry.
-
-- Open your `~/.npmrc` file
-- Add a new line: `//npm.pkg.github.com/:_authToken=MY_PAT_TOKEN`, where `MY_PAT_TOKEN` is replaced with the value you copied from GitHub above.
-
-### 3. Configure your Project to Use the GitHub Registry
-
-Now we'll tell our project to use the GitHub package repository for BridgePhase packages.
-
-- In your project, in the same directory as your `package.json` file, create a new `.npmrc` file
-- In the new `.npmrc` add a line: `@bridgephase:registry=https://npm.pkg.github.com`
-
-### 4. Import Pylon into your Project
-
-Now you should be able import projects in the `@bridgephase` namespace via the GitHub package registry.
-
-- In your project, import Pylon UI by running: `npm install @bridgephase/pylon-ui`
+- In your project, install Pylon UI by running: `npm install @bridgephasenpm/pylon-ui`
 
 ## Known Issues
 
@@ -110,10 +78,10 @@ Components used in Waves application:
 
 ## Packaging Release
 
-To package a new release of Pylon UI to the GitHub Packages Registry:
+To package a new release of Pylon UI to the public npm registry:
 
 - Merge contributor pull requests into `main` using conventional commit messages, such as `fix: correct button styles` or `feat: add date picker variant`
 - The [Release](https://github.com/BridgePhase/pylon-ui/actions/workflows/release.yaml) action will automatically create or update a release pull request
 - Review and merge the release pull request when maintainers are ready to publish
 - Release Please creates the matching version tag and GitHub release
-- The same action builds and publishes the package to GitHub Packages
+- The same action builds and publishes the package to npm using the `NPM_TOKEN` repository secret
