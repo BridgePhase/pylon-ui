@@ -71,7 +71,7 @@
   "msw": {
     "workerDirectory": "public"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@4.18.0",
   "files": [
     "dist"
   ],
