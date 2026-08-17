@@ -1,8 +1,7 @@
 import type { Preview, Decorator } from "@storybook/react-vite";
+import { BrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import { UswdsTheme } from "../src/themes/uswds-theme";
-
-import "@mantine/core/styles.css";
 
 const preview: Preview = {
   parameters: {
@@ -19,8 +18,10 @@ const preview: Preview = {
 export const decorators: Decorator[] = [
   (renderStory) => (
     <MantineProvider theme={UswdsTheme} forceColorScheme="light">
-      Now with Mantine!
-      {renderStory()}
+      <BrowserRouter>
+        Now with Mantine!
+        {renderStory()}
+      </BrowserRouter>
     </MantineProvider>
   ),
 ];
