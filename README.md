@@ -1,8 +1,8 @@
 # Pylon UI
 
-Pylon UI contains the frontend React components used as part of the standard BridgePhase Tech Challenge toolkit.
+Pylon UI provides [USWDS design system](https://designsystem.digital.gov/)-styled and compliant components built on the [Mantine component library](https://mantine.dev/).
 
-Pylon UI is being significantly enhanced to allow React development using the [Mantine component library](https://mantine.dev/) but with a custom theme applied which applies styling and DOM class name conventions which adhere to the [USWDS design system](https://designsystem.digital.gov/). The motivation for this is that Mantine has proven to be a more convenient library for quickly standing up frontends than existing React implementations of USWDS (e.g. [trussworks/react-uswds](https://trussworks.github.io/react-uswds/)).
+The project is intended as a convenience for developers that are targeting a USWDS-compliant application with React, but prefer working with the Mantine ecosystem than existing React implementations of USWDS (e.g. [trussworks/react-uswds](https://trussworks.github.io/react-uswds/)).
 
 ## Running Sample App
 
@@ -18,7 +18,27 @@ npm run dev
 
 Pylon UI is published as a public package on the npm registry, so consuming projects do not need a GitHub Packages token or project-level `.npmrc` registry mapping.
 
-- In your project, install Pylon UI by running: `npm install @bridgephasenpm/pylon-ui`
+### Import Pylon UI
+
+In your project, install Pylon UI by running: `npm install @bridgephasenpm/pylon-ui`
+
+### Update Your Application Code
+
+Update your project's `App` component to import the required components and styles. Note that Mantine's components are exposed via Pylon UI; your app need not import these directly from Mantine.
+
+```tsx
+import { MantineProvider, UswdsTheme, Button } from "@bridgephasenpm/pylon-ui";
+import "@mantine/core/styles.css";
+import "@bridgephasenpm/pylon-ui/dist/pylon-ui.css";
+
+function App() {
+  return (
+    <MantineProvider theme={UswdsTheme} forceColorScheme="light">
+      // Your app root component
+    </MantineProvider>
+  );
+}
+```
 
 ## Known Issues
 
@@ -28,8 +48,6 @@ Pylon UI is published as a public package on the npm registry, so consuming proj
   - May require a custom component?
 
 ## USWDS Component Targets
-
-Components used in Waves application:
 
 | USWDS             | Mantine                | Status                                                 |
 | ----------------- | ---------------------- | ------------------------------------------------------ |
@@ -75,13 +93,3 @@ Components used in Waves application:
 | TextInput         | TextInput              | ![](https://img.shields.io/badge/done-83e22b)          |
 | TextInputMask     | PylonMaskedTextInput   | ![](https://img.shields.io/badge/done-83e22b)          |
 | Title             | AppShellHeaderTitle    | ![](https://img.shields.io/badge/done-83e22b)          |
-
-## Packaging Release
-
-To package a new release of Pylon UI to the public npm registry:
-
-- Merge contributor pull requests into `main` using conventional commit messages, such as `fix: correct button styles` or `feat: add date picker variant`
-- The [Release](https://github.com/BridgePhase/pylon-ui/actions/workflows/release.yaml) action will automatically create or update a release pull request
-- Review and merge the release pull request when maintainers are ready to publish
-- Release Please creates the matching version tag and GitHub release
-- The same action builds and publishes the package to npm using the `NPM_TOKEN` repository secret
