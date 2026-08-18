@@ -8,7 +8,7 @@ import {
 
 const meta: Meta<typeof DataListItem> = {
   component: DataListItem,
-  title: "Widgets/DataList/DataListItem",
+  title: "Additional Widgets/DataList/DataListItem",
   tags: ["autodocs"],
   parameters: {
     docs: {

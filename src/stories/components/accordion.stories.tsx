@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Accordion, AccordionProps, Text } from "@mantine/core";
-import { UswdsTheme } from "../../themes/uswds-theme";
-import {
-  UswdsAlertColors,
-  UswdsButtonColors,
-} from "../../themes/uswds-colors-contextual";
 
 const DATA: Record<string, string>[] = [
   {
@@ -38,7 +33,7 @@ type Story = StoryObj<typeof Accordion>;
 const renderComponent = (args: AccordionProps<boolean>) => (
   <Accordion {...args}>
     {DATA.map((item, index) => (
-      <Accordion.Item value={`item-${index + 1}`}>
+      <Accordion.Item key={item.title} value={`item-${index + 1}`}>
         <Accordion.Control>{item.title}</Accordion.Control>
         <Accordion.Panel>
           <Text>{item.content}</Text>
@@ -50,7 +45,7 @@ const renderComponent = (args: AccordionProps<boolean>) => (
 
 export const Borderless: Story = {
   args: {
-    variant: "separated",
+    variant: "contained",
     multiple: false,
   },
   render: renderComponent,
@@ -58,7 +53,7 @@ export const Borderless: Story = {
 
 export const Bordered: Story = {
   args: {
-    variant: "contained",
+    variant: "separated",
     multiple: false,
   },
   render: renderComponent,

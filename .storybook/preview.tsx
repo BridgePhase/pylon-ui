@@ -12,16 +12,26 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    options: {
+      // Sidebar order otherwise follows the glob's file order, which drifts
+      // from the titles: masked-text-input.stories.tsx is TextInputMask, and
+      // "-" sorts before "." so ButtonGroup/CardGroup and the Collection*
+      // entries all land above their base component. Sort by title instead.
+      // `order` pins the two top-level groups, which alphabetical sorting
+      // would otherwise flip; stories within a component keep their
+      // declaration order, since equal titles compare as equal.
+      storySort: {
+        method: "alphabetical",
+        order: ["USWDS Components", "Additional Widgets"],
+      },
+    },
   },
 };
 
 export const decorators: Decorator[] = [
   (renderStory) => (
     <MantineProvider theme={UswdsTheme} forceColorScheme="light">
-      <BrowserRouter>
-        Now with Mantine!
-        {renderStory()}
-      </BrowserRouter>
+      <BrowserRouter>{renderStory()}</BrowserRouter>
     </MantineProvider>
   ),
 ];
