@@ -65,7 +65,6 @@ function App() {
   return (
     <MantineProvider theme={UswdsTheme} forceColorScheme="light">
       {/* Your app root component */}
-      <Button>Get started</Button>
     </MantineProvider>
   );
 }

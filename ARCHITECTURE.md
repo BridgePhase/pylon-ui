@@ -2,7 +2,7 @@
 
 This document explains how Pylon UI turns Mantine components into USWDS-compliant
 markup. Read it before adding or changing a component — the main decision you will
-face is *which of the four layers below* your change belongs in, and that choice is
+face is _which of the four layers below_ your change belongs in, and that choice is
 not obvious from the file tree alone.
 
 If you are looking for setup, commands, and the PR process, see
@@ -46,7 +46,7 @@ Alert: Alert.extend({
 Three tools are available inside `extend()`, each with a distinct job:
 
 - **`classNames`** — the main event. Map Mantine's slots (`root`, `body`, `label`,
-  `control`, …) onto USWDS block and element classes. Where a USWDS *modifier*
+  `control`, …) onto USWDS block and element classes. Where a USWDS _modifier_
   corresponds to a Mantine prop, translate it: `props.variant === "separated"`
   becomes `usa-accordion--bordered`, `props.color` becomes
   `usa-alert--warning`. Use `clsx` (imported as `cx`) for conditional classes.
@@ -55,7 +55,7 @@ Three tools are available inside `extend()`, each with a distinct job:
   `radius: 0` where USWDS expects square corners.
 - **`styles`** — narrowly neutralize Mantine's own CSS where it fights USWDS
   (resetting padding and borders so the USWDS rules win). This is a patch
-  mechanism, not a styling mechanism: if you find yourself *designing* in
+  mechanism, not a styling mechanism: if you find yourself _designing_ in
   `styles`, the USWDS class is probably missing or wrong.
 
 The same file also carries the token layer: `theme.colors` is assembled from
@@ -63,12 +63,12 @@ The same file also carries the token layer: `theme.colors` is assembled from
 are mapped onto Mantine's breakpoint scale, and the type scale uses USWDS's
 normalized Source Sans Pro sizes. Token sources live alongside it:
 
-| File | Holds |
-| --- | --- |
-| `uswds-colors-tokens.ts` | The USWDS color token palette, as Mantine color tuples. |
-| `uswds-colors-contextual.ts` | Contextual palettes (alert and button colors) keyed to USWDS semantics. |
-| `uswds-constants.ts` | Enums for USWDS vocabularies — `UswdsContexts`, `UswdsAlertVariants` — so prop-to-modifier mapping is not stringly typed. |
-| `mantine.d.ts` | Module augmentation extending Mantine prop types where Pylon adds variants (e.g. `AnchorProps["variant"]` gains `"external"`). |
+| File                         | Holds                                                                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `uswds-colors-tokens.ts`     | The USWDS color token palette, as Mantine color tuples.                                                                        |
+| `uswds-colors-contextual.ts` | Contextual palettes (alert and button colors) keyed to USWDS semantics.                                                        |
+| `uswds-constants.ts`         | Enums for USWDS vocabularies — `UswdsContexts`, `UswdsAlertVariants` — so prop-to-modifier mapping is not stringly typed.      |
+| `mantine.d.ts`               | Module augmentation extending Mantine prop types where Pylon adds variants (e.g. `AnchorProps["variant"]` gains `"external"`). |
 
 ### 2. Component CSS modules — `src/themes/components/*.module.css`
 
@@ -152,7 +152,7 @@ export * from "@mantine/hooks";
 Two consequences worth knowing:
 
 1. **Pylon re-exports Mantine.** Consumers import `MantineProvider`, `Button`, and
-   hooks *from Pylon UI*, not from `@mantine/core`. This keeps a single Mantine
+   hooks _from Pylon UI_, not from `@mantine/core`. This keeps a single Mantine
    instance in play and means a consumer never has to know which components are
    themed and which are pass-through.
 2. **A component is not shipped until it is exported.** Adding a file under
