@@ -1,0 +1,75 @@
+name: Component or feature request
+description: Request USWDS coverage for a component, or a new capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pylon UI's scope is **making Mantine components emit USWDS-compliant
+        markup**. The best-fitting requests are USWDS patterns we do not cover
+        yet, or a USWDS modifier that a themed component does not support.
+
+        Check the component coverage table in the
+        [README](https://github.com/BridgePhase/pylon-ui#uswds-component-coverage)
+        first — the component may already be listed as done or in progress.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request is this?
+      options:
+        - A USWDS component Pylon UI does not cover yet
+        - A USWDS variant or modifier missing from a covered component
+        - An improvement to an existing Pylon component's API
+        - Tooling, docs, or developer experience
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: uswds-pattern
+    attributes:
+      label: USWDS pattern
+      description: Name it, and link the USWDS documentation page if there is one.
+      placeholder: File input — https://designsystem.digital.gov/components/file-input/
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: |
+        What are you trying to build, and what does the absence of this force you
+        to do today? Concrete use cases carry more weight than feature names.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behavior
+      description: |
+        Optional, but helpful — sketch how you would want to call it. If there is
+        a Mantine component that seems like the right base to theme, name it.
+      render: tsx
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you have tried
+      description: |
+        Local wrappers, raw USWDS markup, another library. Knowing the workaround
+        helps us judge priority.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to open a PR for this
+          required: false

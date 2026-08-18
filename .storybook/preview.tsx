@@ -1,16 +1,20 @@
 import type { Preview, Decorator } from "@storybook/react-vite";
+import { BrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import { UswdsTheme } from "../src/themes/uswds-theme";
 
-import "@mantine/core/styles.css";
-
 const preview: Preview = {
   parameters: {
-    // actions: {  argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
+      },
+    },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: ["USWDS Components", "Additional Widgets"],
       },
     },
   },
@@ -19,8 +23,7 @@ const preview: Preview = {
 export const decorators: Decorator[] = [
   (renderStory) => (
     <MantineProvider theme={UswdsTheme} forceColorScheme="light">
-      Now with Mantine!
-      {renderStory()}
+      <BrowserRouter>{renderStory()}</BrowserRouter>
     </MantineProvider>
   ),
 ];

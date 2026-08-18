@@ -1,0 +1,115 @@
+name: Bug report
+description: A component renders, behaves, or styles incorrectly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a report. Most Pylon UI bugs come from an interaction
+        between Mantine, USWDS CSS, and the theme overrides, so **version numbers
+        and a reproduction matter more than usual here**.
+
+        If this is a security vulnerability, please do not file it here — see
+        [SECURITY.md](https://github.com/BridgePhase/pylon-ui/blob/main/SECURITY.md)
+        for private reporting.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+      placeholder: |
+        Expected: the Alert renders with the USWDS warning treatment.
+        Actual: it renders with Mantine's default border and padding.
+    validations:
+      required: true
+
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Which Pylon UI or Mantine component is affected?
+      placeholder: Alert, PylonLabel, DateInput, …
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: |
+        The smallest snippet that shows the problem, or a link to a repository or
+        StackBlitz. Include your `MantineProvider` setup and CSS imports if the
+        issue is styling-related — a missing or misordered stylesheet import is a
+        common cause.
+      render: tsx
+      placeholder: |
+        import { MantineProvider, UswdsTheme, Alert } from "@bridgephasenpm/pylon-ui";
+        import "@bridgephasenpm/pylon-ui/dist/pylon-ui.css";
+
+        <MantineProvider theme={UswdsTheme} forceColorScheme="light">
+          <Alert color="warning" variant="default" title="Heads up">…</Alert>
+        </MantineProvider>
+    validations:
+      required: true
+
+  - type: input
+    id: pylon-version
+    attributes:
+      label: Pylon UI version
+      placeholder: 0.0.37
+    validations:
+      required: true
+
+  - type: input
+    id: react-version
+    attributes:
+      label: React version
+      placeholder: 19.2.0
+    validations:
+      required: true
+
+  - type: input
+    id: mantine-version
+    attributes:
+      label: Mantine version
+      description: Only if you install Mantine directly as well as through Pylon UI.
+      placeholder: 8.3.9
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and version, plus bundler if relevant.
+      placeholder: Chrome 141, Vite 7
+    validations:
+      required: false
+
+  - type: dropdown
+    id: accessibility
+    attributes:
+      label: Is this an accessibility issue?
+      description: |
+        USWDS compliance includes accessibility, so we triage these first. If yes,
+        please note the assistive technology and the expected behavior above.
+      options:
+        - "No"
+        - "Yes — incorrect or missing semantics / ARIA"
+        - "Yes — keyboard navigation"
+        - "Yes — color contrast"
+        - "Yes — screen reader output"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else
+      description: |
+        Workarounds you found, whether it worked in an earlier version, or the
+        relevant USWDS documentation page.
+    validations:
+      required: false

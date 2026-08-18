@@ -3,7 +3,7 @@ import { LoginWidget } from "../../../widgets/login/login.widget";
 
 const meta: Meta<typeof LoginWidget> = {
   component: LoginWidget,
-  title: "Widgets/Login",
+  title: "Additional Widgets/Login",
 };
 export default meta;
 

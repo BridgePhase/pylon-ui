@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or usage help
+    url: https://github.com/BridgePhase/pylon-ui/discussions
+    about: Ask how to use a component or the theme. Please use Discussions rather than an issue.
+  - name: Report a security vulnerability
+    url: https://github.com/BridgePhase/pylon-ui/security/advisories/new
+    about: Report privately through GitHub. Do not file security reports as public issues.
+  - name: Mantine documentation
+    url: https://mantine.dev/
+    about: For questions about a Mantine component's own API, rather than its USWDS styling.
+  - name: USWDS documentation
+    url: https://designsystem.digital.gov/components/overview/
+    about: For questions about the USWDS pattern itself, including its accessibility guidance.

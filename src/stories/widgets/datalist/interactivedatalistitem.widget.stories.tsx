@@ -4,7 +4,7 @@ import { InteractiveDataListItemStory } from "./datalist-story-items";
 
 const meta: Meta<typeof InteractiveDataListItem> = {
   component: InteractiveDataListItem,
-  title: "Widgets/DataList/InteractiveDataListItem",
+  title: "Additional Widgets/DataList/InteractiveDataListItem",
   tags: ["autodocs"],
   parameters: {
     docs: {

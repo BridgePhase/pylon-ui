@@ -1,0 +1,14 @@
+# Code owners are requested for review automatically on every pull request.
+# They are also the people to contact privately for Code of Conduct reports
+# (see CODE_OF_CONDUCT.md).
+#
+# NOTE: Replace this team with the actual maintainer team or individual GitHub
+# handles before making the repository public — GitHub silently ignores owners
+# that do not exist, which would leave PRs with no automatic reviewer.
+
+* @BridgePhase/pylon-ui-maintainers
+
+# Release and publish automation — changes here can affect what reaches npm.
+/.github/workflows/ @BridgePhase/pylon-ui-maintainers
+/release-please-config.json @BridgePhase/pylon-ui-maintainers
+/.release-please-manifest.json @BridgePhase/pylon-ui-maintainers
